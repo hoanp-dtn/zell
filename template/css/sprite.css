@@ -4,24 +4,17 @@
   display:inline-block;
   vertical-align:top;
 }
-.icon24-tripvisor{
-  background:url(../images/icons/icon-tripvisor.png) no-repeat;
-}
 .icon24-facebook{
-  background:url(../images/icons/icon-facebook.png) no-repeat;
+  background:url(../images/icon-facebook.png) no-repeat;
 }
 .icon24-twitter{
-  background:url(../images/icons/icon-twitter.png) no-repeat;
+  background:url(../images/icon-twitter.png) no-repeat;
 }
 .icon24-youtube{
-  background:url(../images/icons/icon-youtube.png) no-repeat;
+  background:url(../images/icon-youtube.png) no-repeat;
 }
-.icon24-googleplus{
-  background:url(../images/icons/icon-googleplus.png) no-repeat;
-}
-.icon24-pinterest{
-  background:url(../images/icons/icon-pinterest.png) no-repeat;
-}
-.icon24-instagram{
-  background:url(../images/icons/icon-instagram.png) no-repeat;
+.box-social .sf-row span{
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #d2a72a;
 }

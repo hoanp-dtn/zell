@@ -216,6 +216,12 @@ ul{
 	-webkit-transition: all 300ms ease;
 	color: white;
 }
+.menuleft > ul >li:hover .submenu{
+	visibility: visible;
+  	opacity: 1;
+    top: 0px;
+    left: 200px;
+}
 .menuleft li:nth-of-type(2):hover ~ #lavalamp {
     top: 30px;
 }
@@ -1417,4 +1423,38 @@ div.showcase-tooltip{
 	color: #d2a72a;
 	font-size: 11px;
 	text-align: center;
+}
+
+.menuleft ul{
+	position: relative;
+}
+.menuleft .submenu{
+	visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 800ms linear, left 200ms;
+	padding: 20px 0px 20px 0px;
+    position: absolute;
+    top: -10px;
+    left: 180px;
+    background: rgba(0, 0, 0, 0.44);
+    width: 200px;
+}
+.menuleft .submenu li a{
+    color: white;
+}
+.menuleft .submenu li:hover{
+	background: none;
+}
+.menuleft .submenu li:hover a{
+	color : #d2a72a;
+}
+
+.menuleft .submenu li a{
+	padding: 5px;
+	font-size: 13px;
+	text-transform: none;
+	border: none;
+	transition: none;
+	text-align: left;
+	width: 100%;
 }
