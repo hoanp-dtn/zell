@@ -71,19 +71,20 @@ ul{
 	border-right: solid white 1px;
     float: left;
     margin-right: 10px;
+    position: relative;
 }
 .menu ul li:last-child{
 	border-right:none;
 }
 .menu ul li a{
-	font-size:11px;
+	font-size:12px;
 	color:#d5d5d5;
 	display:block;
 	padding:0 5px;
 	text-decoration:none;
 }
-.menu ul li:hover a{
-	color:#fff;
+.menu > ul > li > a:hover{
+	color:#d5ab36;
 }
 .menu-bullet{
 	background:url(../images/menu-bullet.png) no-repeat;
@@ -209,7 +210,7 @@ ul{
 .menuleft li:nth-of-type(1):hover ~ #lavalamp {
     top: 0;
 }
-.menuleft li:nth-of-type(1) a{
+.menuleft li.active a{
 	color: white;
 }
 .menuleft li:hover a{
@@ -1457,4 +1458,132 @@ div.showcase-tooltip{
 	transition: none;
 	text-align: left;
 	width: 100%;
+}
+
+.menu .top-submenu{
+	position: absolute;
+    top: 0px;
+    left: 0;
+    width: 164px;
+	opacity: 0;
+}
+
+.menu .top-submenu li{
+    background: white;
+	padding: 10px;
+    width: 100%;
+    text-align: left;
+}
+.menu .top-submenu li:first-child{
+	opacity: 0;
+}
+.menu .top-submenu li a{
+	color: black;
+	font-weight: bold;
+	font-family: sans-serif;
+}
+
+.menu .top-submenu li:hover > a{
+	color:#d5ab36;
+}
+.menu > ul >li:hover .top-submenu{
+	top: 10px;
+	opacity: 1;
+    transition: opacity 300ms linear, top 500ms;
+}
+.container .about{
+	width: 736px;
+    height: 460px;
+    background: rgba(0,0,0,0.7);
+    overflow: hidden;
+    z-index: 10;
+    position: absolute;
+    top: 110px;
+    left: 241px;
+    padding: 20px;
+}
+.container .about hr{
+	color: #d2a72a;
+
+}
+.container .about .breadcrumbs ul{
+}
+.container .about .breadcrumbs ul li{
+	display: inline;
+    padding: 8px;
+}
+.container .about .breadcrumbs ul li:first-child{
+	padding-left: 0px;
+}
+.container .about .breadcrumbs ul > span{
+	color: white;
+}
+.container .about .breadcrumbs ul li a{
+	color: white;
+	text-decoration: none;
+}
+.container .about .breadcrumbs ul li:last-child span{
+	color: #d2a72a;
+}
+.container .about hr{
+	border: solid 1px #d2a72a;
+    width: 40px;
+    float: left;
+}
+.container .about .about-main{
+	clear: both;
+}
+.container .about .about-main .title h2{
+	color: #d2a72a;
+    font-size: 28px;
+}
+.container .about .about-main .about-content{
+	height: 73%;
+}
+.container .about .about-main .about-content p{
+	color: #d2cccc;
+    font-size: 13px;
+}
+.mCSB_scrollTools .mCSB_draggerRail{
+	background: #2c2827!important;
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	background-color : #d2a72a!important;
+}
+.mCSB_scrollTools .mCSB_dragger{
+	height: 30px!important;
+}
+.container .about .about-main .about-content .photo-item{
+	float: left;
+	width: 31%;
+	margin: 1%;
+	height: 150px;
+}
+.container .about .about-main .about-content .photo-item img{
+	width: 100%;
+	height: 70%;
+}
+.container .about .about-main .about-content .photo-item p{
+
+}
+#next-custom{
+	position: absolute;
+    top: 50%;
+    right: -50px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+#prev-custom{
+	position: absolute;
+    top: 50%;
+    left: -50px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+.fancybox-close{
+	background: url('../images/close-fancybox.png') no-repeat!important;
+	top: 6px!important;
+	right: -12px !important;
 }
