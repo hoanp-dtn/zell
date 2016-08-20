@@ -80,49 +80,49 @@
             <div class="about-main" >
                 <div class="title">
                     <h2>
-                        Photo
+                        Video
                     </h2>
                 </div>
                 <div class="about-content">
                     <div class="item">
-                        <a rel="abc" class="fancybox" href="images/banner2.png" title="Lorem ipsum dolor sit amet">
-                            <img src="images/banner2.png">
-                        </a>
+                            <a rel="abc" class="fancybox video" href="https://www.youtube.com/embed/oyuaNQefl7o" title="Lorem ipsum dolor sit amet">
+                                <img src="images/photo.png">
+                            </a>
                         <p>We help you craft a strategy using
 points and miles to get</p>
                     </div>
                     <div class="item">
-                        <a rel="abc" class="fancybox" href="images/banner1.png" title="Lorem ipsum dolor sit amet">
-                            <img src="images/banner1.png">
-                        </a>
+                            <a rel="abc" class="fancybox video" href="https://www.youtube.com/embed/oyuaNQefl7o" title="Lorem ipsum dolor sit amet">
+                                <img src="images/banner1.png">
+                            </a>
                         <p>We help you craft a strategy using
 points and miles to get</p>
                     </div>
                     <div class="item">
-                        <a rel="abc" class="fancybox" href="images/photo.png" title="Lorem ipsum dolor sit amet">
-                            <img src="images/photo.png">
-                        </a>
+                            <a rel="abc" class="fancybox video" href="https://www.youtube.com/embed/oyuaNQefl7o" title="Lorem ipsum dolor sit amet">
+                                <img src="images/banner2.png">
+                            </a>
                         <p>We help you craft a strategy using
 points and miles to get</p>
                     </div>
                     <div class="item">
-                        <a rel="abc" class="fancybox" href="images/banner2.png" title="Lorem ipsum dolor sit amet">
-                            <img src="images/banner2.png">
-                        </a>
+                            <a rel="abc" class="fancybox video" href="https://www.youtube.com/embed/oyuaNQefl7o" title="Lorem ipsum dolor sit amet">
+                                <img src="images/photo.png">
+                            </a>
                         <p>We help you craft a strategy using
 points and miles to get</p>
                     </div>
                     <div class="item">
-                        <a rel="abc" class="fancybox" href="images/banner1.png" title="Lorem ipsum dolor sit amet">
-                            <img src="images/banner1.png">
-                        </a>
+                            <a rel="abc" class="fancybox video" href="https://www.youtube.com/embed/oyuaNQefl7o" title="Lorem ipsum dolor sit amet">
+                                <img src="images/banner1.png">
+                            </a>
                         <p>We help you craft a strategy using
 points and miles to get</p>
                     </div>
                     <div class="item">
-                        <a rel="abc" class="fancybox" href="images/photo.png" title="Lorem ipsum dolor sit amet">
-                            <img src="images/photo.png">
-                        </a>
+                            <a rel="abc" class="fancybox video" href="https://www.youtube.com/embed/oyuaNQefl7o" title="Lorem ipsum dolor sit amet">
+                                <img src="images/banner2.png">
+                            </a>
                         <p>We help you craft a strategy using
 points and miles to get</p>
                     </div>
@@ -131,17 +131,13 @@ points and miles to get</p>
         </div>
         <script>
             $('.fancybox').fancybox({
-                prevEffect      : 'slide',
-                nextEffect      : 'slide',
                 beforeShow: function () {
                     this.width = 800;
                     this.height = 600;
                     this.skin.css({'padding': '10px 50px'});
                 },
-                tpl: {
-                    next: '<a id="next-custom" title="Next" href="javascript:;"><img src="images/next.png"/></a>',
-                    prev: '<a id="prev-custom" title="Previous" href="javascript:;"><img src="images/prev.png"/></a>'
-                }
+                arrows :  false,
+                type: 'iframe'
             });
             $(".container .about .about-content").mCustomScrollbar({
                 

@@ -1553,17 +1553,20 @@ div.showcase-tooltip{
 .mCSB_scrollTools .mCSB_dragger{
 	height: 30px!important;
 }
-.container .about .about-main .about-content .photo-item{
+.container .about .about-main .about-content .item{
 	float: left;
 	width: 31%;
 	margin: 1%;
 	height: 150px;
 }
-.container .about .about-main .about-content .photo-item img{
+.container .about .about-main .about-content .item .video{
+	position: relative;
+}
+.container .about .about-main .about-content .item img{
 	width: 100%;
 	height: 70%;
 }
-.container .about .about-main .about-content .photo-item p{
+.container .about .about-main .about-content .item p{
 
 }
 #next-custom{
@@ -1586,4 +1589,14 @@ div.showcase-tooltip{
 	background: url('../images/close-fancybox.png') no-repeat!important;
 	top: 6px!important;
 	right: -12px !important;
+}
+
+.container .about .about-main .about-content .item .video::before {
+	content: '';
+    width: 50px;
+    height: 50px;
+    background: url('../images/play.png') no-repeat;
+    position: absolute;
+    top: 0;
+    left: 38%
 }
