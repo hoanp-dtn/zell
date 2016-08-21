@@ -1,0 +1,63 @@
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://flexslider.woothemes.com/css/flexslider.css" type="text/css">
+<script src="http://flexslider.woothemes.com/js/jquery.flexslider.js"></script>
+<!-- Place somewhere in the <body> of your page -->
+<div id="slider" class="flexslider">
+  <ul class="slides">
+    <li>
+      <img src="images/product1.png" />
+    </li>
+    <li>
+      <img src="images/product1.png" />
+    </li>
+    <li>
+      <img src="images/product1.png" />
+    </li>
+    <li>
+      <img src="images/product1.png" />
+    </li>
+    <!-- items mirrored twice, total of 12 -->
+  </ul>
+</div>
+<div id="carousel" class="flexslider">
+  <ul class="slides">
+    <li>
+      <img src="images/product1.png" />
+    </li>
+    <li>
+      <img src="images/product1.png" />
+    </li>
+    <li>
+      <img src="images/product1.png" />
+    </li>
+    <li>
+      <img src="images/product1.png" />
+    </li>
+    <!-- items mirrored twice, total of 12 -->
+  </ul>
+</div>
+<script type="text/javascript">
+  
+$(window).load(function() {
+  // The slider being synced must be initialized first
+  $('#carousel').flexslider({
+    animation: "slide",
+    controlNav: false,
+    animationLoop: false,
+    slideshow: false,
+    itemWidth: 50,
+    itemMargin: 2,
+    asNavFor: '#slider'
+  });
+ 
+  $('#slider').flexslider({
+    animation: "slide",
+    controlNav: false,
+    animationLoop: false,
+    slideshow: false,
+    sync: "#carousel"
+  });
+});
+</script>
