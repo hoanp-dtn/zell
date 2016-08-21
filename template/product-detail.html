@@ -28,8 +28,8 @@
 <script type="text/javascript" src="js/mCustomScrollbar.min.js"></script>
 <script src="js/style.js"></script>
 <link rel="stylesheet" type="text/css" href="css/mCustomScrollbar.min.css">
-<link rel="stylesheet" href="http://flexslider.woothemes.com/css/flexslider.css" type="text/css">
-<script src="http://flexslider.woothemes.com/js/jquery.flexslider.js"></script>
+<link rel="stylesheet" href="css/flexslider.css" type="text/css">
+<script src="js/jquery.flexslider.js"></script>
 </head>
 <body>
     <div class="mobile-header">
@@ -83,27 +83,41 @@
                 </div>
                 <div class="about-content">
                     <div class="product-info-thumnail">
-                        <div class="flexslider">
+                        <div id="slider" class="flexslider">
                           <ul class="slides">
-                            <li data-thumb="images/product1.png">
+                            <li>
                               <img src="images/product1.png" />
                             </li>
-                            <li data-thumb="images/product1.png">
+                            <li>
                               <img src="images/product1.png" />
                             </li>
-                            <li data-thumb="images/product1.png">
+                            <li>
                               <img src="images/product1.png" />
                             </li>
-                            <li data-thumb="images/product1.png">
+                            <li>
                               <img src="images/product1.png" />
                             </li>
-                            <li data-thumb="images/product1.png">
+                            <li>
                               <img src="images/product1.png" />
                             </li>
-                            <li data-thumb="images/product1.png">
+                            <!-- items mirrored twice, total of 12 -->
+                          </ul>
+                        </div>
+                        <div id="carousel-product" class="flexslider">
+                          <ul class="slides">
+                            <li>
                               <img src="images/product1.png" />
                             </li>
-                            <li data-thumb="images/product1.png">
+                            <li>
+                              <img src="images/product1.png" />
+                            </li>
+                            <li>
+                              <img src="images/product1.png" />
+                            </li>
+                            <li>
+                              <img src="images/product1.png" />
+                            </li>
+                            <li>
                               <img src="images/product1.png" />
                             </li>
                           </ul>
@@ -167,17 +181,26 @@
             $(".container .about .about-content").mCustomScrollbar({
                 
             });
-            $('.flexslider').flexslider({
+           $(window).load(function() {
+              // The slider being synced must be initialized first
+              $('#carousel-product').flexslider({
                 animation: "slide",
-                controlNav: "thumbnails",
-                start: function(slider) {
-                    $('body').click(function(event){
-                        $('.flexslider').flexslider("play");
-                        console.log("");
-                    });
-
-                }
+                controlNav: false,
+                animationLoop: false,
+                slideshow: false,
+                itemWidth: $("#carousel-product").width() / 3 - 5 ,
+                itemMargin: 5,
+                asNavFor: '#slider'
               });
+             
+              $('#slider').flexslider({
+                animation: "slide",
+                controlNav: false,
+                animationLoop: false,
+                slideshow: false,
+                sync: "#carousel-product"
+              });
+            });
 
         </script>            
     <div class="sidebar">

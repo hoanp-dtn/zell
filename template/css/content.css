@@ -1804,7 +1804,6 @@ div.showcase-tooltip{
 .about-content .product-info-thumnail{
 	width: 55%;
 	float: left;
-	height: 100%;
 	overflow: hidden;
 }/*
 .about-content .product-info-thumnail .main-photo{
@@ -1884,4 +1883,28 @@ div.showcase-tooltip{
 .flexslider .slides li{
 	text-align: center!important;
 	background: white!important;
+}
+.product-info-thumnail #slider{
+    height: 70%;
+    margin: 0;
+}
+.flexslider .slides > li{
+	height: 100%!important;
+}
+#slider .flex-viewport{
+	height: 100%!important;
+}
+#carousel-product{
+	height: 28%;
+	width: 80%;
+    margin: 2% auto;
+}
+#carousel-product .flex-viewport{
+	height: 100%;
+}
+#carousel-product img{
+	height: 100%;
+}
+#carousel-product li{
+	margin-right: 5px;
 }
