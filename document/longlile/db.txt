@@ -1,0 +1,10 @@
+﻿- Cách insert khi thêm partner :
+	trong utt_post, post_type = 'partner'
+	partner có các key (email,phonenumber,link) khi post vào postmeta
+	array(
+		'key' = 'email',
+		'value' = 'longlile2211@gmail.com'
+	)
+- Cách insert vào utt_department : 
+	có (id,name)
+	VD: 'name' = 'công nghệ thông tin'

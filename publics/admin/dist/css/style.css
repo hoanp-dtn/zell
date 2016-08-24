@@ -1,0 +1,6 @@
+.layout-dashed {
+    border: 2px #CCC dashed;
+    padding: 5px;
+    box-sizing: border-box;
+
+}

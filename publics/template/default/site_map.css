@@ -1,0 +1,64 @@
+.smapcontent {
+    width: 600px;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 20px;
+    background: white;
+}
+.smaptitle {
+    color: c4151c !important;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom: dotted 0px #5B5B5B;
+}
+ul.tv, .tv ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.tv li {
+    position: relative;
+    margin: 0;
+    padding: 4px 0 3px 20px;
+    z-index: 10;
+}
+.tv li, .tv .tvi {
+    background: url(images/tvi.png) 0 0 no-repeat;
+}
+.tv .tvil {
+    background-image: url(images/tvil.png);
+}
+.tv li a {
+    color: #547DC9;
+    text-decoration: none;
+}
+div.tvca {
+    _background: #fff;
+    _filter: alpha(opacity=0);
+    /* border: 1px solid #fdd; */
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    top: 1px;
+    left: -1px;
+    _left: -21px;
+    cursor: pointer;
+    z-index: 50;
+}
+#page-left {
+    margin: 0px;
+    padding: 0px;
+    width: 672px;
+    float: left;
+    text-align: left;
+}
+#page {
+    margin: 0px;
+    padding: 0px;
+    width: 980px;
+    float: left;
+    background-color: #FFFFFF;
+    text-align: left;
+    vertical-align: top;
+}
