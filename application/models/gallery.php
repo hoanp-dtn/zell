@@ -9,7 +9,7 @@ class Gallery extends MY_Model {
                 p.id, p.title, p.cate_id, p.image, c.title as gallery_name, p.status, p.sort
 			   FROM utt_post as p
 			   JOIN utt_cate as c ON p.cate_id = c.id
-			   WHERE post_type = "gallery" and c.site_id = '.$this->site['id'].'  order by p.cate_id ASC, p.sort ASC
+			   WHERE post_type = "gallery"  order by p.cate_id ASC, p.sort ASC
                 ';
 		$data = $this->getRows($sql);
 		$gallery = array();

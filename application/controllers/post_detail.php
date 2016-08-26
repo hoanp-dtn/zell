@@ -21,45 +21,54 @@ class post_detail extends MY_Controller {
     function view($id = 0){
 		$this->setInformationSite($data);
         $langCode = $this->lang->lang();
-		$nameHeader = $this->model_site->getNameHeader($this->site['id']);//get name header
-		$post = $this->posts_home_model->get('id', array('id' => (int)$id, 'site_id' => $this->site['id'], 'lang' => $langCode, 'status' => 1),TRUE);
+		$post = $this->posts_home_model->get('id', array('id' => (int)$id, 'lang' => $langCode, 'status' => 1),TRUE);
 		if( !isset($post) || count($post) == 0){
-			redirect($this->config->base_url($langCode.'/'.$this->siteName));
+			// redirect($this->config->base_url($langCode.'/'.$this->siteName));
 		}
 		// menu
-		$dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode, $this->site['id']), $langCode, $this->site['id']);
+		$dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
 		
 		// data post
 		$post_detail = $this->posts_home_model->showDetail((int)$id);
 		$breadcrumb = $this->posts_home_model->breadcrumb($post_detail['nav_id']);
 		$list_comment = $this->comment_model->getListComment((int)$id);
-		// tin lien quan
-		$getPostAndRelative = $this->posts_home_model->showPostAndRelative($post_detail, $this->site['id'], 0,5, $langCode);
-		$getPostAndRelativeBottomArticle = $this->posts_home_model->showPostAndRelative($post_detail, $this->site['id'], 5,5, $langCode);
-		// tin moi nhat
-		$getPostAndNew = $this->posts_home_model->showPostAndNew($this->site['id'], 5, $langCode);
-		
-		// quang cao
-        $dataAds = $this->ads->getAds(0, 2, array('site_id' => $this->site['id']));
-		
-		// doi tac
-        $dataPartner = $this->partner->getPartner(0, 4, array('site_id' => $this->site['id']));
+
 		$data['title_for_layout'] = $post_detail['title'];
 		$data['desc_for_layout'] = $post_detail['description'];
-		$site_id = $this->site['id'];
 		$post_id = (int)$id;
         
-        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode,'nameHeader' => $nameHeader,
-                            'siteName'=>$this->siteName, 'logo_for_site'=>$data['logo_for_site']);
+        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode);
         $data = array_merge($data, $dataTmp);
-        $html  = $this->render('layout/header', $data , true);
+  //       $html  = $this->render('layout/header', $data , true);
 		
-		// gallery
-		$dataGallery = $this->gallery->getGallery();
-        $html .= $this->render(
-                            'home/post_detail',array('breadcrumb'=>$breadcrumb,'post_detail' => $post_detail, 'getPostAndNew' => $getPostAndNew,'getPostAndRelative' => $getPostAndRelative,'getPostAndRelativeBottomArticle' => $getPostAndRelativeBottomArticle,'dataAds' => $dataAds, 'dataPartner' => $dataPartner,'dataGallery' => $dataGallery,'site_id' => $site_id, 'post_id' => $post_id,'list_comment'=>$list_comment),true
-        );
-        $html .= $this->render('layout/footer', $data, true);
+		// // gallery
+		// $dataGallery = $this->gallery->getGallery();
+  //       $html .= $this->render(
+  //                           'home/post_detail',array('breadcrumb'=>$breadcrumb,'post_detail' => $post_detail, 'getPostAndNew' => $getPostAndNew,'getPostAndRelative' => $getPostAndRelative,'getPostAndRelativeBottomArticle' => $getPostAndRelativeBottomArticle,'dataAds' => $dataAds, 'dataPartner' => $dataPartner,'dataGallery' => $dataGallery,'site_id' => $site_id, 'post_id' => $post_id,'list_comment'=>$list_comment),true
+  //       );
+  //       $html .= $this->render('layout/footer', $data, true);
+         $html  = $this->render('layout/slider', $data , true);
+        $html .="<div class='container'>";
+
+        $html  .= $this->render('layout/menu_header', $data , true);
+        $html  .= $this->render('layout/menu_main', $data , true);
+
+        $html  .= $this->render('home/post_detail', $data , true);
+
+        $html .= $this->render('layout/footer', array(), true);
+        // $html .= $this->render(
+        //                     'home/home',
+        //                     compact(
+        //                         'dataSlider',
+        //                         // 'dataAds',
+        //                         // 'dataPartner',
+        //                         'langCode',
+        //                         'dataGallery'
+        //                         // 'dataDepartment'
+        //                     ),
+        //                     true
+        // );
+        $html .= "</div>";
         $data['content_for_layout'] = $html;
 		$data['js_for_layout'] = '<script type="text/javascript" src="'.$this->config->base_url().'publics/template/default/js/comment.js"></script>';
         $this->render('layout/default', $data);

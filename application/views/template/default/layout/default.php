@@ -22,12 +22,14 @@
     <?php
         assets_css(
             array(
-                'bootstrap/css/bootstrap.css',
-                'css/font-awesome.min.css',
-                'css/animate.css',
-                'libs/nprogress/nprogress.css',
-                'libs/malihu-custom-scrollbar/jquery.mCustomScrollbar.css',
-                'style.css',
+                "css/mCustomScrollbar.min.css",
+                "css/bootstrap.css",
+                "css/form.css",
+                "css/sprite.css",
+                "css/owl.carousel.css",
+                "css/animate.css",
+                "css/content.css",
+                "css/responsive.css",
             ),
             array('media' => 'screen')
         );
@@ -43,12 +45,15 @@
     <?php
         assets_js(
             array(
-                'js/jquery-1.10.2.min.js',
-                'js/jquery-migrate-1.2.1.min.js',
-                'js/modernizr.js',
-                'libs/nprogress/nprogress.js',
-                'libs/malihu-custom-scrollbar/jquery.mCustomScrollbar.js',
-				'js/scroll.js',
+                "js/jquery.js",
+                "js/jquery-ui.min.js",
+                "js/jquery.js",
+                "js/bootstrap.js",
+                "js/slimscroll.js",
+                "js/aw-showcase.js",
+                "js/owl.carousel.js",
+                "js/style.js",
+                "js/mCustomScrollbar.min.js",
             ),
             array()
 
@@ -65,38 +70,10 @@
 	<?php echo isset($js_for_layout1) ? $js_for_layout1 : '';?>
 	<?php echo isset($js_for_layout2) ? $js_for_layout2 : '';?>
 	<?php echo isset($js_for_layout3) ? $js_for_layout3 : '';?>
-    <script>
-         $(document).ready(function(){
-            NProgress.start();
-         });
-
-         $(window).load(function(){
-            NProgress.done();
-         });
-         $( document ).ajaxStart(function() {
-            NProgress.start();
-         });
-         $( document ).ajaxStop(function() {
-            NProgress.done();
-         });
-
-        
-    </script>
 </head>
 
 <body>
-<?php echo isset($content_for_layout) ? $content_for_layout : ''; ?>
-<?php
-assets_js(
-    array(
-        'bootstrap/js/bootstrap.min.js',
-        'js/plugins.js',
-        'js/custom.js',
-    ),
-    array()
-
-);
-?>
+    <?php echo isset($content_for_layout) ? $content_for_layout : ''; ?>
 
 <script>
 $(document).ready(function(){

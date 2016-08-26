@@ -5,15 +5,15 @@ class Navigation_home_model extends MY_Model {
 		$this->load->model('posts_home_model');
     }
 	
-	function getListChild($id, $langCode, $site_id){
+	function getListChild($id, $langCode){
 		return $this->db->select('id, title, cate_id, url, parent_id, post_id,
 								(select utt_post.cate_id from utt_post where utt_post.id = utt_navigation.post_id) as cate_id_post, 
 								(select utt_post.title from utt_post where utt_post.id = utt_navigation.post_id) as post_title')
-						->from( PREFIX.'navigation')->where(array('parent_id'=>$id,'lang' =>$langCode,'site_id' =>$site_id))->order_by('location','ASC')->get()->result_array();
+						->from( PREFIX.'navigation')->where(array('parent_id'=>$id,'lang' =>$langCode))->order_by('location','ASC')->get()->result_array();
 	}
 	
 	private $listMenu = array();
-	function getListMenu(&$listChild, $langCode, $site_id, $link = ''){
+	function getListMenu(&$listChild, $langCode, $link = ''){
 		if(empty($listChild)){
 			return;
 		}
@@ -25,16 +25,16 @@ class Navigation_home_model extends MY_Model {
 				$link_child .= '/'.slug($val['title']);
 			}
 			if($val['post_id']!=0 && isset($val['cate_id_post']) && $val['cate_id_post']!=0){
-				$val['link'] = $this->siteName.'/'.$this->posts_home_model->getLinkParrentCate($val['cate_id_post']).slug($val['post_title']).'-a'.$val['post_id'].'.html';
+				$val['link'] = $this->posts_home_model->getLinkParrentCate($val['cate_id_post']).slug($val['post_title']).'-a'.$val['post_id'].'.html';
 			}elseif($val['url']!=""){
 				$val['link'] = $val['url'];
 			}elseif($val['cate_id'] !=0){
-				$val['link'] = $this->siteName.'/'.$link_child.'-n'.$val['id'].'.html';
+				$val['link'] = $link_child.'-n'.$val['id'].'.html';
 			}else{
 				$val['link'] = "javascript:void(0)";
 			}
-			$listChildChild = $this->getListChild($val['id'], $langCode, $site_id);
-			$this->getListMenu($listChildChild, $langCode, $site_id, $link_child);
+			$listChildChild = $this->getListChild($val['id'], $langCode);
+			$this->getListMenu($listChildChild, $langCode, $link_child);
 			if(!empty($listChildChild)){
 				$val['children'] = $listChildChild	;
 			}

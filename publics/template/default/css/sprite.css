@@ -1,0 +1,20 @@
+[class*="icon24"]{
+  width:24px;
+  height:24px;
+  display:inline-block;
+  vertical-align:top;
+}
+.icon24-facebook{
+  background:url(../images/icon-facebook.png) no-repeat;
+}
+.icon24-twitter{
+  background:url(../images/icon-twitter.png) no-repeat;
+}
+.icon24-youtube{
+  background:url(../images/icon-youtube.png) no-repeat;
+}
+.box-social .sf-row span{
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #d2a72a;
+}
