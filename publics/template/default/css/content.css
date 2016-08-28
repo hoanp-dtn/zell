@@ -265,7 +265,6 @@ ul{
 	padding:3px 10px;
 }
 .menuleft ul > li > ul > li:hover, .menuleft ul > li > ul > li.active{
-	background:#f2795a;
 }
 .menuleft ul > li > ul > li:hover > a, .menuleft ul > li > ul > li.active > a{
 	color:#fff;
@@ -1914,4 +1913,8 @@ div.showcase-tooltip{
 }
 #carousel-product li{
 	margin-right: 5px;
+}
+#news-content img{
+	width: 100%;
+	max-width: 100%!important;
 }

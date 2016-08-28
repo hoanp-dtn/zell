@@ -2,9 +2,18 @@
         <div class="about">
             <div class="breadcrumbs">
                 <ul>
-                    <li><a href="home.html">Trang chủ</a></li><span>/</span>
-                    <li><a href="about-us.html">Giới thiệu</a></li><span>/</span>
-                    <li><span>Công ty Zell-V</span></li>
+                    <li><a href="<?php echo base_url(); ?>">Trang chủ</a></li><span>/</span>
+                    <?php if (is_array($breadcrumb)): ?>
+                        <?php $i = 0; ?>
+                        <?php foreach ($breadcrumb as $key => $value): ?>
+                            <?php $i++; ?>
+                            <?php if ($i == count($breadcrumb)): ?>
+                                <li><span><?php echo $value['title']; ?></span></li>
+                            <?php else: ?>
+                            <li><a href="<?php echo $value['link']."-n".$value['nav_id'].".html"; ?>"><?php echo $value['title']; ?></a></li><span>/</span>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php endif ?>
                 </ul>
             </div>
             <hr>
@@ -16,45 +25,21 @@
                 </div>
                 <div class="about-content">
                     <div id="news-hot">
-                        <a href="">
-                            <img src="publics/template/default/images/banner1.png"/>
-                        </a>
-                        <h3>A New Beach Volleyball ship ces its Toughest Test Yet</h3>
-                        <p>Hillary Clinton embarked on a post-convention Rust Belt bus tour just hours after becoming the first female presidential nominee of a major political party. The celebratory mood quickly evaporated amid fresh revelations that hackers had</p>
+                        <?php if (isset($list_posts[0])): ?>
+                            <a href="<?php echo $list_posts[0]['link'].slug($list_posts[0]['title'])."-a".$list_posts[0]['id'].".html"; ?>">
+                                <img src="uploads/images/news/<?php echo $list_posts[0]['image'];?>"/>
+                            </a>
+                            <h3><?php echo truncate($list_posts[0]['title']); ?></h3>
+                            <p><?php echo truncate($list_posts[0]['description'], 300); ?></p>
+                        <?php endif ?>
                     </div>
                     <div id="list-news">
-                        <div class="list-news-item">
-                            <a class="thumnail" href=""><img src="publics/template/default/images/banner2.png"></a>
-                            <a href="news-detail.html">A Minnesota judge overseeing Prince's estate narrowed down the wide pool of potential</a>
-                        </div>
-                        <div class="list-news-item">
-                            <a class="thumnail" href=""><img src="publics/template/default/images/banner2.png"></a>
-                            <a href="news-detail.html">A Minnesota judge overseeing Prince's estate narrowed down the wide pool of potential</a>
-                        </div>
-                        <div class="list-news-item">
-                            <a class="thumnail" href=""><img src="publics/template/default/images/banner2.png"></a>
-                            <a href="news-detail.html">A Minnesota judge overseeing Prince's estate narrowed down the wide pool of potential</a>
-                        </div>
-                        <div class="list-news-item">
-                            <a class="thumnail" href=""><img src="publics/template/default/images/banner2.png"></a>
-                            <a href="news-detail.html">A Minnesota judge overseeing Prince's estate narrowed down the wide pool of potential</a>
-                        </div>
-                        <div class="list-news-item">
-                            <a class="thumnail" href=""><img src="publics/template/default/images/banner2.png"></a>
-                            <a href="news-detail.html">A Minnesota judge overseeing Prince's estate narrowed down the wide pool of potential</a>
-                        </div>
-                        <div class="list-news-item">
-                            <a class="thumnail" href=""><img src="publics/template/default/images/banner2.png"></a>
-                            <a href="news-detail.html">A Minnesota judge overseeing Prince's estate narrowed down the wide pool of potential</a>
-                        </div>
-                        <div class="list-news-item">
-                            <a class="thumnail" href=""><img src="publics/template/default/images/banner2.png"></a>
-                            <a href="news-detail.html">A Minnesota judge overseeing Prince's estate narrowed down the wide pool of potential</a>
-                        </div>
-                        <div class="list-news-item">
-                            <a class="thumnail" href=""><img src="publics/template/default/images/banner2.png"></a>
-                            <a href="news-detail.html">A Minnesota judge overseeing Prince's estate narrowed down the wide pool of potential</a>
-                        </div>
+                        <?php for ($i= 1; $i < count($list_posts); $i++){ ?>
+                           <div class="list-news-item">
+                                <a class="thumnail" href="<?php echo $list_posts[$i]['link'].slug($list_posts[$i]['title'])."-a".$list_posts[$i]['id'].".html"; ?>"><img src="uploads/images/news/<?php echo $list_posts[$i]['image'];?>"></a>
+                                <a href="<?php echo $list_posts[$i]['link'].slug($list_posts[$i]['title'])."-a".$list_posts[$i]['id'].".html"; ?>"><?php echo truncate($list_posts[$i]['title']); ?></a>
+                            </div> 
+                        <?php }?>
                     </div>
                 </div>
             </div>

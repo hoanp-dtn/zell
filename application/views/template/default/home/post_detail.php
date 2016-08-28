@@ -4,11 +4,9 @@
             <li><a href="<?php echo base_url(); ?>">Trang chủ</a></li><span>/</span>
             <?php if (is_array($breadcrumb)): ?>
                 <?php foreach ($breadcrumb as $key => $value): ?>
-                
+                    <li><a href="<?php echo $value['link']."-n".$value['nav_id'].".html"; ?>"><?php echo $value['title']; ?></a></li><span>/</span>
                 <?php endforeach; ?>
             <?php endif ?>
-            
-            <li><a href="about-us.html">Giới thiệu</a></li><span>/</span>
             <li><span> <?php echo html_escape($post_detail['title']); ?></span></li>
         </ul>
     </div>
@@ -20,7 +18,9 @@
             </h2>
         </div>
         <div class="about-content">
-           <?php echo html_entity_decode($post_detail['detail']); ?>
+            <div id="news-content">
+            <?php echo html_entity_decode($post_detail['detail']); ?>
+           </div>
         </div>
     </div>
 </div>

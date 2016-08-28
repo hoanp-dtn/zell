@@ -109,6 +109,8 @@ class post_detail extends MY_Controller {
 		// if($config['total_rows']>0){
 		// 	$list_posts = $this->posts_home_model->getListPost($nav_id, $this->site['id'], $langCode,($page*$config['per_page']),$config['per_page']);
 		// }
+		$list_posts = $this->posts_home_model->getListPost($nav_id, $langCode);
+		
 		$dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
 		
 		$breadcrumb = $this->posts_home_model->breadcrumb($nav_id);
@@ -116,6 +118,7 @@ class post_detail extends MY_Controller {
 		// $data['title_for_layout'] = $navigation[0]['title'];
         $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode, 'breadcrumb'=>$breadcrumb);
         $data = array_merge($data, $dataTmp);
+
         // $html  = $this->render('layout/header', $data , true);
 		// $dataGallery = $this->gallery->getGallery();
 		// if($config['total_rows'] == 1){
@@ -144,7 +147,9 @@ class post_detail extends MY_Controller {
         $html  .= $this->render('layout/menu_header', $data , true);
         $html  .= $this->render('layout/menu_main', $data , true);
 
-        $html  .= $this->render('home/post_list', $data , true);
+        $html  .= $this->render('home/post_list', compact(
+'list_posts'
+        	) , true);
 
         $html .= $this->render('layout/footer', array(), true);
         // $html .= $this->render(

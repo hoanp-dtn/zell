@@ -241,10 +241,10 @@ $('#submit').click( function() {
 						<option value="1" <?php echo $post['status']==1?'selected=selected':'';?>>Hiện</option>
 						<option value="2" <?php echo $post['status']==2?'selected=selected':'';?>>Ẩn</option>
 					</select><br />
-					<label>Vị trí hiển thị</label></br>
+					<label>Kiểu hiển thị</label></br>
 					<select size="1" name="is_top" class= "form-control">
-						<option value="1" <?php echo $post['is_top']==1?'selected=selected':'';?>>trang chủ</option>
-						<option value="2" <?php echo $post['is_top']==2?'selected=selected':'';?>>bình thường</option>
+						<option value="1" <?php echo $post['is_top']==1?'selected=selected':'';?>>Bài viết hot</option>
+						<option value="2" <?php echo $post['is_top']==2?'selected=selected':'';?>>Bình thường</option>
 					</select>
                   </div>
                   <div class="box-footer">

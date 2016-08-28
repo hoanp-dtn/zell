@@ -165,6 +165,11 @@ class Posts_home_model extends MY_Model {
 				$data[$key]['link'] = $this->getLinkParrentCate($val['cate_id']);
 			}
 			
+			if($val['is_top'] == 1){
+				$tmp = $data[$key];
+				$data[$key] = $data[0];
+				$data[0] = $tmp;
+			}
 		}
         return isset($data) ? $data : false;
 	}
