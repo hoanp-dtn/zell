@@ -20,6 +20,7 @@
 	<base href= "<?php echo $this->config->base_url()?>"/>
     <!-- CSS Bootstrap & Custom -->
     <?php
+
         assets_css(
             array(
                 "css/mCustomScrollbar.min.css",
@@ -30,6 +31,7 @@
                 "css/animate.css",
                 "css/content.css",
                 "css/responsive.css",
+                "css/flexslider.css"
             ),
             array('media' => 'screen')
         );
@@ -54,6 +56,7 @@
                 "js/owl.carousel.js",
                 "js/style.js",
                 "js/mCustomScrollbar.min.js",
+                "js/jquery.flexslider.js"
             ),
             array()
 

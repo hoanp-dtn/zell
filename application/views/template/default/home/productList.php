@@ -14,292 +14,39 @@
                     </h2>
                 </div>
                 <div class="about-content">
-                    <div class="product-item">
-                        <div class="product-thumnail">
-                            <a href="product-detail.html">
-                                <img src="publics/template/default/images/product1.png">
-                            </a>
-                        </div>
-                        <div class="vote">
-                            <ul>
-                                <li>
-                                    <img src="publics/template/default/images/tim.png">
-                                    <span>30</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/view.png">
-                                    <span>150</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/fb.png">
-                                    <span>200</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href=""><span>Tăng cường sinh lực phái mạnh
-ZENDIC PLUS</span></a>
-                        <div class="price">
-                            <label>Giá :</label>
-                            <div>
-                                <span class="price-actualy">2.000.000 VND</span>
-                                <span class="price-old">2.000.000 VND</span>
+                    <?php foreach ($list_product as $key => $value): ?>
+                        <div class="product-item">
+                            <div class="product-thumnail">
+                                <a href="<?php echo $value['link'].slug($value['title']).'-i'.$value['id'].'.html' ?>">
+                                    <img src="uploads/images/news/<?php echo $value['image'];?>">
+                                </a>
+                            </div>
+                            <div class="vote">
+                                <ul>
+                                    <li>
+                                        <img src="publics/template/default/images/tim.png">
+                                        <span>30</span>
+                                    </li>
+                                    <li>
+                                        <img src="publics/template/default/images/view.png">
+                                        <span>150</span>
+                                    </li>
+                                    <li>
+                                        <img src="publics/template/default/images/fb.png">
+                                        <span>200</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="<?php echo $value['link'].slug($value['title']).'-i'.$value['id'].'.html' ?>"><span><?php echo $value['title'];?></span></a>
+                            <div class="price">
+                                <label>Giá :</label>
+                                <div>
+                                    <span class="price-actualy"><?php echo number_format($value['price'],0,",","."); ?> VND</span>
+                                    <span class="price-old"><?php echo number_format($value['price_old'],2,",","."); ?> VND</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="product-thumnail">
-                            <a href="product-detail.html">
-                                <img src="publics/template/default/images/product2.png">
-                            </a>
-                        </div>
-                        <div class="vote">
-                            <ul>
-                                <li>
-                                    <img src="publics/template/default/images/tim.png">
-                                    <span>30</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/view.png">
-                                    <span>150</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/fb.png">
-                                    <span>200</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href=""><span>Tăng cường sinh lực phái mạnh
-ZENDIC PLUS</span></a>
-                        <div class="price">
-                            <label>Giá :</label>
-                            <div>
-                                <span class="price-actualy">2.000.000 VND</span>
-                                <span class="price-old">2.000.000 VND</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="product-thumnail">
-                            <a href="product-detail.html">
-                                <img src="publics/template/default/images/product3.png">
-                            </a>
-                        </div>
-                        <div class="vote">
-                            <ul>
-                                <li>
-                                    <img src="publics/template/default/images/tim.png">
-                                    <span>30</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/view.png">
-                                    <span>150</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/fb.png">
-                                    <span>200</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href=""><span>Tăng cường sinh lực phái mạnh
-ZENDIC PLUS</span></a>
-                        <div class="price">
-                            <label>Giá :</label>
-                            <div>
-                                <span class="price-actualy">2.000.000 VND</span>
-                                <span class="price-old">2.000.000 VND</span>
-                            </div>
-                        </div>
-                    </div><div class="product-item">
-                        <div class="product-thumnail">
-                            <a href="product-detail.html">
-                                <img src="publics/template/default/images/product1.png">
-                            </a>
-                        </div>
-                        <div class="vote">
-                            <ul>
-                                <li>
-                                    <img src="publics/template/default/images/tim.png">
-                                    <span>30</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/view.png">
-                                    <span>150</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/fb.png">
-                                    <span>200</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href=""><span>Tăng cường sinh lực phái mạnh
-ZENDIC PLUS</span></a>
-                        <div class="price">
-                            <label>Giá :</label>
-                            <div>
-                                <span class="price-actualy">2.000.000 VND</span>
-                                <span class="price-old">2.000.000 VND</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="product-thumnail">
-                            <a href="product-detail.html">
-                                <img src="publics/template/default/images/product2.png">
-                            </a>
-                        </div>
-                        <div class="vote">
-                            <ul>
-                                <li>
-                                    <img src="publics/template/default/images/tim.png">
-                                    <span>30</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/view.png">
-                                    <span>150</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/fb.png">
-                                    <span>200</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href=""><span>Tăng cường sinh lực phái mạnh
-ZENDIC PLUS</span></a>
-                        <div class="price">
-                            <label>Giá :</label>
-                            <div>
-                                <span class="price-actualy">2.000.000 VND</span>
-                                <span class="price-old">2.000.000 VND</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="product-thumnail">
-                            <a href="product-detail.html">
-                                <img src="publics/template/default/images/product3.png">
-                            </a>
-                        </div>
-                        <div class="vote">
-                            <ul>
-                                <li>
-                                    <img src="publics/template/default/images/tim.png">
-                                    <span>30</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/view.png">
-                                    <span>150</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/fb.png">
-                                    <span>200</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href=""><span>Tăng cường sinh lực phái mạnh
-ZENDIC PLUS</span></a>
-                        <div class="price">
-                            <label>Giá :</label>
-                            <div>
-                                <span class="price-actualy">2.000.000 VND</span>
-                                <span class="price-old">2.000.000 VND</span>
-                            </div>
-                        </div>
-                    </div><div class="product-item">
-                        <div class="product-thumnail">
-                            <a href="product-detail.html">
-                                <img src="publics/template/default/images/product1.png">
-                            </a>
-                        </div>
-                        <div class="vote">
-                            <ul>
-                                <li>
-                                    <img src="publics/template/default/images/tim.png">
-                                    <span>30</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/view.png">
-                                    <span>150</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/fb.png">
-                                    <span>200</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href=""><span>Tăng cường sinh lực phái mạnh
-ZENDIC PLUS</span></a>
-                        <div class="price">
-                            <label>Giá :</label>
-                            <div>
-                                <span class="price-actualy">2.000.000 VND</span>
-                                <span class="price-old">2.000.000 VND</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="product-thumnail">
-                            <a href="product-detail.html">
-                                <img src="publics/template/default/images/product2.png">
-                            </a>
-                        </div>
-                        <div class="vote">
-                            <ul>
-                                <li>
-                                    <img src="publics/template/default/images/tim.png">
-                                    <span>30</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/view.png">
-                                    <span>150</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/fb.png">
-                                    <span>200</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href=""><span>Tăng cường sinh lực phái mạnh
-ZENDIC PLUS</span></a>
-                        <div class="price">
-                            <label>Giá :</label>
-                            <div>
-                                <span class="price-actualy">2.000.000 VND</span>
-                                <span class="price-old">2.000.000 VND</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="product-thumnail">
-                            <a href="product-detail.html">
-                                <img src="publics/template/default/images/product3.png">
-                            </a>
-                        </div>
-                        <div class="vote">
-                            <ul>
-                                <li>
-                                    <img src="publics/template/default/images/tim.png">
-                                    <span>30</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/view.png">
-                                    <span>150</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/fb.png">
-                                    <span>200</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href=""><span>Tăng cường sinh lực phái mạnh
-ZENDIC PLUS</span></a>
-                        <div class="price">
-                            <label>Giá :</label>
-                            <div>
-                                <span class="price-actualy">2.000.000 VND</span>
-                                <span class="price-old">2.000.000 VND</span>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach ?>
                 </div>
             </div>
         </div>

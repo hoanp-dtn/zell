@@ -14,7 +14,7 @@
             </h2>
         </div>
         <div class="about-content">
-           <p><?php echo ($post_detail['detail']); ?></p>
+           <?php echo html_entity_decode($post_detail['detail']); ?>
         </div>
     </div>
 </div>
