@@ -29,7 +29,7 @@
                             <a href="<?php echo $list_posts[0]['link'].slug($list_posts[0]['title'])."-a".$list_posts[0]['id'].".html"; ?>">
                                 <img src="uploads/images/news/<?php echo $list_posts[0]['image'];?>"/>
                             </a>
-                            <h3><?php echo truncate($list_posts[0]['title']); ?></h3>
+                            <a href="<?php echo $list_posts[0]['link'].slug($list_posts[0]['title'])."-a".$list_posts[0]['id'].".html"; ?>"><h3><?php echo truncate($list_posts[0]['title']); ?></h3></a>
                             <p><?php echo truncate($list_posts[0]['description'], 300); ?></p>
                         <?php endif ?>
                     </div>

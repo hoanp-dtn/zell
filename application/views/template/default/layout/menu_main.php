@@ -33,6 +33,14 @@
                         }
                     }
                 ?>
+
+                <li>
+                    <a href="#">Thư viện</a>
+                    <ul class="submenu">
+                        <li><a href="<?php echo base_url(); ?>thu-vien/photo.html">Photo</a></li>
+                        <li><a href="<?php echo base_url(); ?>thu-vien/video.html">Video</a></li>
+                    </ul>
+                </li>
                 <!-- <li>
                     <a href="home.html">Trang chủ</a>
                 </li>
