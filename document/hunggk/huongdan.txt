@@ -1,5 +1,0 @@
-﻿Thực hiện chạy câu lệnh trong file utt_site.sql :
- Mục đích : 
-	+) Thêm trường position_display
-	+) Thêm data default cho trường vừa thêm
-chạy chương trình kiểm tra xem số content hiển thị đã mapping với cài đặt trên phần sửa site hay không?.
