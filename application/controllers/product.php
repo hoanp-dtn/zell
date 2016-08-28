@@ -30,14 +30,14 @@ class Product extends MY_Controller {
 		
 		// data post
 		// $post_detail = $this->posts_home_model->showDetail((int)$id);
-		// $breadcrumb = $this->posts_home_model->breadcrumb($post_detail['nav_id']);
+		$breadcrumb = $this->posts_home_model->breadcrumb($nav_id);
 		// $list_comment = $this->comment_model->getListComment((int)$id);
 
 		// $data['title_for_layout'] = $post_detail['title'];
 		// $data['desc_for_layout'] = $post_detail['description'];
 		$list_product = $this->posts_home_model->getListPost($nav_id, $langCode, null, null, 'product');
         
-        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode);
+        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode, 'breadcrumb'=>$breadcrumb);
         $data = array_merge($data, $dataTmp);
   //       $html  = $this->render('layout/header', $data , true);
 		
@@ -160,7 +160,7 @@ class Product extends MY_Controller {
 		$data['desc_for_layout'] = $post_detail['description'];
 		$post_id = (int)$id;
         
-        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode);
+        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode,'breadcrumb'=>$breadcrumb);
         $data = array_merge($data, $dataTmp);
   //       $html  = $this->render('layout/header', $data , true);
 		

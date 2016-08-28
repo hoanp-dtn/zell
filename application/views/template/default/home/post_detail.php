@@ -1,7 +1,13 @@
 <div class="about">
     <div class="breadcrumbs">
         <ul>
-            <li><a href="home.html">Trang chủ</a></li><span>/</span>
+            <li><a href="<?php echo base_url(); ?>">Trang chủ</a></li><span>/</span>
+            <?php if (is_array($breadcrumb)): ?>
+                <?php foreach ($breadcrumb as $key => $value): ?>
+                
+                <?php endforeach; ?>
+            <?php endif ?>
+            
             <li><a href="about-us.html">Giới thiệu</a></li><span>/</span>
             <li><span> <?php echo html_escape($post_detail['title']); ?></span></li>
         </ul>

@@ -1,9 +1,18 @@
  <div class="about">
-            <div class="breadcrumbs">
+             <div class="breadcrumbs">
                 <ul>
-                    <li><a href="home.html">Trang chủ</a></li><span>/</span>
-                    <li><a href="about-us.html">Giới thiệu</a></li><span>/</span>
-                    <li><span>Công ty Zell-V</span></li>
+                    <li><a href="<?php echo base_url(); ?>">Trang chủ</a></li><span>/</span>
+                    <?php if (is_array($breadcrumb)): ?>
+                        <?php $i = 0; ?>
+                        <?php foreach ($breadcrumb as $key => $value): ?>
+                            <?php $i++; ?>
+                            <?php if ($i == count($breadcrumb)): ?>
+                                <li><span><?php echo $value['title']; ?></span></li>
+                            <?php else: ?>
+                            <li><a href="<?php echo $value['link']."-p".$value['nav_id'].".html"; ?>"><?php echo $value['title']; ?></a></li><span>/</span>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php endif ?>
                 </ul>
             </div>
             <hr>

@@ -30,14 +30,15 @@ class post_detail extends MY_Controller {
 		
 		// data post
 		$post_detail = $this->posts_home_model->showDetail((int)$id);
-		$breadcrumb = $this->posts_home_model->breadcrumb($post_detail['nav_id']);
+		$arr = [];
+		$breadcrumb = $this->posts_home_model->breadcrumb($post_detail['nav_id'], $arr, $post_detail['cate_id']);
 		$list_comment = $this->comment_model->getListComment((int)$id);
 
 		$data['title_for_layout'] = $post_detail['title'];
 		$data['desc_for_layout'] = $post_detail['description'];
 		$post_id = (int)$id;
         
-        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode);
+        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode, 'breadcrumb'=>$breadcrumb);
         $data = array_merge($data, $dataTmp);
   //       $html  = $this->render('layout/header', $data , true);
 		
@@ -110,10 +111,10 @@ class post_detail extends MY_Controller {
 		// }
 		$dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
 		
-		// $breadcrumb = $this->posts_home_model->breadcrumb($nav_id);
+		$breadcrumb = $this->posts_home_model->breadcrumb($nav_id);
 		// $getPostAndNew = $this->posts_home_model->showPostAndNew($this->site['id'], 5, $langCode);
 		// $data['title_for_layout'] = $navigation[0]['title'];
-        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode);
+        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode, 'breadcrumb'=>$breadcrumb);
         $data = array_merge($data, $dataTmp);
         // $html  = $this->render('layout/header', $data , true);
 		// $dataGallery = $this->gallery->getGallery();

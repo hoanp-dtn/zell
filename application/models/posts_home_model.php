@@ -71,10 +71,10 @@ class Posts_home_model extends MY_Model {
 		}
 		return $this->getLinkParrentCate($category['parent_id'],$data).slug($category['title']).'/';
 	}
-	function breadcrumb($nav_id, &$data = array()){
+	function breadcrumb($nav_id, &$data = array(), $cate_id=0){
 		$navigation = $this->navigation_home_model->get('id, title, parent_id', array('id' => $nav_id), false);
 		if(!isset($navigation) || count($navigation) == 0){
-			return NULL;
+			return null;
 		}
 		if($navigation['parent_id'] == 0){
 			$data[] = array(
