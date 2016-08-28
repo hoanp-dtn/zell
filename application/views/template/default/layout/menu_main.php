@@ -1,7 +1,7 @@
 <?php
     function displayMenu($dataMenu,$class_ul = false){
     ?>
-        <li><a href="<?php echo $dataMenu['link'];?>"><?php echo $dataMenu['title'];?></a>
+        <li class="<?php echo slug($dataMenu['title']);?>"><a href="<?php echo $dataMenu['link'];?>"><?php echo $dataMenu['title'];?></a>
             <?php
                 if(isset($dataMenu['children'])){
                     ?>
@@ -116,3 +116,24 @@
     <!-- bg-black -->
 </div>
 <!-- sidebar -->
+<script type="text/javascript">
+    $(document).ready(function (argument) {
+        var pathname = $(location).attr('pathname');
+        var pathArr = pathname.split("/");
+        var active = false;
+        for(var i = 0; i < 4; i++){
+            if(pathArr[i] != ""){
+                $(".menuleft ul > li."+pathArr[i]).addClass("active");
+
+                if($(".menuleft ul > li."+pathArr[i]).length > 0){
+                    active = true;
+                    break;
+                }
+            }
+        }
+        
+        if(!active){
+            $(".menuleft ul > li:first-child").addClass("active");
+        }
+    });
+</script>

@@ -1619,6 +1619,7 @@ div.showcase-tooltip{
 .container .about .about-main .about-content #list-news{
 	width: 44%;
 	float: right;
+	height: 100%;
 }
 .container .about .about-main .about-content #list-news .list-news-item{
 	overflow: hidden;

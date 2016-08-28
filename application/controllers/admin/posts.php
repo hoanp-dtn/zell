@@ -147,7 +147,7 @@ class Posts extends MY_Controller {
 			}
 			$this->form_validation->set_error_delimiters('<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-warning"></i> Cảnh báo</h4>','</div>');
         }
-		$data['cateTitle'] = $this->category_model->getTitle($this->lang_code, array());
+		$data['cateTitle'] = $this->category_model->getTitle($this->lang_code, array('type'=>'news'));
 		$data['active'] = array('post','post/add');
 		$data['base']= $this->config->item('base_url');
 		$data['lang']= $this->Model_lang->getcount();
@@ -222,7 +222,7 @@ class Posts extends MY_Controller {
 			}
 			$this->form_validation->set_error_delimiters('<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-warning"></i> Cảnh báo</h4>','</div>');
         }
-		$data['cateTitle'] = $this->category_model->getTitle($post['lang'], array());
+		$data['cateTitle'] = $this->category_model->getTitle($post['lang'], array('type' => 'news'));
 		$data['post'] = $post;
 		$data['base']= $this->config->item('base_url');
 		$data['lang']= $this->Model_lang->getcount();

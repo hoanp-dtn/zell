@@ -8,9 +8,7 @@ class Navigation_model extends MY_Model {
 		$select = "
 				SELECT utt_navigation.parent_id as parentid, utt_navigation.id,utt_navigation.title, utt_navigation.location, utt_navigation.url,(select utt_cate.title from utt_cate where utt_cate.id =utt_navigation.cate_id) as cattitle,(select utt_post.title from utt_post where utt_post.id =utt_navigation.post_id) as post_title ,(select k.title from utt_navigation as k where k.id =utt_navigation.parent_id) as parenttitle, utt_lang.name as lang
 				FROM utt_navigation, utt_lang
-				WHERE utt_navigation.lang = utt_lang.code and utt_navigation.lang = '".$lang."' 
-				and site_id = ".$site_id
-				;
+				WHERE utt_navigation.lang = utt_lang.code and utt_navigation.lang = '".$lang."'";
 		 return $this->getRows($select);
 	}
 	function get($param, $where){
@@ -92,7 +90,7 @@ class Navigation_model extends MY_Model {
 	public $result = NULL;
 	
 	function getChild($id,$lang='vn',$site_id = 0){
-		$array = $this->db->select('id,location')->from('utt_navigation')->where(array('parent_id'=>$id,'lang' =>$lang,'site_id' =>$site_id))->get()->result_array();
+		$array = $this->db->select('id,location')->from('utt_navigation')->where(array('parent_id'=>$id,'lang' =>$lang))->get()->result_array();
 		if(!count($array)){
 			return;
 		}
@@ -109,7 +107,7 @@ class Navigation_model extends MY_Model {
 			$this->result[] = $val['id'];
 			break;
 		}
-		$this->getChild($this->result[count($this->result)-1],$lang,$site_id);
+		$this->getChild($this->result[count($this->result)-1],$lang);
 		$s=0;
 		foreach($array as $key => $val){
 			$s++;
@@ -117,7 +115,7 @@ class Navigation_model extends MY_Model {
 				continue;
 			}
 			$this->result[] = $val['id'];
-			$this->getChild($val['id'],$lang,$site_id);
+			$this->getChild($val['id'],$lang);
 		}
 		return $this->result;
 	}

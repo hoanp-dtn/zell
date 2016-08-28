@@ -6,7 +6,7 @@ class Navigation_home_model extends MY_Model {
     }
 	
 	function getListChild($id, $langCode){
-		return $this->db->select('id, title, cate_id, url, parent_id, post_id,
+		return $this->db->select('id, title, cate_id, url, parent_id, post_id,menu_type,
 								(select utt_post.cate_id from utt_post where utt_post.id = utt_navigation.post_id) as cate_id_post, 
 								(select utt_post.title from utt_post where utt_post.id = utt_navigation.post_id) as post_title')
 						->from( PREFIX.'navigation')->where(array('parent_id'=>$id,'lang' =>$langCode))->order_by('location','ASC')->get()->result_array();
@@ -29,7 +29,11 @@ class Navigation_home_model extends MY_Model {
 			}elseif($val['url']!=""){
 				$val['link'] = $val['url'];
 			}elseif($val['cate_id'] !=0){
-				$val['link'] = $link_child.'-n'.$val['id'].'.html';
+				$pre = "n";
+				if($val['menu_type'] == 1){
+					$pre = 'p';
+				}
+				$val['link'] = $link_child.'-'.$pre.$val['id'].'.html';
 			}else{
 				$val['link'] = "javascript:void(0)";
 			}
