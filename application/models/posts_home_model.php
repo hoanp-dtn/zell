@@ -71,10 +71,10 @@ class Posts_home_model extends MY_Model {
 		}
 		return $this->getLinkParrentCate($category['parent_id'],$data).slug($category['title']).'/';
 	}
-	function breadcrumb($nav_id, &$data = array()){
+	function breadcrumb($nav_id, &$data = array(), $cate_id=0){
 		$navigation = $this->navigation_home_model->get('id, title, parent_id', array('id' => $nav_id), false);
 		if(!isset($navigation) || count($navigation) == 0){
-			return NULL;
+			return null;
 		}
 		if($navigation['parent_id'] == 0){
 			$data[] = array(
@@ -98,7 +98,7 @@ class Posts_home_model extends MY_Model {
 	
 	function showDetail($id = 0)
 	{
-		$data = $this->db->select(''.PREFIX.'post.id,'.PREFIX.'post.title,'.PREFIX.'post.description,'.PREFIX.'post.image,'.PREFIX.'post.cate_id,'.PREFIX.'post.detail,'.PREFIX.'post.time_create,'.PREFIX.'post.time_update,c.title as cate_name, (select n.id from utt_navigation n where '.PREFIX.'post.cate_id = n.cate_id) as nav_id')->from(PREFIX.'post')->where(PREFIX.'post.id ',(int)$id)->join(PREFIX.'cate c',PREFIX.'post.cate_id = '.'c.id')->get()->row_array();
+		$data = $this->db->select(''.PREFIX.'post.id,'.PREFIX.'post.title,'.PREFIX.'post.description, utt_post.is_top,utt_post.*,'.PREFIX.'post.image,'.PREFIX.'post.cate_id,'.PREFIX.'post.detail,'.PREFIX.'post.time_create,'.PREFIX.'post.time_update,c.title as cate_name, (select n.id from utt_navigation n where '.PREFIX.'post.cate_id = n.cate_id) as nav_id')->from(PREFIX.'post')->where(PREFIX.'post.id ',(int)$id)->join(PREFIX.'cate c',PREFIX.'post.cate_id = '.'c.id')->get()->row_array();
 		$data['file'] = $this->db->select(PREFIX.'postmeta.value')->from(PREFIX.'postmeta')->where(PREFIX.'postmeta.post_id',(int)$id)->get()->result_array();
 		return $data;
 	}
@@ -140,17 +140,16 @@ class Posts_home_model extends MY_Model {
 		return isset($data) ? $data : false;
 	}
 	
-	function getListPost($nav_id = 0, $siteid = 0, $langCode = 'vn', $start = NULL, $limit = NULL){
+	function getListPost($nav_id = 0, $langCode = 'vn', $start = NULL, $limit = NULL, $type = 'news'){
 		$navigation = $this->navigation_home_model->get('cate_id', array('id' => $nav_id), FALSE);
 		$currentCateID[0] = $navigation['cate_id'];
 		$allChild = $this->getAllChildCate($navigation['cate_id'], $currentCateID);
-		$this->db->select('p.*, (select c.title from utt_cate c where c.id = p.cate_id) as cate_name, (select n.id from utt_navigation n where p.cate_id = n.cate_id and n.site_id = '.$siteid.') as nav_id')
+		$this->db->select('p.*, (select c.title from utt_cate c where c.id = p.cate_id) as cate_name, (select n.id from utt_navigation n where p.cate_id = n.cate_id ) as nav_id')
 			->from(PREFIX.'post p')
 			->where_in('p.cate_id', $allChild)
 			->where(array(
-				'p.post_type' => 'news',
+				'p.post_type' => $type,
 				'p.status <' => '3',
-				'p.site_id' => $siteid,
 				'p.lang' => $langCode
 			))
 			->order_by('p.time_create', 'DESC');
@@ -158,7 +157,7 @@ class Posts_home_model extends MY_Model {
 			$this->db->limit($limit, $start);
 		}
 		$data = $this->db->get()->result_array();
-		
+
 		foreach($data as $key => $val){
 			if(isset($val['nav_id'])){
 				$data[$key]['link'] = $this->getLinkParrentMenu($val['nav_id']);
@@ -166,6 +165,11 @@ class Posts_home_model extends MY_Model {
 				$data[$key]['link'] = $this->getLinkParrentCate($val['cate_id']);
 			}
 			
+			if($val['is_top'] == 1){
+				$tmp = $data[$key];
+				$data[$key] = $data[0];
+				$data[0] = $tmp;
+			}
 		}
         return isset($data) ? $data : false;
 	}

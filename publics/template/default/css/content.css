@@ -265,7 +265,6 @@ ul{
 	padding:3px 10px;
 }
 .menuleft ul > li > ul > li:hover, .menuleft ul > li > ul > li.active{
-	background:#f2795a;
 }
 .menuleft ul > li > ul > li:hover > a, .menuleft ul > li > ul > li.active > a{
 	color:#fff;
@@ -1619,6 +1618,7 @@ div.showcase-tooltip{
 .container .about .about-main .about-content #list-news{
 	width: 44%;
 	float: right;
+	height: 100%;
 }
 .container .about .about-main .about-content #list-news .list-news-item{
 	overflow: hidden;
@@ -1770,13 +1770,11 @@ div.showcase-tooltip{
 
 .about-content .product-thumnail{
 	height: 220px;
-    line-height: 270px;
     text-align: center;
-    background: white;
 }
 .about-content .product-thumnail img{
-	width: 69%;
-	margin-top: 20%;
+	width: 100%;
+	height: 100%;
 }
 
 .about-content .product-item .vote img{
@@ -1805,8 +1803,12 @@ div.showcase-tooltip{
 .about-content .product-info-thumnail{
 	width: 55%;
 	float: left;
+	height: 350px;
 	overflow: hidden;
-}/*
+}
+#slider .flex-viewport ul{
+	height: 100%;
+}
 .about-content .product-info-thumnail .main-photo{
 	height: 250px;
 	text-align: center;
@@ -1816,7 +1818,7 @@ div.showcase-tooltip{
 .about-content .product-info-thumnail .main-photo img{
 	width: 46%;
 	margin-top: 5%;
-}*/
+}
 
 .about-content .product-detail{
 	width: 43%;
@@ -1878,12 +1880,12 @@ div.showcase-tooltip{
 	height: 70%;
 }
 .flexslider .slides img{
-	width: 50%!important;
+	width: 100%!important;
+	height: 100%!important;
 	display: inline!important;
 }
 .flexslider .slides li{
 	text-align: center!important;
-	background: white!important;
 }
 .product-info-thumnail #slider{
     height: 70%;
@@ -1895,8 +1897,11 @@ div.showcase-tooltip{
 #slider .flex-viewport{
 	height: 100%!important;
 }
+#carousel-product .flex-viewport ul{
+	height: 100%;
+}
 #carousel-product{
-	height: 28%;
+	height: 22%;
 	width: 80%;
     margin: 2% auto;
 }
@@ -1908,4 +1913,11 @@ div.showcase-tooltip{
 }
 #carousel-product li{
 	margin-right: 5px;
+}
+#news-content img{
+	width: 100%;
+	max-width: 100%!important;
+}
+a{
+	text-decoration: none!important;
 }

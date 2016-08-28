@@ -170,9 +170,10 @@ class Category_Model extends MY_Model
         if ($data->num_rows() >= 1) return false;
         return true;
 	}
-	public function dropdown($lang='vn',$site_id = NULL)
+	public function dropdown($lang='vn',$site_id = NULL, $where = array())
 	{
-		$data = $this->db->select('id,title')->from('utt_cate')->where(array('lang'=>$lang))->get()->result_array();
+		$where['lang'] = $lang;
+		$data = $this->db->select('id,title')->from('utt_cate')->where($where)->get()->result_array();
 		$temp[0] = '--Chọn danh mục--';
 		foreach($data as $key => $val){
 			$temp[$val['id']] = $val['title'];

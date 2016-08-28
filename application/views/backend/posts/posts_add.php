@@ -238,10 +238,10 @@ $('#submit').click( function() {
 						<option value="1" selected>Hiện</option>
 						<option value="2">Ẩn</option>
 					</select><br />
-					<label>Vị trí hiển thị</label></br>
+					<label>Kiểu hiển thị</label></br>
 					<select size="1" name="is_top" class= "form-control">
-						<option value="1" selected>Trang chủ</option>
-						<option value="2">Bình thường</option>
+						<option value="1" >Bài viết hot</option>
+						<option value="2" selected>Bình thường</option>
 					</select>
                   </div>
                   <div class="box-footer">

@@ -20,6 +20,7 @@
 	<base href= "<?php echo $this->config->base_url()?>"/>
     <!-- CSS Bootstrap & Custom -->
     <?php
+
         assets_css(
             array(
                 "css/mCustomScrollbar.min.css",
@@ -30,6 +31,8 @@
                 "css/animate.css",
                 "css/content.css",
                 "css/responsive.css",
+                "css/flexslider.css",
+                "lib/fancybox/source/jquery.fancybox.css?v=2.1.5"
             ),
             array('media' => 'screen')
         );
@@ -54,6 +57,9 @@
                 "js/owl.carousel.js",
                 "js/style.js",
                 "js/mCustomScrollbar.min.js",
+                "js/jquery.flexslider.js",
+                "lib/fancybox/source/jquery.fancybox.js?v=2.1.5",
+                "lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5",
             ),
             array()
 

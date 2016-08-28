@@ -15,6 +15,13 @@
         <form action="" method="post">
 				<?php echo validation_errors();?>
             <div class="box-body">
+	            <div class="form-group">
+	              <label>Kiểu Menu :</label>
+						<select class="form-control" id="menu_type" name="menu_type">
+							<option value="0" <?php echo set_value('menu_type', '') == 0?"selected":"";?>>Mặc định</option>
+							<option value="1" <?php echo set_value('menu_type', '') == 1?"selected":"";?>>Product</option>
+						</select>
+	            </div>  
 				<div class="form-group">
                   <label>Tên menu :</label>
 					<input type="text" class="form-control" id="title" name="title" value="<?php echo set_value('title','');?>" placeholder="Mời bạn nhập tên menu vào đây ">
@@ -144,6 +151,16 @@
 				$("#location").html(data.list_location);
 			},"JSON"
 			);
+		});
+		$("#menu_type").change(function () {
+			$.ajax({
+				type : "post",
+				data : {menu_type : $("#menu_type").val()},
+				url : base_url+"admin/navigation/getListCates",
+				success : function (data) {
+					$("#cate_id").html(data);
+				}
+			});
 		});
 	});
 </script>
