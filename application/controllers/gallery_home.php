@@ -104,8 +104,12 @@ class Gallery_home extends MY_Controller {
 
     public function photo($value='')
     {
+        $this->setInformationSite($data);
+        $langCode = $this->lang->lang();
+        $dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
+         $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode);
+        $data = array_merge($data, $dataTmp);
         $dataGallery = $this->gallery->getGallery();
-        $data = [];
         $html  = $this->render('layout/slider', $data , true);
         $html .="<div class='container'>";
 
