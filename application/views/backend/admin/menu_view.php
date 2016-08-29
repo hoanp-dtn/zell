@@ -116,6 +116,17 @@
                 <li class = "<?php if(isset($active) && count($active)){echo (in_array("gallery/add",$active))?" active":"";}?>"><a href="<?php echo site_url().'admin/gallery/add'?>"><i class="fa fa-circle-o"></i>Thêm album ảnh</a></li>
               </ul>
             </li>
+
+            <li class="treeview <?php if(isset($active) && count($active)){echo (in_array("video",$active))?" active":"";}?>">
+              <a href="#">
+                <i class="fa fa-edit"></i> <span>Quản lí video</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class = "<?php if(isset($active) && count($active)){echo (in_array("video/view",$active))?" active":"";}?>"><a href="<?php echo site_url().'admin/video/view'?>"><i class="fa fa-circle-o"></i>Danh sách video</a></li>
+                <li class = "<?php if(isset($active) && count($active)){echo (in_array("video/add",$active))?" active":"";}?>"><a href="<?php echo site_url().'admin/video/add'?>"><i class="fa fa-circle-o"></i>Thêm video</a></li>
+              </ul>
+            </li>
 			<li class="treeview <?php if(isset($active) && count($active)){echo (in_array("comment",$active))?" active":"";}?>">
               <a href="<?php echo site_url().'admin/comment/view_pending'?>">
                 <i class="fa fa-edit"></i> <span>Quản lí Comment</span>

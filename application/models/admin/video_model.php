@@ -1,5 +1,5 @@
 <?php
-class Slide_model extends MY_Model {
+class Video_model extends MY_Model {
 	private $lang_code;
 	function __construct(){
         parent::__construct();
@@ -31,11 +31,11 @@ class Slide_model extends MY_Model {
 		return $data;
 	}
 	function changeStatus($id){
-		$slide = $this->get('status',array('id'=>$id));
+		$video = $this->get('status',array('id'=>$id));
 		$where = NULL;
-		if($slide['status'] == 1){
+		if($video['status'] == 1){
 			$where = array('status'=>0);
-		}elseif($slide['status'] == 0){
+		}elseif($video['status'] == 0){
 			$where = array('status'=>1);
 		}
 		$this->db->update('utt_slide',$where,array('id' => $id));
@@ -53,11 +53,11 @@ class Slide_model extends MY_Model {
 		}
 	}
 	function changeUseFormRegister($id){
-		$slide = $this->get('use_form_register',array('id'=>$id));
+		$video = $this->get('use_form_register',array('id'=>$id));
 		$where = NULL;
-		if($slide['use_form_register'] == 1){
+		if($video['use_form_register'] == 1){
 			$where = array('use_form_register'=>0);
-		}elseif($slide['use_form_register'] == 0){
+		}elseif($video['use_form_register'] == 0){
 			$this->update(array('use_form_register'=>0),array(),true);
 			$where = array('use_form_register'=>1);
 		}
@@ -96,14 +96,14 @@ class Slide_model extends MY_Model {
 		}
 	}
 	function change($id){
-		$slide = $this->get('img,location,lang',array('id'=>$id));
-		$file_name = $slide['img'];
+		$video = $this->get('img,location,lang',array('id'=>$id));
+		$file_name = $video['img'];
 		$is_change_image = $this->input->post('is_change_image');
 		$title = $this->input->post('title');
 		$post_id = $this->input->post('post_id');
 		if($is_change_image == 1){
 			$images_del=$file_name;
-			$path_to_file = './uploads/images/slide/'.$images_del;
+			$path_to_file = './uploads/images/video/'.$images_del;
 			if($images_del!="" && file_exists($path_to_file)){
 				unlink($path_to_file);
 			}
@@ -112,11 +112,11 @@ class Slide_model extends MY_Model {
 			$file_name =   $upload_data['file_name'];
 		}
 		$location = $this->input->post('location');
-		if($location < $slide['location']){
-			$this->update(array('location' => 'location +1'),array('location >=' => $location,'location <' =>$slide['location'],'lang'=>$slide['lang']),false);
+		if($location < $video['location']){
+			$this->update(array('location' => 'location +1'),array('location >=' => $location,'location <' =>$video['location'],'lang'=>$video['lang']),false);
 		}
-		if($location > $slide['location']){
-			$this->update(array('location' => 'location - 1'),array('location <=' => $location,'location >'=>$slide['location'],'lang'=>$slide['lang']),false);
+		if($location > $video['location']){
+			$this->update(array('location' => 'location - 1'),array('location <=' => $location,'location >'=>$video['location'],'lang'=>$video['lang']),false);
 		}
 		return $this->update(array(
 			'url'=>$this->input->post('url'),
@@ -146,7 +146,7 @@ class Slide_model extends MY_Model {
 			'img' =>$file_name,
 			'post_id' =>$post_id,
 			'title' =>$title,
-			'type' => 'slide'
+			'type' => 'video'
 		));
 		$flag = $this->db->affected_rows();
 		if($flag>0){
@@ -165,7 +165,7 @@ class Slide_model extends MY_Model {
 	}
 	function do_upload()
 	{
-		$config['upload_path'] = './uploads/images/slide';
+		$config['upload_path'] = './uploads/images/video';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
 		$config['max_size']	= '10000000';
 		$config['max_width']  = '102004';
@@ -203,13 +203,13 @@ class Slide_model extends MY_Model {
 	}
 	
 	function del($param){
-		$slide = $this->get('img,location,lang',array('id'=>$param['id']));
-		$images_del = $slide['img'];
-		$path_to_file = './uploads/images/slide/'.$images_del;
+		$video = $this->get('img,location,lang',array('id'=>$param['id']));
+		$images_del = $video['img'];
+		$path_to_file = './uploads/images/video/'.$images_del;
 		if($images_del!="" && file_exists($path_to_file)){
 			unlink($path_to_file);
 		}
-		$this->update(array('location' => 'location - 1'),array('location >' => $slide['location'],'lang'=>$slide['lang']),false);
+		$this->update(array('location' => 'location - 1'),array('location >' => $video['location'],'lang'=>$video['lang']),false);
 		$this->db->delete('utt_slide', $param); 
 		$flag = $this->db->affected_rows();
 		if($flag>0){
