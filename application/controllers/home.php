@@ -30,13 +30,14 @@ class Home extends MY_Controller {
                                                 
                                                 array(
                                                     'status'  => 1,
-                                                    'lang'=>$langCode
+                                                    'lang'=>$langCode,
+                                                    'type' => 'slide'
                                                 )
         );
         $dataGallery = $this->gallery->getGallery();
         // $dataAds = $this->ads->getAds(0, 2, array('site_id' => $this->site['id']));
         // $dataPartner = $this->partner->getPartner(0, 4, array('site_id' => $this->site['id']));
-        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode);
+        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode, 'dataSlider'=>$dataSlider);
         $data = array_merge($data, $dataTmp);
 
         $html  = $this->render('layout/slider', $data , true);

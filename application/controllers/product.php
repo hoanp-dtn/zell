@@ -21,6 +21,17 @@ class Product extends MY_Controller {
     public function productList($nav_id = 0){
 		$this->setInformationSite($data);
         $langCode = $this->lang->lang();
+        $dataSlider = $this->slider->getSlide(
+                                                'id, title, post_id, img, url, location, description,
+                                                (select utt_post.cate_id from utt_post where utt_post.id = utt_slide.post_id) as cate_id, 
+                                                (select utt_post.title from utt_post where utt_post.id = utt_slide.post_id) as post_title',
+                                                
+                                                array(
+                                                    'status'  => 1,
+                                                    'lang'=>$langCode,
+                                                    'type' => 'slide'
+                                                )
+        );
 		// $post = $this->posts_home_model->get('id', array('id' => (int)$id, 'lang' => $langCode, 'status' => 1),TRUE);
 		if( !isset($post) || count($post) == 0){
 			// redirect($this->config->base_url($langCode.'/'.$this->siteName));
@@ -37,7 +48,7 @@ class Product extends MY_Controller {
 		// $data['desc_for_layout'] = $post_detail['description'];
 		$list_product = $this->posts_home_model->getListPost($nav_id, $langCode, null, null, 'product');
         
-        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode, 'breadcrumb'=>$breadcrumb);
+        $dataTmp = array('dataSlider'=> $dataSlider, 'dataMenu' => $dataMenu,'langCode' => $langCode, 'breadcrumb'=>$breadcrumb);
         $data = array_merge($data, $dataTmp);
   //       $html  = $this->render('layout/header', $data , true);
 		
@@ -144,6 +155,17 @@ class Product extends MY_Controller {
   //       $this->render('layout/default', $data);
 		$this->setInformationSite($data);
         $langCode = $this->lang->lang();
+        $dataSlider = $this->slider->getSlide(
+                                                'id, title, post_id, img, url, location, description,
+                                                (select utt_post.cate_id from utt_post where utt_post.id = utt_slide.post_id) as cate_id, 
+                                                (select utt_post.title from utt_post where utt_post.id = utt_slide.post_id) as post_title',
+                                                
+                                                array(
+                                                    'status'  => 1,
+                                                    'lang'=>$langCode,
+                                                    'type' => 'slide'
+                                                )
+        );
 		$post = $this->posts_home_model->get('id', array('id' => (int)$id, 'lang' => $langCode, 'status' => 1),TRUE);
 		if( !isset($post) || count($post) == 0){
 			// redirect($this->config->base_url($langCode.'/'.$this->siteName));
@@ -160,7 +182,7 @@ class Product extends MY_Controller {
 		$data['desc_for_layout'] = $post_detail['description'];
 		$post_id = (int)$id;
         
-        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode,'breadcrumb'=>$breadcrumb);
+        $dataTmp = array('dataSlider'=>$dataSlider,'dataMenu' => $dataMenu,'langCode' => $langCode,'breadcrumb'=>$breadcrumb);
         $data = array_merge($data, $dataTmp);
   //       $html  = $this->render('layout/header', $data , true);
 		
