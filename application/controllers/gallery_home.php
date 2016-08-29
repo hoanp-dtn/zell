@@ -148,5 +148,62 @@ class Gallery_home extends MY_Controller {
         $data['content_for_layout'] = $html;
         $this->render('layout/default', $data);
     }
+public function video($value='')
+    {
+        $this->setInformationSite($data);
+        $langCode = $this->lang->lang();
+        $dataSlider = $this->slider->getSlide(
+                                                'id, title, post_id, img, url, location, description,
+                                                (select utt_post.cate_id from utt_post where utt_post.id = utt_slide.post_id) as cate_id, 
+                                                (select utt_post.title from utt_post where utt_post.id = utt_slide.post_id) as post_title',
+                                                
+                                                array(
+                                                    'status'  => 1,
+                                                    'lang'=>$langCode,
+                                                    'type' => 'slide'
+                                                )
+        );
+        $dataVideo = $this->slider->getSlide(
+                                                'id, title, post_id, img, url, location, description,
+                                                (select utt_post.cate_id from utt_post where utt_post.id = utt_slide.post_id) as cate_id, 
+                                                (select utt_post.title from utt_post where utt_post.id = utt_slide.post_id) as post_title',
+                                                
+                                                array(
+                                                    'status'  => 1,
+                                                    'lang'=>$langCode,
+                                                    'type' => 'video'
+                                                )
+        );
+        $dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
+         $dataTmp = array('dataSlider'=>$dataSlider,'dataMenu' => $dataMenu,'langCode' => $langCode);
+        $data = array_merge($data, $dataTmp);
+        $dataGallery = $this->gallery->getGallery();
+        $html  = $this->render('layout/slider', $data , true);
+        $html .="<div class='container'>";
+
+        $html  .= $this->render('layout/menu_header', $data , true);
+        $html  .= $this->render('layout/menu_main', $data , true);
+
+        $html  .= $this->render('home/video', compact(
+'dataVideo'
+            ) , true);
+
+        $html .= $this->render('layout/footer', array(), true);
+        // $html .= $this->render(
+        //                     'home/home',
+        //                     compact(
+        //                         'dataSlider',
+        //                         // 'dataAds',
+        //                         // 'dataPartner',
+        //                         'langCode',
+        //                         'dataGallery'
+        //                         // 'dataDepartment'
+        //                     ),
+        //                     true
+        // );
+        $html .= "</div>";
+        $data['content_for_layout'] = $html;
+        $this->render('layout/default', $data);
+    }
 
 }
