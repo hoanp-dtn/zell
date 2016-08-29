@@ -6,7 +6,7 @@ class Slide extends MY_Controller {
 
 	private $redirect;
 
-	private $site_id, $lang_code;
+	private $lang_code;
 
 	
 
@@ -32,21 +32,16 @@ class Slide extends MY_Controller {
 
 		(isset($this->redirect) && !empty($this->redirect))?($this->redirect=base64_decode($this->redirect)):($this->redirect='admin/slide/view');
 
-		$this->site_id = $this->session->userdata('site_select');
 
 		$this->lang_code = $this->session->userdata('lang_select');
 
 		$this->load->model('admin/permit_model');
 
-		$this->load->model('admin/site_model');
 
-		$site_select = (int)$this->input->post('site_select');
 
 		$lang_select = $this->input->post('lang_select');
 
-			if(isset($site_select) && $site_select !=0 && isset($lang_select) && !empty($lang_select)){
-
-				$this->session->set_userdata('site_select',$site_select);
+			if(isset($lang_select) && !empty($lang_select)){
 
 				$this->session->set_userdata('lang_select',$lang_select);
 
@@ -76,7 +71,7 @@ class Slide extends MY_Controller {
 
 		$config['base_url']	= $this->config->base_url('admin/slide/view/'.$this->lang_code);
 
-		$config['total_rows'] = $this->slide_model->getcount(array('site_id'=>$this->site_id,'lang'=>$this->lang_code));
+		$config['total_rows'] = $this->slide_model->getcount(array('lang'=>$this->lang_code, 'type' => 'slide'));
 
 		$total_page=ceil($config['total_rows']/$config['per_page']);
 
@@ -98,7 +93,7 @@ class Slide extends MY_Controller {
 
 			array('id', 'url', 'img','status','description','location','title','(select utt_lang.name from utt_lang where utt_lang.code = utt_slide.lang) as lang_title','(select utt_post.title from utt_post where utt_post.id = utt_slide.post_id) as post_title'),
 
-			array('site_id'=>$this->site_id,'lang'=>$this->lang_code),$config['per_page'],($page*$config['per_page']),'location ASC');
+			array('lang'=>$this->lang_code, 'type'=>'slide'),$config['per_page'],($page*$config['per_page']),'location ASC');
 
 		}
 
@@ -122,7 +117,7 @@ class Slide extends MY_Controller {
 
 	function del($id = 0){
 
-		$slide = $this->slide_model->get('id',array('id'=> (int)$id,'site_id'=>$this->site_id));
+		$slide = $this->slide_model->get('id',array('id'=> (int)$id));
 
 		if(!isset($slide) || count($slide)==0){
 
@@ -132,7 +127,7 @@ class Slide extends MY_Controller {
 
 		}
 
-		$flag = $this->slide_model->del(array('id' => $id,'site_id'=>$this->site_id));
+		$flag = $this->slide_model->del(array('id' => $id));
 
 		$this->session->set_flashdata('message_flashdata',$flag);
 
@@ -144,7 +139,7 @@ class Slide extends MY_Controller {
 
 	function changeStatus($id=0){
 
-		$slide = $this->slide_model->get('id',array('id'=> (int)$id,'site_id'=>$this->site_id));
+		$slide = $this->slide_model->get('id',array('id'=> (int)$id));
 
 		if(!isset($slide)||count($slide)==0){
 
@@ -164,7 +159,7 @@ class Slide extends MY_Controller {
 
 	public function edit($id = 0){
 
-		$slide = $this->slide_model->get('*,(select utt_post.title from utt_post where utt_post.id = utt_slide.post_id) as post_title',array('id'=> (int)$id,'site_id'=>$this->site_id));
+		$slide = $this->slide_model->get('*,(select utt_post.title from utt_post where utt_post.id = utt_slide.post_id) as post_title',array('id'=> (int)$id));
 
 		if(!isset($slide)||count($slide)==0){
 
@@ -278,7 +273,7 @@ class Slide extends MY_Controller {
 
 		$data['slide'] = $slide;
 
-		$data['list_location'] = $this->slide_model->dropdown(array('site_id'=>$this->site_id,'lang'=>$slide['lang']));
+		$data['list_location'] = $this->slide_model->dropdown(array('lang'=>$slide['lang']));
 
 		$html  = $this->adminlayout->loadTop();
 
@@ -396,7 +391,7 @@ class Slide extends MY_Controller {
 
 		$data['lang'] = $this->lang_code;
 
-		$data['list_location'] = $this->slide_model->dropdown(array('site_id'=>$this->site_id,'lang'=>$this->lang_code));
+		$data['list_location'] = $this->slide_model->dropdown(array('lang'=>$this->lang_code));
 
 		$html  = $this->adminlayout->loadTop();
 
@@ -436,7 +431,7 @@ class Slide extends MY_Controller {
 
 		}
 
-		$count = $this->slide_model->getcount(array('site_id'=>$this->site_id));
+		$count = $this->slide_model->getcount(array());
 
 		if($val <1 || $val > $count + 1){
 
@@ -460,7 +455,7 @@ class Slide extends MY_Controller {
 
 		}
 
-		$count = $this->slide_model->getcount(array('site_id'=>$this->site_id));
+		$count = $this->slide_model->getcount(array());
 
 		if($val <1 || $val > $count){
 
@@ -546,7 +541,7 @@ class Slide extends MY_Controller {
 
 		$lang = $this->input->post('lang');
 
-		$list_location =$this->slide_model->dropdown(array('site_id'=>$this->site_id,'lang'=>(isset($lang) && !is_bool($lang))?$lang:'vn'));
+		$list_location =$this->slide_model->dropdown(array('lang'=>(isset($lang) && !is_bool($lang))?$lang:'vn'));
 
 		$data_list_location = ""; 
 

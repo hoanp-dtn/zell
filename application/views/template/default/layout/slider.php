@@ -1,13 +1,16 @@
  <div class="bg">        
     <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel" data-slide-to="1" class=""></li>
+            <?php foreach ($dataSlider as $key => $value): ?>
+                
+            <li data-target="#carousel" data-slide-to="<?php echo $key; ?>" class="<?php echo $key==0?"active":""; ?>"></li>
+            <?php endforeach ?>
         </ol>
         <!-- Carousel items -->
         <div class="carousel-inner">
-            <img class=" item active" src="publics/template/default/images/banner1.png" alt="/banner/6/d/6/d/1/6d6d14e7a0ef49841fcce8090351e9ce.jpg" />
-            <img class=" item" src="publics/template/default/images/banner2.png" alt="/banner/c/d/b/0/5/cdb05bdfe0e836b658517a3221d77cb6.jpg" />
+            <?php foreach ($dataSlider as $key => $value): ?>
+                <img class="item <?php echo $key==0?"active":""; ?>" src="uploads/images/slide/<?php echo $value['img']; ?>" alt="<?php echo $value['title']; ?>" />
+            <?php endforeach ?>
         </div>
         <!-- Carousel nav -->
     </div>

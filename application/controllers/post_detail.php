@@ -19,8 +19,20 @@ class post_detail extends MY_Controller {
     }
 
     function view($id = 0){
+    	
 		$this->setInformationSite($data);
         $langCode = $this->lang->lang();
+         $dataSlider = $this->slider->getSlide(
+                                                'id, title, post_id, img, url, location, description,
+                                                (select utt_post.cate_id from utt_post where utt_post.id = utt_slide.post_id) as cate_id, 
+                                                (select utt_post.title from utt_post where utt_post.id = utt_slide.post_id) as post_title',
+                                                
+                                                array(
+                                                    'status'  => 1,
+                                                    'lang'=>$langCode,
+                                                    'type' => 'slide'
+                                                )
+        );
 		$post = $this->posts_home_model->get('id', array('id' => (int)$id, 'lang' => $langCode, 'status' => 1),TRUE);
 		if( !isset($post) || count($post) == 0){
 			// redirect($this->config->base_url($langCode.'/'.$this->siteName));
@@ -38,7 +50,7 @@ class post_detail extends MY_Controller {
 		$data['desc_for_layout'] = $post_detail['description'];
 		$post_id = (int)$id;
         
-        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode, 'breadcrumb'=>$breadcrumb);
+        $dataTmp = array('dataSlider' => $dataSlider,'dataMenu' => $dataMenu,'langCode' => $langCode, 'breadcrumb'=>$breadcrumb);
         $data = array_merge($data, $dataTmp);
   //       $html  = $this->render('layout/header', $data , true);
 		
@@ -81,6 +93,17 @@ class post_detail extends MY_Controller {
 		$this->setInformationSite($data);
 		// $nameHeader = $this->model_site->getNameHeader($this->site['id']);//get name header
         $langCode = $this->lang->lang();
+        $dataSlider = $this->slider->getSlide(
+                                                'id, title, post_id, img, url, location, description,
+                                                (select utt_post.cate_id from utt_post where utt_post.id = utt_slide.post_id) as cate_id, 
+                                                (select utt_post.title from utt_post where utt_post.id = utt_slide.post_id) as post_title',
+                                                
+                                                array(
+                                                    'status'  => 1,
+                                                    'lang'=>$langCode,
+                                                    'type' => 'slide'
+                                                )
+        );
 		// $navigation = $this->navigation_home_model->get('id,title', array('id' => (int)$nav_id, 'lang' => $langCode),TRUE);
 		// if( !isset($navigation) || count($navigation) == 0){
 		// 	redirect($this->config->base_url($langCode.'/'.$this->siteName));
@@ -116,7 +139,7 @@ class post_detail extends MY_Controller {
 		$breadcrumb = $this->posts_home_model->breadcrumb($nav_id);
 		// $getPostAndNew = $this->posts_home_model->showPostAndNew($this->site['id'], 5, $langCode);
 		// $data['title_for_layout'] = $navigation[0]['title'];
-        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode, 'breadcrumb'=>$breadcrumb);
+        $dataTmp = array('dataSlider' => $dataSlider, 'dataMenu' => $dataMenu,'langCode' => $langCode, 'breadcrumb'=>$breadcrumb);
         $data = array_merge($data, $dataTmp);
 
         // $html  = $this->render('layout/header', $data , true);
