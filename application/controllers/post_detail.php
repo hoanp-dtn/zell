@@ -19,7 +19,7 @@ class post_detail extends MY_Controller {
     }
 
     function view($id = 0){
-    	
+    	die;
 		$this->setInformationSite($data);
         $langCode = $this->lang->lang();
          $dataSlider = $this->slider->getSlide(

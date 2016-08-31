@@ -113,18 +113,17 @@ class Posts_home_model extends MY_Model {
 		}
 		return $result;
 	}
-	function showPostAndRelative($post_detail, $siteid = 0,$start, $limit, $langCode = 'vn')
+	function showPostAndRelative($post_detail,$start, $limit, $langCode = 'vn', $post_type = 'news')
 	{
 		$currentCateID[0] = $post_detail['cate_id'];
 		$allChild = $this->getAllChildCate($post_detail['cate_id'], $currentCateID);
-		$data = $this->db->select('p.*, c.title as cate_name, (select n.id from utt_navigation n where p.cate_id = n.cate_id and n.site_id = '.$siteid.') as nav_id')
+		$data = $this->db->select('p.*, c.title as cate_name, (select n.id from utt_navigation n where p.cate_id = n.cate_id) as nav_id')
 				->from(PREFIX.'post p')
 				->join('utt_cate c','c.id = p.cate_id')
 				->where_in('p.cate_id', $allChild)
 				->where(array(
-					'p.post_type' => 'news',
+					'p.post_type' => $post_type,
 					'p.status <' => '3',
-					'p.site_id' => $siteid,
 					'p.lang' => $langCode,
 					'p.id !=' => $post_detail['id']
 				))

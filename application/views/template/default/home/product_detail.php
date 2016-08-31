@@ -18,73 +18,167 @@
                     </h2>
                 </div>
                 <div class="about-content">
-                    <div class="product-info-thumnail">
-                        <div id="slider" class="flexslider">
-                          <ul class="slides">
-                            <?php foreach ($post_detail['file'] as $key => $value): ?>
+                    <div class="product">
+                        <div class="product-info-thumnail">
+                            <div id="slider" class="flexslider">
+                              <ul class="slides">
+
                                 <li>
-                                  <img src="uploads/files/<?php echo $value['value'] ?>" />
+                                  <img src="uploads/images/news/<?php echo $post_detail['image'] ?>" />
                                 </li>
-                            <?php endforeach ?>
-                            <!-- items mirrored twice, total of 12 -->
-                          </ul>
-                        </div>
-                        <div id="carousel-product" class="flexslider">
-                          <ul class="slides">
-                             <?php foreach ($post_detail['file'] as $key => $value): ?>
+                                <?php foreach ($post_detail['file'] as $key => $value): ?>
+                                    <li>
+                                      <img src="uploads/files/<?php echo $value['value'] ?>" />
+                                    </li>
+                                <?php endforeach ?>
+                                <!-- items mirrored twice, total of 12 -->
+                              </ul>
+                            </div>
+                            <div id="carousel-product" class="flexslider">
+                              <ul class="slides">
                                 <li>
-                                  <img src="uploads/files/<?php echo $value['value'] ?>" />
+                                  <img src="uploads/images/news/<?php echo $post_detail['image'] ?>" />
                                 </li>
-                            <?php endforeach ?>
-                          </ul>
-                        </div>
-                    </div>
-                    <div class="product-detail">
-                        <h4><?php echo $post_detail['title']; ?></h4>
-                        <div class="row">
-                            <span>Mã sản phẩm : <?php echo $post_detail['id']; ?></span>
-                        </div>
-                        <div class="price row">
-                            <label>Giá :</label>
-                            <div>
-                                <span class="price-actualy"><?php echo number_format($post_detail['price'],0,",","."); ?> VND</span>
-                                <span class="price-old"><?php echo number_format($post_detail['price'],0,",","."); ?> VND</span>
+                                 <?php foreach ($post_detail['file'] as $key => $value): ?>
+                                    <li>
+                                      <img src="uploads/files/<?php echo $value['value'] ?>" />
+                                    </li>
+                                <?php endforeach ?>
+                              </ul>
                             </div>
                         </div>
+                        <div class="product-detail">
+                            <h4><?php echo $post_detail['title']; ?></h4>
+                            <div class="row">
+                                <span>Mã sản phẩm : <?php echo $post_detail['id']; ?></span>
+                            </div>
+                            <div class="price row">
+                                <label>Giá :</label>
+                                <div>
+                                    <span class="price-actualy"><?php echo number_format($post_detail['price'],0,",","."); ?> VND</span>
+                                    <span class="price-old"><?php echo number_format($post_detail['price'],0,",","."); ?> VND</span>
+                                </div>
+                            </div>
 
-                        <div class="row">
-                            <span>Tình trạng : <?php echo $post_detail['is_top']==2?"Còn hàng":"Hết hàng"; ?></span>
-                        </div>  
-                        <div class="row">
-                            <span>Số lượng</span>
-                            <select>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                            </select>
+                            <div class="row">
+                                <span>Tình trạng : <?php echo $post_detail['is_top']==2?"Còn hàng":"Hết hàng"; ?></span>
+                            </div>  
+                            <div class="row">
+                                <span>Số lượng</span>
+                                <select>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <button>Đặt hàng</button>
+                            </div>
+                            <div class="row">
+                                <span>Hotline:</span>
+                                <span>0973 059 555</span>
+                            </div>
+                            <div class="row">
+                                <ul>
+                                    <li>
+                                        <img src="publics/template/default/images/good.png">
+                                        <span>Miễn phí vận chuyển nội thành Hà Nội</span>
+                                    </li>
+                                    <li>
+                                        <img src="publics/template/default/images/good.png">
+                                        <span>Hỗ trợ phí vận chuyển tỉnh xa</span>
+                                    </li>
+                                    <li>
+                                        <img src="publics/template/default/images/good.png">
+                                        <span>Tự động tích lũy điểm</span>  
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="row">
-                            <button>Đặt hàng</button>
+                    </div>
+                       <div class="product-info">
+                        <div class="tab-panels" role="tabpanel">
+                          <div class="tabs" role="tablist">
+                            <!-- Tab navigation -->
+                            <a href="#" id="tab1" role="tab" aria-labelledby="tab1" aria-describedby="tabcontent1" data-tab="1" class="active">Thông tin chi tiết</a>
+                            <a href="" id="tab2" role="tab" aria-labelledby="tab2" aria-describedby="tabcontent2" data-tab="2" class="">Đánh giá</a>
+                            <a href="" id="tab3" role="tab" aria-labelledby="tab3" aria-describedby="tabcontent3" data-tab="3" class="">Bình luận</a>
+                          </div>
+                          <div id="tabcontent1" class="tab-content active">
+                            <div>
+                                <?php echo html_entity_decode($post_detail['detail']); ?>
+                            </div>
+                          </div>
+                          <div id="tabcontent2" class="tab-content">
+                            <form>
+                                <h2>Đánh giá sản phẩm</h2>
+                                <hr>
+                                <p>1. Đánh giá sản phẩm</p>
+                                <ul>
+                                    <li data-vote="1"></li>
+                                    <li data-vote="2"></li>
+                                    <li data-vote="3"></li>
+                                    <li data-vote="4"></li>
+                                    <li data-vote="5"></li>
+                                </ul>
+                                <input type="hidden" name="vote">
+                                <p>2. Nội dung đánh giá</p>
+                                <textarea></textarea>
+                                <button type="submit">Đánh giá</button>
+                            </form>
+                          </div>
+
+                          <div id="tabcontent3" class="tab-content">
+                                
+                          </div>
                         </div>
-                        <div class="row">
-                            <span>Hotline:</span>
-                            <span>0973 059 555</span>
+                    </div>
+                    <div class="product-related">
+                        <h2>
+                            Sản phẩm cùng loại
+                        </h2>
+                        <div class="nav">
+                            <a href="#" data-info="pr">
+                                <img src="publics/template/default/images/pr_pr.png">
+                            </a>
+                            <a href="#" data-info="nx">
+                                <img src="publics/template/default/images/pr_next.png">
+                            </a>
                         </div>
-                        <div class="row">
-                            <ul>
-                                <li>
-                                    <img src="publics/template/default/images/good.png">
-                                    <span>Miễn phí vận chuyển nội thành Hà Nội</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/good.png">
-                                    <span>Hỗ trợ phí vận chuyển tỉnh xa</span>
-                                </li>
-                                <li>
-                                    <img src="publics/template/default/images/good.png">
-                                    <span>Tự động tích lũy điểm</span>  
-                                </li>
-                            </ul>
+                        <div class="product-inline">
+                         <?php foreach ($productRelative as $key => $value): ?>
+                            <div class="product-item">
+                                <div class="product-thumnail">
+                                    <a href="<?php echo $value['link'].slug($value['title']).'-i'.$value['id'].'.html' ?>">
+                                        <img src="uploads/images/news/<?php echo $value['image'];?>">
+                                    </a>
+                                </div>
+                                <div class="vote">
+                                    <ul>
+                                        <li>
+                                            <img src="publics/template/default/images/tim.png">
+                                            <span>30</span>
+                                        </li>
+                                        <li>
+                                            <img src="publics/template/default/images/view.png">
+                                            <span>150</span>
+                                        </li>
+                                        <li>
+                                            <img src="publics/template/default/images/fb.png">
+                                            <span>200</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <a href="<?php echo $value['link'].slug($value['title']).'-i'.$value['id'].'.html' ?>"><span><?php echo $value['title'];?></span></a>
+                                <div class="price">
+                                    <label>Giá :</label>
+                                    <div>
+                                        <span class="price-actualy"><?php echo number_format($value['price'],0,",","."); ?> VND</span>
+                                        <span class="price-old"><?php echo number_format($value['price_old'],2,",","."); ?> VND</span>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach ?>
                         </div>
                     </div>
                 </div>
@@ -116,4 +210,65 @@
               });
             });
 
+           $(".about-content .product-info .tabs a").click(function (e) {
+                e.preventDefault();
+                var tab_index = parseInt($(this).data("tab"));
+                if(tab_index < 1){
+                    tab_index = 1;
+                }
+                $(".about-content .product-info .tabs a.active").removeClass("active");
+                $(".about-content .product-info .tab-content.active").removeClass("active").hide();
+                $("#tabcontent"+tab_index).addClass("active").hide().fadeIn(500);
+                $(this).addClass("active");
+                return false;
+           });
+           $(".about-content .product-info #tabcontent2 li").hover(function () {
+                var vote = $(this).data('vote');
+                $(".about-content .product-info #tabcontent2 form input[name='vote']").val(vote);
+                for (var i = 1; i <= vote; i++) {
+
+                    $(".about-content .product-info #tabcontent2 li:nth-of-type("+i+")").css({
+                        "background-image" : "url('publics/template/default/images/star_yellow.png')"
+                    });
+                }
+                for (var i = vote + 1; i <= 5; i++) {
+
+                    $(".about-content .product-info #tabcontent2 li:nth-of-type("+i+")").css({
+                        "background-image" : "url('publics/template/default/images/star_df.png')"
+                    });
+                }
+           });
+           var w = $(".about-content .product-related").width();
+           $(".about-content .product-related .product-inline .product-item").css({
+                "width" :  w / 3 - (5/100) * w,
+                "margin-right" : w * (5/100) + "px"
+           });
+
+           $(".about-content .product-related .nav a").click(function (e) {
+                e.preventDefault();
+                var ml = parseInt($(".about-content .product-related .product-inline").css("margin-left"));
+                ml_max = -(w/3) * ($(".about-content .product-related .product-inline .product-item").length - 3);
+
+                if($(this).data("info") == "nx"){
+                    if(ml <= ml_max){
+                        return;
+                    }
+                    $(".about-content .product-related .product-inline").animate({
+                        "margin-left" : "-=" + (w / 3)
+                    },{
+                        queue : true
+                    });
+                }else{
+                    if(ml >= 0){
+                        return;
+                    }
+                    $(".about-content .product-related .product-inline").animate({
+                        "margin-left" : "+=" + (w / 3)
+                    },{
+                        
+                        queue : true
+                    });
+                }
+                return false;
+           });
         </script> 
