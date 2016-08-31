@@ -184,7 +184,44 @@
                 </div>
             </div>
         </div>
+        <div id="order" style="display:none;width:450px">
+            <h2>Đặt hàng</h2>
+            <h3>Thông tin khách hàng</h3>
+            <div class="row">
+                <input type="" name="" placeholder="Họ và tên">
+            </div>
+            <div class="row">
+                <input type="" name="" placeholder="Số điện thoại">
+            </div>
+            <div class="row">
+                <input type="" name="" placeholder="Email">
+            </div>
+            <div class="row">
+                <input type="" name="" placeholder="Địa chỉ">
+            </div>
+            <div class="row">
+                <input type="" name="" placeholder="Nội dung">
+            </div>
+            <div class="row">
+                <button type="submit">Mua ngay</button>
+            </div>
+        </div>
         <script>
+        $(".product-detail button").click(function () {
+             $.fancybox.open({
+                href: "#order",
+                closeBtn : false,
+                'padding' : 0,
+                beforeShow : function () {
+                    this.skin.css({
+                        "background" : "#d2a72a",
+                        'border-radius' : "0px",
+                        "padding" : "0",
+                        "margin" : "0"
+                    });
+                }
+            });
+        });
             $('.menu-outer li:eq(0)').addClass('active');
             $(".container .about .about-content").mCustomScrollbar({
 
