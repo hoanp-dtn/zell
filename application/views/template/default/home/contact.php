@@ -1,13 +1,26 @@
  <div class="about">
             <div class="breadcrumbs">
                 <ul>
-                    <li><a href="home.html">Trang chủ</a></li><span>/</span>
-                    <li><a href="about-us.html">Giới thiệu</a></li><span>/</span>
-                    <li><span>Công ty Zell-V</span></li>
+                   <li><a href="<?php echo base_url(); ?>">Trang chủ</a></li><span>/</span>
+                    <li><span>Liên hệ</span></li>
                 </ul>
             </div>
             <hr>
             <div class="about-main" >
+            <?php $message_flashdata = $this->session->flashdata('message_flashdata');
+                            if(isset($message_flashdata)&&count($message_flashdata)) {
+                                if($message_flashdata['type']=='successful') {
+                                ?>  
+                                    <div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><div><?php echo $message_flashdata['message']; ?></div></div>
+                                <?php
+                                }
+                                else if($message_flashdata['type']=='error'){
+                                ?>
+                                    <div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><div><?php echo $message_flashdata['message']; ?></div></div>
+                            <?php
+                                }
+                            }
+                        ?>
                 <div class="title">
                     <h2>
                         Liên hệ
@@ -40,21 +53,21 @@ Q. Cầu Giấy Hà Nội</p>
                     <div id="contact-submit">
                         <h4>Thông tin liên hệ</h4>
                         <hr>
-                        <form action="">
+                        <form action="<?php echo base_url(); ?>contact/add" method="post">
                             <div class="row">
-                                <input type="" name="" placeholder="Họ và tên">
+                                <input type="" name="name" placeholder="Họ và tên" required="">
                             </div>
                             <div class="row">
-                                <input type="" name="" placeholder="Hotline">
+                                <input type="" name="phone" placeholder="Hotline" required="">
                             </div>
                             <div class="row">
-                                <input type="" name="" placeholder="Email">
+                                <input type="email" name="email" placeholder="Email" required="">
                             </div>
                             <div class="row">
-                                <input type="" name="" placeholder="Địa chỉ">
+                                <input type="" name="address" placeholder="Địa chỉ" required="">
                             </div>
                             <div class="row">
-                                <textarea type="" name="" placeholder="Nội dung"></textarea> 
+                                <textarea type="" name="message" placeholder="Nội dung" required=""></textarea> 
                             </div>
                             <div class="row">
                                 <button type="submit">Gửi</button>
@@ -66,5 +79,5 @@ Q. Cầu Giấy Hà Nội</p>
         </div>
         <script>
             $('.menu-outer li:eq(0)').addClass('active');
-
+            $(".container .about .about-content").mCustomScrollbar({});
         </script>  
