@@ -181,7 +181,7 @@ class Product extends MY_Controller {
 		$data['title_for_layout'] = $post_detail['title'];
 		$data['desc_for_layout'] = $post_detail['description'];
 		$post_id = (int)$id;
-        
+        $productRelative = $this->posts_home_model->showPostAndRelative($post_detail, 0,100000, $langCode, 'product');
         $dataTmp = array('dataSlider'=>$dataSlider,'dataMenu' => $dataMenu,'langCode' => $langCode,'breadcrumb'=>$breadcrumb);
         $data = array_merge($data, $dataTmp);
   //       $html  = $this->render('layout/header', $data , true);
@@ -199,7 +199,8 @@ class Product extends MY_Controller {
         $html  .= $this->render('layout/menu_main', $data , true);
 
         $html  .= $this->render('home/product_detail', compact(
-        	'post_detail'
+        	'post_detail',
+             'productRelative'
     	) , true);
 
         $html .= $this->render('layout/footer', array(), true);

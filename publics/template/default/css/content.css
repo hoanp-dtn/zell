@@ -1921,3 +1921,153 @@ div.showcase-tooltip{
 a{
 	text-decoration: none!important;
 }
+.about-content .product-info{
+	clear: both;
+}
+.about-content .product-info .tabs{
+	height: 50px;
+	background: #dad5d2;
+	line-height: 49px;
+	border-bottom: 2px solid black;
+    box-shadow: 0px 3px 0px 0px #d2a72a;
+}
+
+.about-content .product-info .tabs a{
+    font-size: 12px;
+    padding: 18px;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.about-content .product-info .tabs a.active{
+	background: #d2a72a;
+}
+    
+.about-content .product-info .tab-content{
+    margin-top: 22px;
+    color: white;
+    display: none;
+}  
+
+.about-content .product-info .tab-content.active{
+	display: block;
+}
+ .about-content .product-info #tabcontent2 h2{
+ 	    color: #d2a72a;
+    font-size: 22px;
+    text-transform: uppercase;
+ }
+ .about-content .product-info #tabcontent2 hr{
+ 	        border: solid #d2a72a 1px;
+    background-color: white;
+    width: 58px;
+    float: left;
+ }
+ .about-content .product-info #tabcontent2 p{
+ 	clear: both;
+ 	font-weight: bold;
+ }
+ .about-content .product-info #tabcontent2 ul{
+ 	    width: 126px;
+    height: 20px;
+ }
+ .about-content .product-info #tabcontent2 li{
+ 	width: 20%;
+    float: left;
+    background: url('../images/star_df.png') no-repeat;
+    height: 100%;
+ }
+ .about-content .product-info #tabcontent2 li:hover{
+ 	cursor: pointer;
+
+ }
+
+ .about-content .product-info #tabcontent2 textarea{
+ 	width: 100%;
+    background: none;
+    outline: none;	
+    max-width: 100%;
+ }
+
+ .about-content .product-info #tabcontent2 button{
+ 	background: #d2a72a;
+    outline: none;
+    border: none;
+    color: black;
+    text-transform: uppercase;
+    padding: 5px 22px;
+    font-weight: bold;
+    margin-top: 10px;
+ }
+
+ .about-content .product-related{
+ 	clear: both;
+    overflow: hidden;
+ }
+ .about-content .product-related h2{
+ 	text-transform: uppercase;
+ 	color: white;
+ 	font-size: 18px;
+ }
+ .about-content .product-related .product-inline{
+ 	width: 20000px;
+ 	clear: both;
+ 	overflow: hidden;
+ }
+ .about-content .product-related .product-inline .product-item{
+ 	width: 100px;
+ 	margin-right: 0px;
+ }
+
+ .about-content .product-related .nav{
+ 	height: 24px;
+ 	width: 50px;
+ 	overflow: hidden;
+ 	float: right;
+ 	margin-bottom: 10px;
+ }
+ .about-content .product-related .nav a{
+ 	float: left;
+ }
+
+#order h2{
+	text-align: center;
+    color: black;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+}
+#order h3{    
+	font-size: 17px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 18px;
+}
+#order .row{    
+	margin: 0!important;
+	text-align: center;
+    padding: 5px 0px;
+}
+#order .row input{    
+	width: 90%;
+    color: black;
+    outline: none;
+    border: solid #989898 1px;
+    padding: 5px;
+}
+#order .row button{    
+	background: black;
+    outline: none;
+    border: none;
+    color: #d2a72a;
+    padding: 5px 25px;
+    text-transform: uppercase;
+    font-weight: bold
+}
+
+#order h3, #order .row, #order hr{
+	background: white;
+	margin: 0;
+}
