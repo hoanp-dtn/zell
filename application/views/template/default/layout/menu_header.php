@@ -15,19 +15,16 @@
                 <a href="/about-us/vi/ban-do-chi-dan-1.html">Tin tức nổi bật<span class="menu-bullet"></span></a>
                 <ul class="top-submenu">
                     <li></li>
-                    <li><a href="">Bí quyết làm đẹp</a>
-                    </li>
-                    <li><a href="">Nhau thai cừu</a>
-                    </li>
-                    <li><a href="">Liệu pháp tế bào gốc</a>
-                    </li>
+                    <?php foreach ($dataMenuNews as $key => $value): ?>
+                        <li><a href="<?php echo base_url($value['link']); ?>"><?php echo $value['title']; ?></a></li>
+                    <?php endforeach ?>
                 </ul>
             </li>
             <li>
                 <a href="/about-us/vi/quy-dinh-va-hinh-thuc-thanh-toan-5.html">Đối tác<span class="menu-bullet"></span></a>
             </li>
             <li>
-                <a href="/about-us/vi/chinh-sach-bao-mat-thong-tin-6.html">Liên hệ<span class="menu-bullet"></span></a>
+                <a href="<?php echo base_url(); ?>contact.html">Liên hệ<span class="menu-bullet"></span></a>
             </li>
         </ul>
     </div>

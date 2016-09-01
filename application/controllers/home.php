@@ -22,6 +22,7 @@ class Home extends MY_Controller {
         $langCode = $this->lang->lang();
 
         $dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
+        $dataMenuNews = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(68,$langCode), $langCode);
         
         $dataSlider = $this->slider->getSlide(
                                                 'id, title, post_id, img, url, location, description,
@@ -37,7 +38,7 @@ class Home extends MY_Controller {
         $dataGallery = $this->gallery->getGallery();
         // $dataAds = $this->ads->getAds(0, 2, array('site_id' => $this->site['id']));
         // $dataPartner = $this->partner->getPartner(0, 4, array('site_id' => $this->site['id']));
-        $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode, 'dataSlider'=>$dataSlider);
+        $dataTmp = array('dataMenuNews' =>$dataMenuNews,'dataMenu' => $dataMenu,'langCode' => $langCode, 'dataSlider'=>$dataSlider);
         $data = array_merge($data, $dataTmp);
 
         $html  = $this->render('layout/slider', $data , true);

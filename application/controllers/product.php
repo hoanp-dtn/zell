@@ -39,6 +39,7 @@ class Product extends MY_Controller {
 		// menu
 		$dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
 		
+        $dataMenuNews = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(68,$langCode), $langCode);
 		// data post
 		// $post_detail = $this->posts_home_model->showDetail((int)$id);
 		$breadcrumb = $this->posts_home_model->breadcrumb($nav_id);
@@ -48,7 +49,7 @@ class Product extends MY_Controller {
 		// $data['desc_for_layout'] = $post_detail['description'];
 		$list_product = $this->posts_home_model->getListPost($nav_id, $langCode, null, null, 'product');
         
-        $dataTmp = array('dataSlider'=> $dataSlider, 'dataMenu' => $dataMenu,'langCode' => $langCode, 'breadcrumb'=>$breadcrumb);
+        $dataTmp = array('dataMenuNews'=> $dataMenuNews,'dataSlider'=> $dataSlider, 'dataMenu' => $dataMenu,'langCode' => $langCode, 'breadcrumb'=>$breadcrumb);
         $data = array_merge($data, $dataTmp);
   //       $html  = $this->render('layout/header', $data , true);
 		
@@ -173,6 +174,7 @@ class Product extends MY_Controller {
 		// menu
 		$dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
 		
+        $dataMenuNews = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(68,$langCode), $langCode);
 		// data post
 		$post_detail = $this->posts_home_model->showDetail((int)$id);
 		$breadcrumb = $this->posts_home_model->breadcrumb($post_detail['nav_id']);
@@ -182,7 +184,7 @@ class Product extends MY_Controller {
 		$data['desc_for_layout'] = $post_detail['description'];
 		$post_id = (int)$id;
         $productRelative = $this->posts_home_model->showPostAndRelative($post_detail, 0,100000, $langCode, 'product');
-        $dataTmp = array('dataSlider'=>$dataSlider,'dataMenu' => $dataMenu,'langCode' => $langCode,'breadcrumb'=>$breadcrumb);
+        $dataTmp = array('dataMenuNews'=>$dataMenuNews,'dataSlider'=>$dataSlider,'dataMenu' => $dataMenu,'langCode' => $langCode,'breadcrumb'=>$breadcrumb);
         $data = array_merge($data, $dataTmp);
   //       $html  = $this->render('layout/header', $data , true);
 		
