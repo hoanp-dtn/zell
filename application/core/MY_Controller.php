@@ -5,15 +5,18 @@ if (!defined('BASEPATH'))
 class MY_Controller extends CI_Controller {
     public $template_f;
     public $template;
+    public $language;
     public $site = array();
 
     function __construct() {
         parent::__construct();
+        $this->load->helper(array('language', 'cookie'));
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $this->template_f = $this->config->item('template_f');
         $this->template   = $this->config->item('template_default');
         $this->load->model('model_site');
-        $isLangCookie = $this->config->item('lang_ignore');
+        $this->language = get_cookie('language') ? get_cookie('language') : $this->config->item('language');
+        $this->language = 'english';
     }
 
     function uri_array($i){

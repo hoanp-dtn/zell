@@ -35,10 +35,10 @@
                 ?>
 
                 <li data-active="thu-vien">
-                    <a href="#">Thư viện</a>
+                    <a href="#"><?php echo lang('gallery');?></a>
                     <ul class="submenu">
-                        <li><a href="<?php echo base_url(); ?>thu-vien/photo.html">Photo</a></li>
-                        <li><a href="<?php echo base_url(); ?>thu-vien/video.html">Video</a></li>
+                        <li><a href="<?php echo base_url(); ?>thu-vien/photo.html"><?php echo lang('photo');?></a></li>
+                        <li><a href="<?php echo base_url(); ?>thu-vien/video.html"><?php echo lang('video');?></a></li>
                     </ul>
                 </li>
 
@@ -54,7 +54,7 @@
         <form name="idForm" target="dispoprice" action="http://www.fastbookings.biz/DIRECTORY/dispoprice.phtml">
             <div class="sidebar-form">
                 <div class="sf-row">
-                    <label>Tư vấn 24/24</label>
+                    <label><?php echo lang('sp24');?></label>
                     <div class="div_input">
                         <img src="publics/template/default/images/message.png">
                         <input type="text" name="AccessCode" class="text" value="">
@@ -62,7 +62,7 @@
                 </div>
                 <hr class="sitebar-hr">
                 <div class="sf-row">
-                    <label>Đăng ký<span>nhận thông tin</span>
+                    <label><?php echo lang('register');?><span><?php echo lang('get_info');?></span>
                     </label>
 
                     <div class="div_input">
@@ -76,12 +76,11 @@
         </form>
         <div class="clearfix"></div>
         <div class="sidebar-footer">
-            <p>Cty TNHH đầu tư thương mại & dịch vụ BT Việt Nam</p>
-            <p>Lô B9 số 9A, ngõ 233 Xuân Thủy,P. Dịch Vọng Hậu, Q. Cầu Giấy Hà Nội</p>
-            <p>Tel: 043-6-43-43-43</p>
-            <p>Hotline: 0973 059 555 (Tư vấn 24/24)</p>
+            <p><?php echo lang('company');?></p>
+            <p><?php echo lang('company_address');?></p>
+            <p>Hotline: 0973 059 555 (<?php echo lang('sp24');?>)</p>
             <p>Email: zellvvietnam@gmail.com</p>
-            <span>Zell-V Việt Nam</span>
+            <span><?php echo lang('company_name');?></span>
         </div>
         <hr class="sitebar-hr">
         <div id="copy-right">Copyright © 2016 ZELL-V</div>
