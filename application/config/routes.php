@@ -42,32 +42,6 @@ require_once( BASEPATH .'database/DB'. EXT );
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 global $CFG;
-$lang_ignore  = $CFG->item('lang_ignore');
-$db =& DB();
-$query = $db->select('url_name')->get( 'utt_site' );
-$result = $query->result();
-foreach( $result as $row )
-{
-    $route['(\w{2}/)?' . $row->url_name] = $route['default_controller'];
-    $route['(\w{2}/)?' . $row->url_name . '([/a-zA-Z0-9-_]+)-n([0-9]+).html'] = "post_detail/view_listpost/$3";
-    $route['(\w{2}/)?' . $row->url_name . '([/a-zA-Z0-9-_]+)-p([0-9]+).html'] = "product/productList/$3";
-    $route['(\w{2}/)?' . $row->url_name . '/sitemap.html'] = "site_map";
-    $route['(\w{2}/)?' . $row->url_name . '/gallery.html'] = "gallery_home";
-    $route['(\w{2}/)?' . $row->url_name . '/list_teacher.html'] = "list_teacher";
-    $route['(\w{2}/)?' . $row->url_name . '([/a-zA-Z0-9-_]+)-a([0-9]+).html'] = "post_detail/view/$3";
-    $route['(\w{2}/)?' . $row->url_name . '([/a-zA-Z0-9-_]+)-i([0-9]+).html'] = "product/view/$3";
-    $route['(\w{2}/)?' . $row->url_name] = $route['default_controller'];
-    $route['(\w{2}/)?' . $row->url_name . '([/a-zA-Z0-9-_]+)-n([0-9]+).html'] = "post_detail/view_listpost/$3";
-    $route['(\w{2}/)?' . $row->url_name . '([/a-zA-Z0-9-_]+)-p([0-9]+).html'] = "product/productList/$3";
-    $route['(\w{2}/)?' . $row->url_name . '([/a-zA-Z0-9-_]+)-a([0-9]+).html'] = "post_detail/view/$3";
-    $route['(\w{2}/)?' . $row->url_name . '([/a-zA-Z0-9-_]+)-i([0-9]+).html'] = "product/view/$3";
-
-    $route['^(\w{2}/)?' . $row->url_name . '/(:any)-n([0-9]+).html$'] = "post_detail/view_listpost/$3";
-    $route['^(\w{2}/)?' . $row->url_name . '/(:any)-p([0-9]+).html$'] = "product/productList/$3";
-    $route['^(\w{2}/)?' . $row->url_name . '/(:any)-a([0-9]+).html$'] = "post_detail/view/$3";
-    $route['^(\w{2}/)?' . $row->url_name . '/(:any)-i([0-9]+).html$'] = "product/view/$3";
-    $route['(\w{2}/)?' . $row->url_name . '/(:any)'] = "$2";
-}
 
 $route['(\w{2})?'] = $route['default_controller'];
 $route['^(\w{2}/)?(:any)-n([0-9]+).html$'] = "post_detail/view_listpost/$3";
@@ -77,7 +51,6 @@ $route['^(\w{2}/)?(:any)-i([0-9]+).html$'] = "product/view/$3";
 $route['^(\w{2}/)?sitemap.html$'] = "site_map";
 $route['^(\w{2}/)?thu-vien/photo.html$'] = "gallery_home/photo";
 $route['^(\w{2}/)?thu-vien/video.html$'] = "gallery_home/video";
-$route['^(\w{2}/)?list_teacher.html$'] = "list_teacher";
 $route['(\w{2})?/(:any)'] = "$2";
     $route['admin/get-setting-content/([0-9]+)/?([0-9]+)?'] = 'admin/sitemanager/ajaxGetTemplateSetting/$1/$2';
 $route['admin/checklog/?(:any)?'] = 'admin/home/checklog/$s1';

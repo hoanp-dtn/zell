@@ -6,7 +6,7 @@ class Home extends MY_Controller {
         parent::__construct ();
         $this->load->library('Homelayout');
         $this->config->load('config_data');
-        $this->lang->load('home');
+        $this->lang->load('home', $this->language);
         $this->load->model('posts_home_model');
         $this->load->model('Model_site');
         $this->load->model('slider');
@@ -20,7 +20,6 @@ class Home extends MY_Controller {
     function index(){
         $this->setInformationSite($data);
         $langCode = $this->lang->lang();
-
         $dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
         
         $dataSlider = $this->slider->getSlide(
@@ -35,7 +34,6 @@ class Home extends MY_Controller {
                                                 )
         );
         $dataGallery = $this->gallery->getGallery();
-        // $dataAds = $this->ads->getAds(0, 2, array('site_id' => $this->site['id']));
         // $dataPartner = $this->partner->getPartner(0, 4, array('site_id' => $this->site['id']));
         $dataTmp = array('dataMenu' => $dataMenu,'langCode' => $langCode, 'dataSlider'=>$dataSlider);
         $data = array_merge($data, $dataTmp);
