@@ -29,6 +29,8 @@ class Contact extends MY_Controller {
         $this->load->model('category_home_model');
 
         $this->load->model('gallery');
+        $this->load->model('contact_home_model');
+        $this->load->library('form_validation');
 
     }
 
@@ -82,111 +84,21 @@ class Contact extends MY_Controller {
 
     }
 
-    public function photo($value='')
+    public function add()
     {
-        $this->setInformationSite($data);
-        $langCode = $this->lang->lang();
-        $dataSlider = $this->slider->getSlide(
-                                                'id, title, post_id, img, url, location, description,
-                                                (select utt_post.cate_id from utt_post where utt_post.id = utt_slide.post_id) as cate_id, 
-                                                (select utt_post.title from utt_post where utt_post.id = utt_slide.post_id) as post_title',
-                                                
-                                                array(
-                                                    'status'  => 1,
-                                                    'lang'=>$langCode,
-                                                    'type' => 'slide'
-                                                )
-        );
-        $dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
-
-        $dataMenuNews = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(68,$langCode), $langCode);
-         $dataTmp = array('dataMenuNews'=>$dataMenuNews,'dataSlider'=>$dataSlider,'dataMenu' => $dataMenu,'langCode' => $langCode);
-        $data = array_merge($data, $dataTmp);
-        $dataGallery = $this->gallery->getGallery();
-        $html  = $this->render('layout/slider', $data , true);
-        $html .="<div class='container'>";
-
-        $html  .= $this->render('layout/menu_header', $data , true);
-        $html  .= $this->render('layout/menu_main', $data , true);
-
-        $html  .= $this->render('home/photo', compact(
-'dataGallery'
-            ) , true);
-
-        $html .= $this->render('layout/footer', array(), true);
-        // $html .= $this->render(
-        //                     'home/home',
-        //                     compact(
-        //                         'dataSlider',
-        //                         // 'dataAds',
-        //                         // 'dataPartner',
-        //                         'langCode',
-        //                         'dataGallery'
-        //                         // 'dataDepartment'
-        //                     ),
-        //                     true
-        // );
-        $html .= "</div>";
-        $data['content_for_layout'] = $html;
-        $this->render('layout/default', $data);
-    }
-public function video($value='')
-    {
-        $this->setInformationSite($data);
-        $langCode = $this->lang->lang();
-        $dataSlider = $this->slider->getSlide(
-                                                'id, title, post_id, img, url, location, description,
-                                                (select utt_post.cate_id from utt_post where utt_post.id = utt_slide.post_id) as cate_id, 
-                                                (select utt_post.title from utt_post where utt_post.id = utt_slide.post_id) as post_title',
-                                                
-                                                array(
-                                                    'status'  => 1,
-                                                    'lang'=>$langCode,
-                                                    'type' => 'slide'
-                                                )
-        );
-        $dataVideo = $this->slider->getSlide(
-                                                'id, title, post_id, img, url, location, description,
-                                                (select utt_post.cate_id from utt_post where utt_post.id = utt_slide.post_id) as cate_id, 
-                                                (select utt_post.title from utt_post where utt_post.id = utt_slide.post_id) as post_title',
-                                                
-                                                array(
-                                                    'status'  => 1,
-                                                    'lang'=>$langCode,
-                                                    'type' => 'video'
-                                                )
-        );
-        $dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
-        $dataMenuNews = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(68,$langCode), $langCode);
-         $dataTmp = array('dataMenuNews'=>$dataMenuNews,'dataSlider'=>$dataSlider,'dataMenu' => $dataMenu,'langCode' => $langCode);
-        $data = array_merge($data, $dataTmp);
-        $dataGallery = $this->gallery->getGallery();
-        $html  = $this->render('layout/slider', $data , true);
-        $html .="<div class='container'>";
-
-        $html  .= $this->render('layout/menu_header', $data , true);
-        $html  .= $this->render('layout/menu_main', $data , true);
-
-        $html  .= $this->render('home/video', compact(
-'dataVideo'
-            ) , true);
-
-        $html .= $this->render('layout/footer', array(), true);
-        // $html .= $this->render(
-        //                     'home/home',
-        //                     compact(
-        //                         'dataSlider',
-        //                         // 'dataAds',
-        //                         // 'dataPartner',
-        //                         'langCode',
-        //                         'dataGallery'
-        //                         // 'dataDepartment'
-        //                     ),
-        //                     true
-        // );
-        $html .= "</div>";
-        $data['content_for_layout'] = $html;
-        $this->render('layout/default', $data);
+        if(isset($_POST) && !empty($_POST)){
+            $this->form_validation->set_rules('name','Họ tên','trim|required');
+            $this->form_validation->set_rules('phone','Hotline','trim|required');
+            $this->form_validation->set_rules('email','Email','trim|required|email');
+            $this->form_validation->set_rules('address','Địa chỉ','trim|required');
+            $this->form_validation->set_rules('message','Nội dung','trim|required');
+           
+            if($this->form_validation->run()){
+                $flag = $this->contact_home_model->add($this->input->post());
+                $this->session->set_flashdata('message_flashdata',$flag);
+                redirect('contact/');
+            }
+        }
     }
 
 }
