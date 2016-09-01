@@ -2,7 +2,14 @@
     <div class="menu">
         <ul>
             <li>
-                <a href="/about-us/vi/ve-emeralda-resort-ninh-binh-4.html">Thư viện<span class="menu-bullet"></span></a>
+                <a href="#">Thư viện<span class="menu-bullet"></span></a>
+                <ul class="top-submenu">
+                    <li></li>
+                    <li><a href="<?php echo base_url()."thu-vien/photo.html"?>">Photo</a>
+                    </li>
+                    <li><a href="<?php echo base_url()."thu-vien/video.html"?>">Video</a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <a href="/about-us/vi/ban-do-chi-dan-1.html">Tin tức nổi bật<span class="menu-bullet"></span></a>
