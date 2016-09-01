@@ -1,9 +1,8 @@
 <div class="about">
             <div class="breadcrumbs">
                 <ul>
-                    <li><a href="home.html">Trang chủ</a></li><span>/</span>
-                    <li><a href="about-us.html">Giới thiệu</a></li><span>/</span>
-                    <li><span>Công ty Zell-V</span></li>
+                    <li><a href="<?php echo base_url(); ?>">Trang chủ</a></li><span>/</span>
+                    <li><span>Video</span></li>
                 </ul>
             </div>
             <hr>

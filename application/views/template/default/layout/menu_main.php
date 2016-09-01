@@ -1,7 +1,7 @@
 <?php
     function displayMenu($dataMenu,$class_ul = false){
     ?>
-        <li class="<?php echo slug($dataMenu['title']);?>"><a href="<?php echo $dataMenu['link'];?>"><?php echo $dataMenu['title'];?></a>
+        <li data-active="<?php echo slug($dataMenu['title']);?>"><a href="<?php echo $dataMenu['link'];?>"><?php echo $dataMenu['title'];?></a>
             <?php
                 if(isset($dataMenu['children'])){
                     ?>
@@ -22,7 +22,7 @@
 ?>
 <div class="sidebar">
     <div class="bg-white">
-        <a class="logo" href="/home/vi.html"><img src="publics/template/default/images/logo.png" alt="logo" />
+        <a class="logo" href="<?php echo base_url(); ?>"><img src="publics/template/default/images/logo.png" alt="logo" />
         </a>
         <div class="menuleft">
             <ul>
@@ -34,52 +34,17 @@
                     }
                 ?>
 
-                <li>
+                <li data-active="thu-vien">
                     <a href="#">Thư viện</a>
                     <ul class="submenu">
                         <li><a href="<?php echo base_url(); ?>thu-vien/photo.html">Photo</a></li>
                         <li><a href="<?php echo base_url(); ?>thu-vien/video.html">Video</a></li>
                     </ul>
                 </li>
-                <!-- <li>
-                    <a href="home.html">Trang chủ</a>
+
+                <li data-active="contact.html">
+                    <a href="<?php echo base_url(); ?>contact.html">Liên hệ</a>
                 </li>
-                <li class="active">
-                    <a href="#">Giới thiệu</a>
-                    <ul class="submenu">
-                        <li><a href="zellv-company.html">Công ty Zell-V</a>
-                        </li>
-                        <li><a href="bt-vetnam.html">BT Việt Nam</a>
-                        </li>
-                        <li><a href="nhau-thai-cuu.html">Nhau thai cừu</a>
-                        </li>
-                        <li><a href="lieu-phap-te-bao-goc.html">Liệu pháp tế bào gốc</a>
-                        </li>
-                        <li><a href="certificate.html">Chứng nhận và chứng chỉ</a>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="product.html">Sản phẩm</a>
-                </li>
-                <li><a href="#">Dịch vụ</a>
-                    <ul class="submenu">
-                        <li><a href="service.html">Xét nghiệm máu</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Thư viện</a>
-                    <ul class="submenu">
-                        <li><a href="photo.html">Photo</a>
-                        </li>
-                        <li><a href="video.html">Video</a>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="news.html">Tin tức</a>
-                </li>
-                <li><a href="contact.html">Liên hệ</a>
-                </li> -->
                 <div id="lavalamp"></div>
             </ul>
         </div>
@@ -125,15 +90,15 @@
 </div>
 <!-- sidebar -->
 <script type="text/javascript">
-    $(document).ready(function (argument) {
         var pathname = $(location).attr('pathname');
         var pathArr = pathname.split("/");
+        console.log(pathArr);
         var active = false;
         for(var i = 0; i < 4; i++){
             if(pathArr[i] != ""){
-                $(".menuleft ul > li."+pathArr[i]).addClass("active");
+                $(".menuleft ul > li[data-active='"+ pathArr[i] +"']").addClass("active");
 
-                if($(".menuleft ul > li."+pathArr[i]).length > 0){
+                if($(".menuleft ul > li[data-active='"+ pathArr[i] +"']").length > 0){
                     active = true;
                     break;
                 }
@@ -143,5 +108,4 @@
         if(!active){
             $(".menuleft ul > li:first-child").addClass("active");
         }
-    });
 </script>

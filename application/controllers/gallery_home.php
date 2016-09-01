@@ -118,7 +118,9 @@ class Gallery_home extends MY_Controller {
                                                 )
         );
         $dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
-         $dataTmp = array('dataSlider'=>$dataSlider,'dataMenu' => $dataMenu,'langCode' => $langCode);
+
+        $dataMenuNews = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(68,$langCode), $langCode);
+         $dataTmp = array('dataMenuNews'=>$dataMenuNews,'dataSlider'=>$dataSlider,'dataMenu' => $dataMenu,'langCode' => $langCode);
         $data = array_merge($data, $dataTmp);
         $dataGallery = $this->gallery->getGallery();
         $html  = $this->render('layout/slider', $data , true);
@@ -175,7 +177,8 @@ public function video($value='')
                                                 )
         );
         $dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
-         $dataTmp = array('dataSlider'=>$dataSlider,'dataMenu' => $dataMenu,'langCode' => $langCode);
+        $dataMenuNews = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(68,$langCode), $langCode);
+         $dataTmp = array('dataMenuNews'=>$dataMenuNews,'dataSlider'=>$dataSlider,'dataMenu' => $dataMenu,'langCode' => $langCode);
         $data = array_merge($data, $dataTmp);
         $dataGallery = $this->gallery->getGallery();
         $html  = $this->render('layout/slider', $data , true);
