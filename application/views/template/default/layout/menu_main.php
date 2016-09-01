@@ -22,7 +22,7 @@
 ?>
 <div class="sidebar">
     <div class="bg-white">
-        <a class="logo" href="/home/vi.html"><img src="publics/template/default/images/logo.png" alt="logo" />
+        <a class="logo" href="<?php echo base_url(); ?>"><img src="publics/template/default/images/logo.png" alt="logo" />
         </a>
         <div class="menuleft">
             <ul>
