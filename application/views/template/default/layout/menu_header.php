@@ -54,5 +54,20 @@
         </ul>
     </div>
     <!-- box-language -->
+
+ <?php $message_flashdata = $this->session->flashdata('message_flashdata');
+                            if(isset($message_flashdata)&&count($message_flashdata)) {
+                                if($message_flashdata['type']=='successful') {
+                                ?>  
+                                    <div id="noti" class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><div><?php echo $message_flashdata['message']; ?></div></div>
+                                <?php
+                                }
+                                else if($message_flashdata['type']=='error'){
+                                ?>
+                                    <div id="noti" class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><div><?php echo $message_flashdata['message']; ?></div></div>
+                            <?php
+                                }
+                            }
+                        ?>
 </div>
 <!-- header -->

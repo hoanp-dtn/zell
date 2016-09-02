@@ -94,7 +94,9 @@ class Contact extends MY_Controller {
             $this->form_validation->set_rules('message','Nội dung','trim|required');
            
             if($this->form_validation->run()){
-                $flag = $this->contact_home_model->add($this->input->post());
+                $post = $this->input->post();
+                $post['type'] = 'contact';
+                $flag = $this->contact_home_model->add($post);
                 $this->session->set_flashdata('message_flashdata',$flag);
                 redirect('contact/');
             }
