@@ -36,7 +36,8 @@ class Home extends MY_Controller {
         );
         $dataGallery = $this->gallery->getGallery();
         // $dataPartner = $this->partner->getPartner(0, 4, array('site_id' => $this->site['id']));
-        $dataTmp = array('dataMenuNews' =>$dataMenuNews,'dataMenu' => $dataMenu,'langCode' => $langCode, 'dataSlider'=>$dataSlider);
+        $list_posts = $this->posts_home_model->getListPost(0, $langCode, null, null,'news', 30);
+        $dataTmp = array('list_posts' =>$list_posts,'dataMenuNews' =>$dataMenuNews,'dataMenu' => $dataMenu,'langCode' => $langCode, 'dataSlider'=>$dataSlider);
         $data = array_merge($data, $dataTmp);
 
         $html  = $this->render('layout/slider', $data , true);

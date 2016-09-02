@@ -1278,9 +1278,10 @@ div.showcase-tooltip{
 .book-slider .bs-footer{
 	background:#000;
 	background:rgba(0, 0, 0, 0.7);
-	padding:2px 5px;
+	padding:12px 5px;
 	line-height:14px;
 	text-align:right;
+	text-transform: uppercase;
 }
 .book-slider .bs-footer a,
 .book-slider .bs-footer span{

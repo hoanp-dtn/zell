@@ -139,9 +139,14 @@ class Posts_home_model extends MY_Model {
 		return isset($data) ? $data : false;
 	}
 	
-	function getListPost($nav_id = 0, $langCode = 'vn', $start = NULL, $limit = NULL, $type = 'news'){
+	function getListPost($nav_id = 0, $langCode = 'vn', $start = NULL, $limit = NULL, $type = 'news', $cate_id=0){
 		$navigation = $this->navigation_home_model->get('cate_id', array('id' => $nav_id), FALSE);
-		$currentCateID[0] = $navigation['cate_id'];
+		if($cate_id != 0){
+			$navigation['cate_id'] = $cate_id;
+			$currentCateID[0] = $navigation['cate_id'];
+		}else{
+			$currentCateID[0] = $navigation['cate_id'];
+		}
 		$allChild = $this->getAllChildCate($navigation['cate_id'], $currentCateID);
 		$this->db->select('p.*, (select c.title from utt_cate c where c.id = p.cate_id) as cate_name, (select n.id from utt_navigation n where p.cate_id = n.cate_id ) as nav_id')
 			->from(PREFIX.'post p')
