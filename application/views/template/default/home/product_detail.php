@@ -184,7 +184,7 @@
                           </div>
 
                           <div id="tabcontent3" class="tab-content">
-                                
+                                  <div class="fb-comments" data-colorscheme="dark" data-href="<?php echo curPageURL();?>" data-width="650" data-numposts="5"></div>  
                           </div>
                         </div>
                     </div>

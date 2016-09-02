@@ -6,7 +6,6 @@
 <!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 
-<!-- Mirrored from demo.esmeth.com/html/universe/Blue/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 04 Jul 2015 02:08:53 GMT -->
 <head>
    <script>
        site_url = base_url = '<?php echo $this->config->base_url();?>';
@@ -16,7 +15,7 @@
     <meta name="description" content="<?php echo isset($desc_for_layout) ? $desc_for_layout : ''; ?>" />
     <meta name="keywords" content="<?php echo isset($keyword_for_layout) ? $keyword_for_layout : ''; ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Esmet">
+    <meta name="author" content="Zell V Việt Nam">
 	<base href= "<?php echo $this->config->base_url()?>"/>
     <!-- CSS Bootstrap & Custom -->
     <?php
@@ -39,11 +38,27 @@
     ?>
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php assets_base_url('images/ico/apple-touch-icon-144-precomposed.png');?>">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php assets_base_url('images/ico/apple-touch-icon-114-precomposed.png');?>">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php assets_base_url('images/ico/apple-touch-icon-72-precomposed.png');?>">
-    <link rel="apple-touch-icon-precomposed" href="<?php assets_base_url('images/ico/apple-touch-icon-57-precomposed.png');?>">
+
     <link rel="shortcut icon" href="<?php assets_base_url('images/ico/favicon.ico');?>">
+    <link rel="apple-touch-icon" sizes="57x57" href="<?php assets_base_url('images/ico/apple-icon-57x57.png');?>">
+<link rel="apple-touch-icon" sizes="60x60" href="<?php assets_base_url('images/ico//apple-icon-60x60.png');?>">
+<link rel="apple-touch-icon" sizes="72x72" href="<?php assets_base_url('images/ico//apple-icon-72x72.png');?>">
+<link rel="apple-touch-icon" sizes="76x76" href="<?php assets_base_url('images/ico//apple-icon-76x76.png');?>">
+<link rel="apple-touch-icon" sizes="114x114" href="<?php assets_base_url('images/ico/apple-icon-114x114.png');?>">
+<link rel="apple-touch-icon" sizes="120x120" href="<?php assets_base_url('images/ico/apple-icon-120x120.png');?>">
+<link rel="apple-touch-icon" sizes="144x144" href="<?php assets_base_url('images/ico/apple-icon-144x144.png');?>">
+<link rel="apple-touch-icon" sizes="152x152" href="<?php assets_base_url('images/ico/apple-icon-152x152.png');?>">
+<link rel="apple-touch-icon" sizes="180x180" href="<?php assets_base_url('images/ico/apple-icon-180x180.png');?>">
+<link rel="icon" type="image/png" sizes="192x192"  href="<?php assets_base_url('images/ico/android-icon-192x192.png');?>">
+<link rel="icon" type="image/png" sizes="32x32" href="<?php assets_base_url('images/ico/favicon-32x32.png');?>">
+<link rel="icon" type="image/png" sizes="96x96" href="<?php assets_base_url('images/ico/favicon-96x96.png');?>">
+<link rel="icon" type="image/png" sizes="16x16" href="<?php assets_base_url('images/ico/favicon-16x16.png');?>">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="<?php assets_base_url('images/ico/ms-icon-144x144.png');?>">
+<meta name="theme-color" content="#ffffff">
+
+
     <!-- JavaScripts -->
     <?php
         assets_js(
@@ -79,6 +94,16 @@
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.7&appId=864593606900071";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
     <?php echo isset($content_for_layout) ? $content_for_layout : ''; ?>
 
 <script>
@@ -122,5 +147,4 @@ $(document).ready(function(){
 </body>
 <?php echo isset($js_for_footer) ? $js_for_footer : '';?>
 
-<!-- Mirrored from demo.esmeth.com/html/universe/Blue/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 04 Jul 2015 02:09:48 GMT -->
 </html>
