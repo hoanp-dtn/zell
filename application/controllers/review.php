@@ -42,6 +42,7 @@ class Review extends MY_Controller {
                 'type' => 'review',
                 'location' => $post['vote'],
                 'post_id' => $post['product_id'],
+                'description' => $post['detail'],
             ];
             $flag = $this->slider->add($data);
             $this->session->set_flashdata('message_flashdata',$flag);

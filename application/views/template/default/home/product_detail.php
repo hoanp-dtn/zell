@@ -114,9 +114,59 @@
                             </div>
                           </div>
                           <div id="tabcontent2" class="tab-content">
-                            <form action="<?php echo base_url(); ?>review/add?redirect=<?php echo base64_encode(current_url()) ?>" method="post">
+                            
                                 <h2>Đánh giá sản phẩm</h2>
                                 <hr>
+
+                                <div class="review-item">
+                                    <div class="ava">
+                                    </div>
+                                    <div class="review-item-info">
+                                        <ul data-rate="4">
+                                            <li data-vote="1"></li>
+                                            <li data-vote="2"></li>
+                                            <li data-vote="3"></li>
+                                            <li data-vote="4"></li>
+                                            <li data-vote="5"></li>
+                                        </ul>
+                                        <div class="review-item-content">
+                                            Được biết, đây là món quà đặc biệt - Chiếc BMW i8 thứ 3 - mà anh chồng 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-item">
+                                    <div class="ava">
+                                    </div>
+                                    <div class="review-item-info">
+                                        <ul data-rate="4">
+                                            <li data-vote="1"></li>
+                                            <li data-vote="2"></li>
+                                            <li data-vote="3"></li>
+                                            <li data-vote="4"></li>
+                                            <li data-vote="5"></li>
+                                        </ul>
+                                        <div class="review-item-content">
+                                            Được biết, đây là món quà đặc biệt - Chiếc BMW i8 thứ 3 - mà anh chồng 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-item">
+                                    <div class="ava">
+                                    </div>
+                                    <div class="review-item-info">
+                                        <ul data-rate="4">
+                                            <li data-vote="1"></li>
+                                            <li data-vote="2"></li>
+                                            <li data-vote="3"></li>
+                                            <li data-vote="4"></li>
+                                            <li data-vote="5"></li>
+                                        </ul>
+                                        <div class="review-item-content">
+                                            Được biết, đây là món quà đặc biệt - Chiếc BMW i8 thứ 3 - mà anh chồng 
+                                        </div>
+                                    </div>
+                                </div>
+                                <form action="<?php echo base_url(); ?>review/add?redirect=<?php echo base64_encode(current_url()) ?>" method="post">
                                 <p>1. Đánh giá sản phẩm</p>
                                 <input type="hidden" name="product_id">
                                 <ul>
@@ -216,6 +266,18 @@
             </form>
         </div>
         <script>
+        $(".review-item-info ul").each(function () {
+            var rate = $(this).data("rate");
+            var i = 1;
+            $(this).children("li").each(function () {
+                if(i++ > rate){
+                    return;
+                }
+                 $(this).css({
+                "background-image" : "url('publics/template/default/images/star_yellow.png')"
+            });
+            });
+        });
         $(".product-detail button").click(function () {
              $.fancybox.open({
                 href: "#order",
@@ -270,21 +332,21 @@
                 $(this).addClass("active");
                 return false;
            });
-           $(".about-content .product-info #tabcontent2 li:nth-of-type("+1+")").css({
+           $(".about-content .product-info #tabcontent2 form li:nth-of-type("+1+")").css({
                 "background-image" : "url('publics/template/default/images/star_yellow.png')"
             });
-           $(".about-content .product-info #tabcontent2 li").hover(function () {
+           $(".about-content .product-info #tabcontent2 form li").hover(function () {
                 var vote = $(this).data('vote');
                 $(".about-content .product-info #tabcontent2 form input[name='vote']").val(vote);
                 for (var i = 1; i <= vote; i++) {
 
-                    $(".about-content .product-info #tabcontent2 li:nth-of-type("+i+")").css({
+                    $(".about-content .product-info #tabcontent2 form li:nth-of-type("+i+")").css({
                         "background-image" : "url('publics/template/default/images/star_yellow.png')"
                     });
                 }
                 for (var i = vote + 1; i <= 5; i++) {
 
-                    $(".about-content .product-info #tabcontent2 li:nth-of-type("+i+")").css({
+                    $(".about-content .product-info #tabcontent2 form li:nth-of-type("+i+")").css({
                         "background-image" : "url('publics/template/default/images/star_df.png')"
                     });
                 }

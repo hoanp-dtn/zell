@@ -2090,3 +2090,23 @@ a{
 .product-info #tabcontent1 img{
 	max-width: 100%;
 }
+.review-item{
+	clear: both;
+	overflow: hidden;
+	margin-top: 10px;
+}
+.review-item .ava{
+    width: 14%;
+    height: 93px;
+    float: left;
+    background: url('../images/default-avatar.png') no-repeat;
+    background-size: 100%;
+}
+.review-item .review-item-info{
+	float: left;
+	width: 85%;
+	margin-left: 1%;
+}
+#tabcontent2 form{
+	margin-top: 11px;
+}
