@@ -114,10 +114,11 @@
                             </div>
                           </div>
                           <div id="tabcontent2" class="tab-content">
-                            <form>
+                            <form action="<?php echo base_url(); ?>review/add?redirect=<?php echo base64_encode(current_url()) ?>" method="post">
                                 <h2>Đánh giá sản phẩm</h2>
                                 <hr>
                                 <p>1. Đánh giá sản phẩm</p>
+                                <input type="hidden" name="product_id">
                                 <ul>
                                     <li data-vote="1"></li>
                                     <li data-vote="2"></li>
@@ -125,9 +126,9 @@
                                     <li data-vote="4"></li>
                                     <li data-vote="5"></li>
                                 </ul>
-                                <input type="hidden" name="vote">
+                                <input type="hidden" name="vote" value="1">
                                 <p>2. Nội dung đánh giá</p>
-                                <textarea></textarea>
+                                <textarea name="detail" required=""></textarea>
                                 <button type="submit">Đánh giá</button>
                             </form>
                           </div>
@@ -269,6 +270,9 @@
                 $(this).addClass("active");
                 return false;
            });
+           $(".about-content .product-info #tabcontent2 li:nth-of-type("+1+")").css({
+                "background-image" : "url('publics/template/default/images/star_yellow.png')"
+            });
            $(".about-content .product-info #tabcontent2 li").hover(function () {
                 var vote = $(this).data('vote');
                 $(".about-content .product-info #tabcontent2 form input[name='vote']").val(vote);

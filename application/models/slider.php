@@ -33,4 +33,21 @@ class Slider extends MY_Model {
     }
 
 
+   public function add($param){
+        $this->db->insert('utt_slide',$param);
+        $flag = $this->db->affected_rows();
+        if($flag>0){
+            return array(
+                'type'=>'successful',
+                'message' => 'Đánh giá sản phẩm thành công !',
+                'id' =>  $this->db->insert_id()
+            );
+        }else{
+            return array(
+                'type'=>'error',
+                'message' => 'Có lỗi xảy ra trong quá trình đánh giá sản phẩm !'
+            );
+        }
+    }
+
 }
