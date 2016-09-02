@@ -65,10 +65,14 @@
                             </div>  
                             <div class="row">
                                 <span>Số lượng</span>
-                                <select>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
+                                <select id="number">
+                                <?php 
+                                    for ($i=1; $i <= 20 ; $i++) { 
+                                    ?>
+                                    <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                    <?php
+                                    }
+                                 ?>
                                 </select>
                             </div>
                             <div class="row">
@@ -185,26 +189,30 @@
             </div>
         </div>
         <div id="order" style="display:none;width:450px">
-            <h2>Đặt hàng</h2>
-            <h3>Thông tin khách hàng</h3>
-            <div class="row">
-                <input type="" name="" placeholder="Họ và tên">
-            </div>
-            <div class="row">
-                <input type="" name="" placeholder="Số điện thoại">
-            </div>
-            <div class="row">
-                <input type="" name="" placeholder="Email">
-            </div>
-            <div class="row">
-                <input type="" name="" placeholder="Địa chỉ">
-            </div>
-            <div class="row">
-                <input type="" name="" placeholder="Nội dung">
-            </div>
-            <div class="row">
-                <button type="submit">Mua ngay</button>
-            </div>
+            <form action="<?php echo base_url(); ?>order/add?redirect=<?php echo base64_encode(current_url()) ?>" method="post">
+                <h2>Đặt hàng</h2>
+                <h3>Thông tin khách hàng</h3>
+                <input type="hidden" name="product_id" value="<?php echo $post_detail['id']; ?>">
+                <input type="hidden" name="number" placeholder="Số lượng">
+                <div class="row">
+                    <input type="" name="name" placeholder="Họ và tên" required="">
+                </div>
+                <div class="row">
+                    <input type="" name="phone" placeholder="Số điện thoại" required="">
+                </div>
+                <div class="row">
+                    <input type="email" name="email" placeholder="Email" required="">
+                </div>
+                <div class="row">
+                    <input type="" name="address" placeholder="Địa chỉ" required="">
+                </div>
+                <div class="row">
+                    <input type="" name="message" placeholder="Nội dung" required="">
+                </div>
+                <div class="row">
+                    <button type="submit">Mua ngay</button>
+                </div>
+            </form>
         </div>
         <script>
         $(".product-detail button").click(function () {
@@ -221,6 +229,8 @@
                     });
                 }
             });
+
+            $("#order input[name='number']").val($("#number").val());
         });
             $('.menu-outer li:eq(0)').addClass('active');
             $(".container .about .about-content").mCustomScrollbar({
@@ -307,5 +317,8 @@
                     });
                 }
                 return false;
+           });
+           $("#number").change(function(){
+                $("#order input[name='number']").val($(this).val());
            });
         </script> 

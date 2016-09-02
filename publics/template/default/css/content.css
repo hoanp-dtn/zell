@@ -2071,3 +2071,8 @@ a{
 	background: white;
 	margin: 0;
 }
+.header #noti{
+    width: 261px;
+    margin-left: 164px;
+    margin-top: 20px;
+}

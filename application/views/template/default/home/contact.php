@@ -7,20 +7,6 @@
             </div>
             <hr>
             <div class="about-main" >
-            <?php $message_flashdata = $this->session->flashdata('message_flashdata');
-                            if(isset($message_flashdata)&&count($message_flashdata)) {
-                                if($message_flashdata['type']=='successful') {
-                                ?>  
-                                    <div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><div><?php echo $message_flashdata['message']; ?></div></div>
-                                <?php
-                                }
-                                else if($message_flashdata['type']=='error'){
-                                ?>
-                                    <div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><div><?php echo $message_flashdata['message']; ?></div></div>
-                            <?php
-                                }
-                            }
-                        ?>
                 <div class="title">
                     <h2>
                         Liên hệ
@@ -79,5 +65,4 @@ Q. Cầu Giấy Hà Nội</p>
         </div>
         <script>
             $('.menu-outer li:eq(0)').addClass('active');
-            $(".container .about .about-content").mCustomScrollbar({});
         </script>  
