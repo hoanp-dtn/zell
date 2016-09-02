@@ -167,6 +167,16 @@ class Product extends MY_Controller {
                                                     'type' => 'slide'
                                                 )
         );
+        $post_detail = $this->posts_home_model->showDetail((int)$id);
+        $dataReviews = $this->slider->getReviews(
+                                                'id, post_id, location, description',
+                                                
+                                                array(
+                                                    'status'  => 1,
+                                                    'type' => 'review',
+                                                    'post_id' => $post_detail['id']
+                                                )
+        );
 		$post = $this->posts_home_model->get('id', array('id' => (int)$id, 'lang' => $langCode, 'status' => 1),TRUE);
 		if( !isset($post) || count($post) == 0){
 			// redirect($this->config->base_url($langCode.'/'.$this->siteName));
@@ -176,7 +186,6 @@ class Product extends MY_Controller {
 		
         $dataMenuNews = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(68,$langCode), $langCode);
 		// data post
-		$post_detail = $this->posts_home_model->showDetail((int)$id);
 		$breadcrumb = $this->posts_home_model->breadcrumb($post_detail['nav_id']);
 		$list_comment = $this->comment_model->getListComment((int)$id);
 
@@ -184,7 +193,7 @@ class Product extends MY_Controller {
 		$data['desc_for_layout'] = $post_detail['description'];
 		$post_id = (int)$id;
         $productRelative = $this->posts_home_model->showPostAndRelative($post_detail, 0,100000, $langCode, 'product');
-        $dataTmp = array('dataMenuNews'=>$dataMenuNews,'dataSlider'=>$dataSlider,'dataMenu' => $dataMenu,'langCode' => $langCode,'breadcrumb'=>$breadcrumb);
+        $dataTmp = array('dataReviews'=>$dataReviews,'dataMenuNews'=>$dataMenuNews,'dataSlider'=>$dataSlider,'dataMenu' => $dataMenu,'langCode' => $langCode,'breadcrumb'=>$breadcrumb);
         $data = array_merge($data, $dataTmp);
   //       $html  = $this->render('layout/header', $data , true);
 		

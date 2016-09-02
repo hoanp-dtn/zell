@@ -117,58 +117,9 @@
                             
                                 <h2>Đánh giá sản phẩm</h2>
                                 <hr>
-
-                                <div class="review-item">
-                                    <div class="ava">
-                                    </div>
-                                    <div class="review-item-info">
-                                        <ul data-rate="4">
-                                            <li data-vote="1"></li>
-                                            <li data-vote="2"></li>
-                                            <li data-vote="3"></li>
-                                            <li data-vote="4"></li>
-                                            <li data-vote="5"></li>
-                                        </ul>
-                                        <div class="review-item-content">
-                                            Được biết, đây là món quà đặc biệt - Chiếc BMW i8 thứ 3 - mà anh chồng 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="review-item">
-                                    <div class="ava">
-                                    </div>
-                                    <div class="review-item-info">
-                                        <ul data-rate="4">
-                                            <li data-vote="1"></li>
-                                            <li data-vote="2"></li>
-                                            <li data-vote="3"></li>
-                                            <li data-vote="4"></li>
-                                            <li data-vote="5"></li>
-                                        </ul>
-                                        <div class="review-item-content">
-                                            Được biết, đây là món quà đặc biệt - Chiếc BMW i8 thứ 3 - mà anh chồng 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="review-item">
-                                    <div class="ava">
-                                    </div>
-                                    <div class="review-item-info">
-                                        <ul data-rate="4">
-                                            <li data-vote="1"></li>
-                                            <li data-vote="2"></li>
-                                            <li data-vote="3"></li>
-                                            <li data-vote="4"></li>
-                                            <li data-vote="5"></li>
-                                        </ul>
-                                        <div class="review-item-content">
-                                            Được biết, đây là món quà đặc biệt - Chiếc BMW i8 thứ 3 - mà anh chồng 
-                                        </div>
-                                    </div>
-                                </div>
-                                <form action="<?php echo base_url(); ?>review/add?redirect=<?php echo base64_encode(current_url()) ?>" method="post">
+                                 <form action="<?php echo base_url(); ?>review/add?redirect=<?php echo base64_encode(current_url()) ?>" method="post">
                                 <p>1. Đánh giá sản phẩm</p>
-                                <input type="hidden" name="product_id">
+                                <input type="hidden" name="product_id" value="<?php echo $post_detail['id']; ?>">
                                 <ul>
                                     <li data-vote="1"></li>
                                     <li data-vote="2"></li>
@@ -181,6 +132,26 @@
                                 <textarea name="detail" required=""></textarea>
                                 <button type="submit">Đánh giá</button>
                             </form>
+                            <?php foreach ($dataReviews as $key => $value): ?>
+                                <div class="review-item">
+                                    <div class="ava">
+                                    </div>
+                                    <div class="review-item-info">
+                                        <ul data-rate="<?php echo $value['location']; ?>">
+                                            <li data-vote="1"></li>
+                                            <li data-vote="2"></li>
+                                            <li data-vote="3"></li>
+                                            <li data-vote="4"></li>
+                                            <li data-vote="5"></li>
+                                        </ul>
+                                        <div class="review-item-content">
+                                            <?php echo htmlentities($value['description']); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach ?>
+                                
+                               
                           </div>
 
                           <div id="tabcontent3" class="tab-content">

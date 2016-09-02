@@ -2107,6 +2107,9 @@ a{
 	width: 85%;
 	margin-left: 1%;
 }
+.review-item .review-item-info .review-item-content{
+	font-size: 12px;
+}
 #tabcontent2 form{
 	margin-top: 11px;
 }
