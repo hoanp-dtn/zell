@@ -87,19 +87,21 @@ class Contact extends MY_Controller {
     public function add()
     {
         if(isset($_POST) && !empty($_POST)){
-            $this->form_validation->set_rules('name','Họ tên','trim|required');
-            $this->form_validation->set_rules('phone','Hotline','trim|required');
-            $this->form_validation->set_rules('email','Email','trim|required|email');
-            $this->form_validation->set_rules('address','Địa chỉ','trim|required');
-            $this->form_validation->set_rules('message','Nội dung','trim|required');
-           
-            if($this->form_validation->run()){
-                $post = $this->input->post();
-                $post['type'] = 'contact';
-                $flag = $this->contact_home_model->add($post);
-                $this->session->set_flashdata('message_flashdata',$flag);
-                redirect('contact/');
-            }
+            $post = $this->input->post();
+            $post['type'] = 'contact';
+            $flag = $this->contact_home_model->add($post);
+            $this->session->set_flashdata('message_flashdata',$flag);
+            redirect('contact/');
+        }
+    }
+    public function support()
+    {
+        if(isset($_POST) && !empty($_POST)){
+            $post = $this->input->post();
+            $post['type'] = 'contact';
+            $flag = $this->contact_home_model->add($post);
+            $this->session->set_flashdata('message_flashdata',$flag);
+            redirect(base64_decode($this->input->get('redirect'))); 
         }
     }
 

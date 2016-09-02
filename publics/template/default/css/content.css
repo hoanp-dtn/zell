@@ -2113,3 +2113,14 @@ a{
 #tabcontent2 form{
 	margin-top: 11px;
 }
+.sidebar-form .sf-row button{
+    background: #d2a72a;
+    outline: none;
+    border: none;
+    color: black;
+    width: 97%;
+    padding: 5px;
+    margin-top: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}

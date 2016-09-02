@@ -55,7 +55,8 @@
     </div>
     <!-- box-language -->
 
- <?php $message_flashdata = $this->session->flashdata('message_flashdata');
+ <?php 
+ $message_flashdata = $this->session->flashdata('message_flashdata');
                             if(isset($message_flashdata)&&count($message_flashdata)) {
                                 if($message_flashdata['type']=='successful') {
                                 ?>  

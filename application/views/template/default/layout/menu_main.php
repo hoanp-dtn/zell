@@ -51,13 +51,13 @@
     </div>
     <!-- bg-white -->
     <div class="bg-black">
-        <form name="idForm" target="dispoprice" action="http://www.fastbookings.biz/DIRECTORY/dispoprice.phtml">
+        <form method="post" name="idForm" action="<?php echo base_url(); ?>contact/support?redirect=<?php echo base64_encode(current_url()) ?>">
             <div class="sidebar-form">
                 <div class="sf-row">
                     <label><?php echo lang('sp24');?></label>
                     <div class="div_input">
                         <img src="publics/template/default/images/message.png">
-                        <input type="text" name="AccessCode" class="text" value="">
+                        <input type="text" name="phone" class="text" value="" required="">
                     </div>
                 </div>
                 <hr class="sitebar-hr">
@@ -67,8 +67,11 @@
 
                     <div class="div_input">
                         <img src="publics/template/default/images/inbox.png">
-                        <input type="text" name="AccessCode" class="text" value="">
+                        <input type="email" name="email" class="text" value="" required="">
                     </div>
+                </div>
+                <div class="sf-row">
+                    <button type="submit"><?php echo lang('register');?></button>
                 </div>
                 <hr class="sitebar-hr">
             </div>

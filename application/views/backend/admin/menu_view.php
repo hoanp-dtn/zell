@@ -1,4 +1,4 @@
-
+  
 <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
@@ -48,12 +48,22 @@
               <a href="#">
                 <i class="fa fa-files-o"></i>
                 <span>Quản lí sản phẩm</span>
-				<i class="fa fa-angle-left pull-right"></i>
+        <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li class = "<?php if(isset($active) && count($active)){echo (in_array("product/view",$active))?" active":"";}?>"><a href="<?php echo site_url().'admin/product/view'?>"><i class="fa fa-circle-o"></i>Danh sách</a></li>
                 <li class = "<?php if(isset($active) && count($active)){echo (in_array("product/add",$active))?" active":"";}?>"><a href="<?php echo site_url().'admin/product/add'?>"><i class="fa fa-circle-o"></i>Thêm</a></li>
-				<li class = "<?php if(isset($active) && count($active)){echo (in_array("product/recycle",$active))?" active":"";}?>"><a href="<?php echo site_url().'admin/product/recycle'?>"><i class="fa fa-circle-o"></i>Thùng rác</a></li>
+        <li class = "<?php if(isset($active) && count($active)){echo (in_array("product/recycle",$active))?" active":"";}?>"><a href="<?php echo site_url().'admin/product/recycle'?>"><i class="fa fa-circle-o"></i>Thùng rác</a></li>
+              </ul>
+            </li>
+            <li class="treeview <?php if(isset($active) && count($active)){echo (in_array("order",$active))?" active":"";}?>">
+              <a href="#">
+                <i class="fa fa-files-o"></i>
+                <span>Quản lí đơn hàng</span>
+				<i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class = "<?php if(isset($active) && count($active)){echo (in_array("order/view",$active))?" active":"";}?>"><a href="<?php echo site_url().'admin/order/view'?>"><i class="fa fa-circle-o"></i>Danh sách đơn hàng</a></li>
               </ul>
             </li>
             <li class="treeview <?php if(isset($active) && count($active)){echo (in_array("slide",$active))?" active":"";}?>">
@@ -64,6 +74,16 @@
               <ul class="treeview-menu">
                 <li class = "<?php if(isset($active) && count($active)){echo (in_array("slide/view",$active))?" active":"";}?>"><a href="<?php echo site_url().'admin/slide/view'?>"><i class="fa fa-circle-o"></i>Danh sách slide</a></li>
                 <li class = "<?php if(isset($active) && count($active)){echo (in_array("slide/add",$active))?" active":"";}?>"><a href="<?php echo site_url().'admin/slide/add'?>"><i class="fa fa-circle-o"></i>Thêm slide</a></li>
+              </ul>
+            </li> 
+            <li class="treeview <?php if(isset($active) && count($active)){echo (in_array("contact",$active))?" active":"";}?>">
+              <a href="#">
+                <i class="fa fa-edit"></i> <span>Quản lí liên hệ</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class = "<?php if(isset($active) && count($active)){echo (in_array("contact/view",$active))?" active":"";}?>"><a href="<?php echo site_url().'admin/contact/view'?>"><i class="fa fa-circle-o"></i>Danh sách</a></li>
+               
               </ul>
             </li>
             <li class="treeview  <?php if(isset($active) && count($active)){echo (in_array("navigation",$active))?" active":"";}?>">
