@@ -2076,3 +2076,17 @@ a{
     margin-left: 164px;
     margin-top: 20px;
 }
+#news-content{
+	color: white;
+	overflow: hidden;
+}
+#news-content img{
+	max-width: 100%;
+}
+.product-info #tabcontent1{
+	color: white;
+	overflow: hidden;
+}
+.product-info #tabcontent1 img{
+	max-width: 100%;
+}
