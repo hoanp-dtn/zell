@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<title>UTT - Lỗi</title>
+<title>UTT - Page Not Found</title>
 <style type="text/css">
 
 ::selection{ background-color: #E13300; color: white; }
@@ -65,120 +65,22 @@ p {
 		?>
 		<script type="text/javascript" src="<?php echo config_item('base_url');?>publics/template/default/js/jquery-1.10.2.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="<?php echo config_item('base_url');?>publics/template/default/bootstrap/css/bootstrap.css"><link rel="stylesheet" type="text/css" href="<?php echo config_item('base_url');?>publics/template/default/style.css">
-<header class="site-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 header-left">
-                <div class="logo">
-                    <a href="<?php echo config_item('base_url');?>" title="Trường Đại Học Công Nghệ Giao Thông Vận Tải" rel="home">
-                        						<img style="width:100%;" src="<?php echo config_item('base_url');?>publics/template/default/images/logo.png" alt="Trường Đại Học Công Nghệ Giao Thông Vận Tải">
-                    </a>
-                </div> <!-- /.logo -->
-            </div> <!-- /.header-left -->
-            <div class="col-md-3">
-                <h3 style="color: white; font-size: 28px; text-align: center; font-weight: bold;">
-									</h3>
-			</div> <!-- /.col-md-4 -->
-
-            <div class="col-md-5 header-right">
-
-                <ul class="small-links">
-
-                    <li><a href="<?php echo config_item('base_url');?>vinhyenutteduvn">Cở sở đào tạo Vĩnh Yên</a></li><li><a href="<?php echo config_item('base_url');?>thainguyenutteduvn">Cở sở đào tại Thái Nguyên</a></li>                   
-                        
-                </ul>
-
-                <ul class="small-links">
-                    <li>
-						<a href="<?php echo config_item('base_url');?>vn"><img src="<?php echo config_item('base_url');?>publics/template/default/images/vietnamese.gif"></a>						<a href="<?php echo config_item('base_url');?>vn">Tiếng Việt</a>					</li>
-                    <li>
-						<a href="<?php echo config_item('base_url');?>en"><img src="<?php echo config_item('base_url');?>publics/template/default/images/english.gif"></a>						<a href="<?php echo config_item('base_url');?>en">English</a></li>
-                    <li><a href="<?php echo config_item('base_url');?>teacher.php/login">Cổng thông tin giảng viên</a>
-                    </li><li><a href="<?php echo config_item('base_url');?>sitemap.html">Sơ đồ website</a>
-                        
-                    </li>
-                </ul>
-                <div class="search-form">
-                    <form name="search_form" method="get" action="<?php echo config_item('base_url');?>utt/search" class="search_form">
-                        <input style="color: white;" type="text" value="" name="s" placeholder="Tìm kiếm bài viết..." title="Search the site..." class="field_search">
-                    </form>
-                </div>
-            </div> <!-- /.header-right -->
-        </div>
-    </div> <!-- /.container -->
-	<script>
-		$(document).ready(function(){
-			$(".nav-bar-main").hover(function(){
-				$(".nav-bar-main").css({"overflow":"visible"});
-			});
-		});
-	</script>
-     <!-- /.nav-bar-main -->
-	
-</header> <!-- /.site-header --><script>
+<script>
 	site_id = 1;
 	post_id = 20;
 </script>
 
 <div class="container">
-		<div class="row" style ="height: 300px; text-align: center;background-color: white; margin-top: 10px;">
+		<!--<div class="row" style ="height: 300px; text-align: center;background-color: white; margin-top: 10px;">
 			<div class="col-md-12">
-				<h6 style = "line-height: 300px; font-size: 18px;"> Có lỗi xảy ra vui lòng thử lại sau. <a href = "<?php echo config_item('base_url');?>"><span style = "color:red;">Bấm vào đây</span></a> để quay lại trang chủ.</h6>
+				<h6 style = "line-height: 300px; font-size: 18px;"> Trang bạn truy cập không tồn tại. <a href = "<?php echo config_item('base_url');?>"><span style = "color:red;">Bấm vào đây</span></a> để quay lại trang chủ.</h6>
 			</div>
-		</div>
+		</div>-->
+		<img title="Trang không tồn tại" src = "<?php echo config_item('base_url');?>/uploads/images/404.png" style = "max-width:100%; max-hight: 100%;"/>
+	
 	</div>
 
-<!-- begin The Footer -->
-<footer class="site-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="footer-widget">
-                    <h1 class="footer-widget-title" style="font-size: 18px;">Thông tin liên hệ</h1>
-					<h4 class="footer-widget-title">Cơ sở đào tạo Hà Nội</h4>
-                    <p>Địa chỉ: Số 54 Phố Triều Khúc, Q.Thanh Xuân, Hà Nội.<br>Điện thoại: 043.854.4264 - Fax: 043.854.7695<br> Email: infohn@utt.edu.vn - Website: utt.edu.vn</p>
-					<h4 class="footer-widget-title">Cơ sở đào tạo Vĩnh Yên</h4>
-                    <p>Địa chỉ: 278 Lam Sơn, Đồng Tâm, TP. Vĩnh Yên, Vĩnh Phúc.<br>Điện thoại: 0211.386.7405 - Fax : 0211.386.7391<br> Điện thoại: 0211.386.7405 - Fax : 0211.386.7391</p>
-					<h4 class="footer-widget-title">Cơ sở đào tạo Thái Nguyên</h4>
-                    <p>Địa chỉ: Phú Thái, Tân Thịnh, TP.Thái Nguyên, Thái Nguyên.<br>Điện thoại: 0280.385.6545 - Fax : 0280.374.6975<br> Email: infotn@utt.edu.vn - Website: thainguyen.utt.edu.vn</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="footer-widget">
-                    <h1 class="footer-widget-title" style="font-size: 18px;">Thông tin tuyển sinh</h1>
-                    <ul class="list-links">
-                        <li><a href="http://utt.edu.vn/home/tuyen-sinh-2015">Thông tin tuyển sinh 2015</a></li>
-						<li><a href="http://utt.edu.vn/home/dao-tao-ngan-han">Đào tạo ngắn hạn</a></li>
-						<li><a href="http://diemthi.utt.edu.vn/">Tra cứu điểm thi</a></li>
-                    </ul>
-					<h1 class="footer-widget-title" style="font-size: 18px;">Sinh viên</h1>
-                    <ul class="list-links">
-                        <li><a href="http://utt.edu.vn/home/lich-thi-lich-hoc">Lịch học - Lịch thi</a></li>
-						<li><a href="http://utt.edu.vn/home/noi-quy-quy-che">Nội quy - Quy chế</a></li>
-						<li><a href="http://utt.edu.vn/home/hoc-bong-chinh-sach">Học bổng - Chính sách</a></li>
-						<li><a href="http://utt.edu.vn/home/cuu-sinh-vien">Cựu học sinh</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!--<div class="col-md-3">
-                <div class="footer-widget">
-                    <ul class="footer-media-icons">
-                        <li><a href="#" class="fa fa-facebook"></a></li>
-                        <li><a href="#" class="fa fa-twitter"></a></li>
-                        <li><a href="#" class="fa fa-google-plus"></a></li>
-                        <li><a href="#" class="fa fa-youtube"></a></li>
-                        <li><a href="#" class="fa fa-linkedin"></a></li>
-                        <li><a href="#" class="fa fa-instagram"></a></li>
-                        <li><a href="#" class="fa fa-apple"></a></li>
-                        <li><a href="#" class="fa fa-rss"></a></li>
-                    </ul>
-                </div>
-			-->
-            </div>
-        </div> <!-- /.row -->
-     <!-- /.container -->
-</footer> <!-- /.site-footer --><script type="text/javascript" src="<?php echo config_item('base_url');?>publics/template/default/bootstrap/js/bootstrap.min.js"></script><script type="text/javascript" src="<?php echo config_item('base_url');?>publics/template/default/js/plugins.js"></script><script type="text/javascript" src="<?php echo config_item('base_url');?>publics/template/default/js/custom.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url');?>publics/template/default/bootstrap/js/bootstrap.min.js"></script><script type="text/javascript" src="<?php echo config_item('base_url');?>publics/template/default/js/plugins.js"></script><script type="text/javascript" src="<?php echo config_item('base_url');?>publics/template/default/js/custom.js"></script>
 
 <script>
 $(document).ready(function(){
@@ -220,6 +122,6 @@ $(document).ready(function(){
 <button class="go-top" id = "back-top"></button>
 		<?php
 		}
-	?>
+	;?>
 </body>
 </html>

@@ -7,21 +7,21 @@
             <ul class="nav navbar-nav">
 <?php
 //Site
-    echo '<li><form class="navbar-form navbar-right" method="post" action="">
-    <div class="input-group input-group-sm"><div class="input-group-btn">
-      <select class="form-control" name="lang_select"><optgroup label="Chọn ngôn ngữ">';
-          foreach ((isset($language)?$language:array()) as $k => $val)
-          {
-            if ((isset($lang_selected)?$lang_selected:null) == $val['code'])
-            {
-              echo '<option selected value="'.$val['code'].'">'.$val['name'].'</option>';
-            } else echo '<option value="'.$val['code'].'">'.$val['name'].'</option>';
-          }
-        echo '</select></div><div class="input-group-btn">';
+    // echo '<li><form class="navbar-form navbar-right" method="post" action="">
+    // <div class="input-group input-group-sm"><div class="input-group-btn">
+    //   <select class="form-control" name="lang_select"><optgroup label="Chọn ngôn ngữ">';
+    //       foreach ((isset($language)?$language:array()) as $k => $val)
+    //       {
+    //         if ((isset($lang_selected)?$lang_selected:null) == $val['code'])
+    //         {
+    //           echo '<option selected value="'.$val['code'].'">'.$val['name'].'</option>';
+    //         } else echo '<option value="'.$val['code'].'">'.$val['name'].'</option>';
+    //       }
+    //     echo '</select></div><div class="input-group-btn">';
       
-      echo '</select></div><div class="input-group-btn">
-           <button type="submit" class="btn btn-danger">Select</button>
-            </div></div></form></li>';
+    //   echo '</select></div><div class="input-group-btn">
+    //        <button type="submit" class="btn btn-danger">Select</button>
+    //         </div></div></form></li>';
 ?> 
 			  <li class="">
                 <a href="<?php echo (isset($total_comment_pending) && (int)$total_comment_pending >0)?site_url().'admin/comment/view_pending':site_url().'admin/comment/view_active';?>" class="dropdown-toggle">

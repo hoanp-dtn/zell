@@ -1,12 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400italic,700,300,300italic,700italic&subset=latin,vietnamese);
 /*fix css*/
 body{
-  	font-family:Arial, Tahoma;
+  	font-family: 'Roboto Condensed', sans-serif;
   	background:#fff;
   	overflow:hidden;
 }
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
-	font-family:Arial, Tahoma;
-}
+
 a:focus{
   	outline: none;
 }
@@ -77,7 +76,6 @@ ul{
 	border-right:none;
 }
 .menu ul li a{
-	font-size:12px;
 	color:#d5d5d5;
 	display:block;
 	padding:0 5px;
@@ -147,7 +145,7 @@ ul{
 	color:black;
 	font-weight:normal;
 	display:block;
-	padding:2px 10px;
+	padding:5px 10px;
 	text-align:center;
 	text-decoration:none;
 	text-transform:uppercase;
@@ -1480,7 +1478,6 @@ div.showcase-tooltip{
 .menu .top-submenu li a{
 	color: black;
 	font-weight: bold;
-	font-family: sans-serif;
 }
 
 .menu .top-submenu li:hover > a{
@@ -1545,7 +1542,10 @@ div.showcase-tooltip{
 }
 .container .about .about-main .about-content p{
 	color: #d2cccc;
-    font-size: 13px;
+    font-size: 15px;
+    text-align-last: left;
+    line-height: 26px;
+    vertical-align: inherit;
 }
 .mCSB_scrollTools .mCSB_draggerRail{
 	background: #2c2827!important;

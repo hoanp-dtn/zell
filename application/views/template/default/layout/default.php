@@ -16,6 +16,15 @@
     <meta name="keywords" content="<?php echo isset($keyword_for_layout) ? $keyword_for_layout : ''; ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Zell V Việt Nam">
+
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<?php echo isset($title_for_layout) ? $title_for_layout : ''; ?>" />
+    <meta property="og:description" content="<?php echo isset($desc_for_layout) ? $desc_for_layout : ''; ?>" />
+    <meta property="og:url" content="<?php echo curPageURL();?>" />
+    <meta property="og:site_name" content="Zell V Việt Nam" />
+
+
 	<base href= "<?php echo $this->config->base_url()?>"/>
     <!-- CSS Bootstrap & Custom -->
     <?php
@@ -41,9 +50,9 @@
 
     <link rel="shortcut icon" href="<?php assets_base_url('images/ico/favicon.ico');?>">
     <link rel="apple-touch-icon" sizes="57x57" href="<?php assets_base_url('images/ico/apple-icon-57x57.png');?>">
-<link rel="apple-touch-icon" sizes="60x60" href="<?php assets_base_url('images/ico//apple-icon-60x60.png');?>">
-<link rel="apple-touch-icon" sizes="72x72" href="<?php assets_base_url('images/ico//apple-icon-72x72.png');?>">
-<link rel="apple-touch-icon" sizes="76x76" href="<?php assets_base_url('images/ico//apple-icon-76x76.png');?>">
+<link rel="apple-touch-icon" sizes="60x60" href="<?php assets_base_url('images/ico/apple-icon-60x60.png');?>">
+<link rel="apple-touch-icon" sizes="72x72" href="<?php assets_base_url('images/ico/apple-icon-72x72.png');?>">
+<link rel="apple-touch-icon" sizes="76x76" href="<?php assets_base_url('images/ico/apple-icon-76x76.png');?>">
 <link rel="apple-touch-icon" sizes="114x114" href="<?php assets_base_url('images/ico/apple-icon-114x114.png');?>">
 <link rel="apple-touch-icon" sizes="120x120" href="<?php assets_base_url('images/ico/apple-icon-120x120.png');?>">
 <link rel="apple-touch-icon" sizes="144x144" href="<?php assets_base_url('images/ico/apple-icon-144x144.png');?>">

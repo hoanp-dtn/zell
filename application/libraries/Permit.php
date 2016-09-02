@@ -58,6 +58,8 @@ class Permit
 	function checkSelectSite(){
 		$this->CI->load->model('admin/permit_model');
 		$this->CI->load->library('session');
+		$this->session->set_userdata('lang_select', 'vn');
+		return;
 		$lang_select_ss  = $this->CI->session->userdata('lang_select');
 		if(!isset($lang_select_ss) || is_bool($lang_select_ss)){
 			$language = $this->CI->Model_lang->getAllLang();

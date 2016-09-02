@@ -2,7 +2,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Hệ thống quản trị Cổng thông tin Trường Đại học Công nghệ Giao thông vận tải
+            Hệ thống quản trị 
           </h1>
 		  <?php $message_flashdata = $this->session->flashdata('message_flashdata');
 							if(isset($message_flashdata)&&count($message_flashdata)) {

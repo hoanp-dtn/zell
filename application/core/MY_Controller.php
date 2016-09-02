@@ -28,13 +28,10 @@ class MY_Controller extends CI_Controller {
      * @param $data
      */
     function setInformationSite (&$data) {
-        $data['title_for_layout'] = 'Trường đại học Công nghệ giao thông vận tải';
-        $data['desc_for_layout'] = 'Trường Đại học Công nghệ Giao thông vận tải - Số 54 Triều Khúc, Thanh Xuân, Hà Nội - Điện thoại: 043 854 4264 - Website: http://utt.edu.vn';
-        $data['keyword_for_layout'] = 'đại học công nghệ gtvt, tuyển sinh đại học, đhcngtvt, đh công nghệ gtvt, tuyển sinh 2015, tuyển sinh liên thông, tư vấn tuyển sinh, đh công nghệ gtvt';
 
-        $data['title_for_layout'] = '';
-        $data['desc_for_layout'] = '';
-        $data['keyword_for_layout'] = '';
+        $data['title_for_layout'] = 'Zell-V | Nhau thai cừu - Đẹp mãi tuổi 25';
+        $data['desc_for_layout'] = 'Zell-V là sản phẩm tốt nhất mà tôi đã từng sử dụng. Do da của tôi khô, có nhiều mụn và có vảy.';
+        $data['keyword_for_layout'] = 'Zell-V, nhau thai cừu';
         $data['logo_for_site'] = '';
     }
     /**
