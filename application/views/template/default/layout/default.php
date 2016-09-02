@@ -6,7 +6,6 @@
 <!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 
-<!-- Mirrored from demo.esmeth.com/html/universe/Blue/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 04 Jul 2015 02:08:53 GMT -->
 <head>
    <script>
        site_url = base_url = '<?php echo $this->config->base_url();?>';
@@ -148,5 +147,4 @@ $(document).ready(function(){
 </body>
 <?php echo isset($js_for_footer) ? $js_for_footer : '';?>
 
-<!-- Mirrored from demo.esmeth.com/html/universe/Blue/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 04 Jul 2015 02:09:48 GMT -->
 </html>
