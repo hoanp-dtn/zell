@@ -17,7 +17,9 @@
                     </div>
                     <!-- bi-left -->
                     <div class="bi-right">
-                        <a href="<?php echo $value['link'].slug($value['title'])."-a".$value['id'].".html"; ?>"><img src="uploads/images/news/<?php echo $value['image'];?>" alt="<?php echo $value['title']; ?>" />
+                        <a href="<?php echo $value['link'].slug($value['title'])."-a".$value['id'].".html"; ?>">
+                       <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 170, 120);?>">
+
                         </a>
                     </div>
                 </div>

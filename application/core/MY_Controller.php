@@ -16,7 +16,7 @@ class MY_Controller extends CI_Controller {
         $this->template   = $this->config->item('template_default');
         $this->load->model('model_site');
         $this->language = get_cookie('language') ? get_cookie('language') : $this->config->item('language');
-        $this->language = 'english';
+        $this->lang->load('home', $this->language);
     }
 
     function uri_array($i){
@@ -45,7 +45,7 @@ class MY_Controller extends CI_Controller {
         $this->config->set_item('path_css', $this->template);
         $this->config->set_item('path_img', $this->template);
         $this->config->set_item('path_base_url', $this->template);
-        
+        $params['language'] = $this->language;
         $output = $this->load->view($this->template . $view, $params, true);
         $output = str_replace('http://localhost/utt/', site_url(), $output);
         if($return) return $output;

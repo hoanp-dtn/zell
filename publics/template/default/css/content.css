@@ -85,7 +85,7 @@ ul{
 	color:#d5ab36;
 }
 .menu-bullet{
-	background:url(../images/menu-bullet.png) no-repeat;
+	/*background:url(../images/menu-bullet.png) no-repeat;*/
 	width:9px;
 	height:9px;
 	display:inline-block;
@@ -1347,11 +1347,11 @@ div.showcase-tooltip{
 	line-height:16px;
 }
 .bs-item .bi-left .bi-desc{
-	color:#fff;
-	font-size:11px;
-	line-height:13px;
-	height:65px;
-	overflow:hidden;
+    color: #fff;
+    font-size: 12px;
+    line-height: 21px;
+    height: 65px;
+    overflow: hidden;
 }
 .bs-item .bi-left a{
 	font-size: 12px;
@@ -2019,7 +2019,7 @@ a{
  	overflow: hidden;
  }
  .about-content .product-related .product-inline .product-item{
- 	width: 100px;
+ 	width: 200px;
  	margin-right: 0px;
  }
 

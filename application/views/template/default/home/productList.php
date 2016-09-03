@@ -27,7 +27,7 @@
                         <div class="product-item">
                             <div class="product-thumnail">
                                 <a href="<?php echo $value['link'].slug($value['title']).'-i'.$value['id'].'.html' ?>">
-                                    <img alt="<?php echo slug($value['title'])?>" src="uploads/images/news/<?php echo $value['image'];?>">
+                                    <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 200, 220);?>">
                                 </a>
                             </div>
                             <div class="vote">

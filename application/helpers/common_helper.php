@@ -195,4 +195,28 @@ if(!function_exists('cutnchar')) {
 		$str= preg_replace('/ /','-',$str);
 		return $str;
 	}
+
+
+
+
+
+    function getThumb($name, $path, $width, $height){
+        $obj =& get_instance();
+        $obj->load->library('Myimage');
+        $source = $path.'/'.$name;
+        if(!file_exists($source)) return '';
+
+        $thumbPath = 'uploads/images/thumb/'.$width.'x'.$height;
+        $thumbPathName = $thumbPath.'/'.$name;
+
+        if(file_exists($thumbPathName)) return $thumbPathName;
+
+        if (!is_dir($thumbPath)) {
+            mkdir($thumbPath, 0777, TRUE);
+        }
+
+        $obj->myimage->reSizeAndCrop($source, $width, $height, $thumbPathName);
+        return $thumbPathName;
+
+    }
 ?>

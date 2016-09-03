@@ -24,11 +24,11 @@
                               <ul class="slides">
 
                                 <li>
-                                  <img src="uploads/images/news/<?php echo $post_detail['image'] ?>" />
+                                  <img  alt="<?php echo slug($post_detail['title'])?>" src="<?php echo getThumb($post_detail['image'], 'uploads/images/news', 336, 245);?>"/>
                                 </li>
                                 <?php foreach ($post_detail['file'] as $key => $value): ?>
                                     <li>
-                                      <img src="uploads/files/<?php echo $value['value'] ?>" />
+                                      <img  alt="<?php echo slug($post_detail['title'])?>" src="<?php echo getThumb($value['value'], 'uploads/files', 336, 245);?>" />
                                     </li>
                                 <?php endforeach ?>
                                 <!-- items mirrored twice, total of 12 -->
@@ -37,11 +37,11 @@
                             <div id="carousel-product" class="flexslider">
                               <ul class="slides">
                                 <li>
-                                  <img src="uploads/images/news/<?php echo $post_detail['image'] ?>" />
+                                  <img alt="<?php echo slug($post_detail['title'])?>" src="<?php echo getThumb($post_detail['image'], 'uploads/images/news', 93, 77);?>" />
                                 </li>
                                  <?php foreach ($post_detail['file'] as $key => $value): ?>
                                     <li>
-                                      <img src="uploads/files/<?php echo $value['value'] ?>" />
+                                      <img alt="<?php echo slug($post_detail['title'])?>" src="<?php echo getThumb($value['value'], 'uploads/files', 93, 77);?>"  />
                                     </li>
                                 <?php endforeach ?>
                               </ul>
@@ -176,7 +176,8 @@
                             <div class="product-item">
                                 <div class="product-thumnail">
                                     <a href="<?php echo $value['link'].slug($value['title']).'-i'.$value['id'].'.html' ?>">
-                                        <img src="uploads/images/news/<?php echo $value['image'];?>">
+
+                                        <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 200, 220);?>">
                                     </a>
                                 </div>
                                 <div class="vote">
@@ -270,7 +271,6 @@
             $(".container .about .about-content").mCustomScrollbar({
 
             });
-           $(window).load(function() {
               // The slider being synced must be initialized first
               $('#carousel-product').flexslider({
                 animation: "slide",
@@ -289,7 +289,6 @@
                 slideshow: false,
                 sync: "#carousel-product"
               });
-            });
 
            $(".about-content .product-info .tabs a").click(function (e) {
                 e.preventDefault();

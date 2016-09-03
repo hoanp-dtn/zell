@@ -16,7 +16,7 @@
                 <?php foreach ($dataVideo as $key => $value): ?>
                     <div class="item">
                             <a class="fancybox video" href="<?php echo $value['link']; ?>" title="<?php echo $value['title']; ?>">
-                                <img src="uploads/images/video/<?php echo $value['img']; ?>">
+                                <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['img'], 'uploads/images/video', 205, 105);?>">
                             </a>
                         <p><?php echo $value['title']; ?></p>
                     </div>

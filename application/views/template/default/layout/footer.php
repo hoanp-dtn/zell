@@ -27,3 +27,32 @@ if(isset($message_flashdata)&&count($message_flashdata)) {
     }
 }
 ?>
+
+<script type="text/javascript">
+    
+    function chooseLang (lang) {
+
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            var expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        }
+        var mapLang = {
+            'vi': {
+                'cookie_lang': 'vietnamese',
+                'langcode':'vn'
+            },
+            'en': {
+                'cookie_lang': 'english',
+                'langcode':'en'
+            },
+
+        };
+
+        var objLang = typeof mapLang[lang] != 'undefine' ? mapLang[lang] : mapLang['vi'];
+        setCookie('language', objLang.cookie_lang, 30);
+        location.reload();
+    }
+
+</script>

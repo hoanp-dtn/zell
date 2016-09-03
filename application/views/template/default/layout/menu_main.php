@@ -25,7 +25,10 @@
         <a class="logo" href="<?php echo base_url(); ?>"><img src="publics/template/default/images/logo.png" alt="logo" />
         </a>
         <div class="menuleft">
+
+        </li>
             <ul>
+                <li data-active="trang-chu"><a href="<?php echo site_url();?>"><?php echo lang('homepage');?></a>
                 <?php 
                     if(!empty($dataMenu)){
                         foreach($dataMenu as $key => $val){
@@ -43,7 +46,7 @@
                 </li>
 
                 <li data-active="contact.html">
-                    <a href="<?php echo base_url(); ?>contact.html">Liên hệ</a>
+                    <a href="<?php echo base_url(); ?>contact.html"><?php echo lang('contact');?></a>
                 </li>
                 <div id="lavalamp"></div>
             </ul>
