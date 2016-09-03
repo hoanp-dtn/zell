@@ -1746,6 +1746,8 @@ div.showcase-tooltip{
     color: white;
     text-decoration: none;
     clear: both;
+    margin-top: 10px;
+    display: block;
 }
 
 .about-content .product-item .price{

@@ -57,7 +57,7 @@
                     <label><?php echo lang('sp24');?></label>
                     <div class="div_input">
                         <img src="publics/template/default/images/message.png">
-                        <input type="text" name="phone" class="text" value="" required="">
+                        <input type="text" name="phone" class="text" value="0973 059 555 " required="" readonly="readonly">
                     </div>
                 </div>
                 <hr class="sitebar-hr">

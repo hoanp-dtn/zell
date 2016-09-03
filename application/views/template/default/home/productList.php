@@ -23,11 +23,11 @@
                     </h2>
                 </div>
                 <div class="about-content">
-                    <?php foreach ($list_product as $key => $value): ?>
+                    <?php $i=0; foreach ($list_product as $key => $value): $i++?>
                         <div class="product-item">
                             <div class="product-thumnail">
                                 <a href="<?php echo $value['link'].slug($value['title']).'-i'.$value['id'].'.html' ?>">
-                                    <img src="uploads/images/news/<?php echo $value['image'];?>">
+                                    <img alt="<?php echo slug($value['title'])?>" src="uploads/images/news/<?php echo $value['image'];?>">
                                 </a>
                             </div>
                             <div class="vote">
@@ -55,6 +55,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        <?php if($i%3 == 0) echo '<div style="clear:both"></div>';?>
                     <?php endforeach ?>
                 </div>
             </div>

@@ -1350,8 +1350,8 @@ div.showcase-tooltip{
 }
 .bs-item .bi-left .bi-desc{
 	color:#fff;
-	font-size:11px;
-	line-height:13px;
+	font-size:12px;
+	line-height:21px;
 	height:65px;
 	overflow:hidden;
 }
@@ -1744,6 +1744,8 @@ div.showcase-tooltip{
     color: white;
     text-decoration: none;
     clear: both;
+    margin-top: 10px;
+    display: block;
 }
 
 .about-content .product-item .price{
