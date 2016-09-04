@@ -24,9 +24,6 @@ class ads extends MY_Controller {
 				redirect(curPageURL());
 			}	}
 	
-	function __destruct(){
-		$this->permit->checkSelectSite();
-	}
 	
 	public function del($id = 0){
 		$redirect= $this->input->get('redirect');
