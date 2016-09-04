@@ -24,15 +24,12 @@ class Navigation extends MY_Controller {
 			}
 	}
 	
-	function __destruct(){
-		$this->permit->checkSelectSite();
-	}
 	function view(){
 		$this->navigation_model->getChild(0,$this->lang_code);
 		$data['active'] = array('navigation','navigation/view');
 		$data['current_lang'] = $this->lang_code;
 		$data['list_lang'] = $this->Model_lang->dropdown();
-		$data['list_navigation'] = $this->navigation_model->menudequy(0,'',$this->navigation_model->view($this->lang_code));
+		$data['list_navigation'] = $this->navigation_model->menudequy(0,'',$this->navigation_model->view());
 		// print_r($data['list_navigation']);die;
 		$html  = $this->adminlayout->loadTop();
 		$html .= $this->adminlayout->loadMenu($current = 'treeview', $viewFile = 'backend/admin/menu_view',  $data);
