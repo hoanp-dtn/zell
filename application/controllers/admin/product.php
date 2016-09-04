@@ -2,11 +2,9 @@
 
 class Product extends MY_Controller {
 	
-	private $lang_code;
 	
 	function __construct() {
 		parent::__construct ();
-		$this->lang_code = $this->session->userdata('lang_select');
 		$this->load->library('Adminlayout');
 		$this->load->library('form_validation');
 		$this->load->library('image_CRUD');
@@ -19,11 +17,6 @@ class Product extends MY_Controller {
 		$this->load->model('admin/permit_model');
 		$this->load->model('posts_home_model');
 		$this->load->model('category_home_model');
-		$lang_select = $this->input->post('lang_select');
-			if(isset($lang_select) && !empty($lang_select)){
-				$this->session->set_userdata('lang_select',$lang_select);
-				redirect(curPageURL());
-			}
 	}
 	
 	public function changeStatus($id = 0){
@@ -53,9 +46,9 @@ class Product extends MY_Controller {
 		$cate = $this->input->get('cate');
 		$config = $this->config->item('pagination');
 		if(!is_bool($cate)&&!empty($cate)){
-			$config['total_rows'] = $this->model_posts->total(array('lang' => $this->lang_code,'cate_id' => $cate,'status !=' => 3, 'post_type'=>'product'),$search);
+			$config['total_rows'] = $this->model_posts->total(array('cate_id' => $cate,'status !=' => 3, 'post_type'=>'product'),$search);
 		}else{
-			$config['total_rows'] = $this->model_posts->total(array('lang' => $this->lang_code,'status !=' => 3, 'post_type'=>'product'),$search);
+			$config['total_rows'] = $this->model_posts->total(array('status !=' => 3, 'post_type'=>'product'),$search);
 		}
 		$total_page=ceil($config['total_rows']/$config['per_page']);
 		$page = (int)$this->input->get('page');
@@ -66,14 +59,14 @@ class Product extends MY_Controller {
 		$data['cate'] = $cate;
 		if($config['total_rows']>0){
 			$config['base_url']	= $this->config->base_url().'admin/product/view'.'?s='.$search.(((int)$cate!=0)?'&cate='.(int)$cate:'');
-			$data['list_posts'] = $this->model_posts->view(($page*$config['per_page']),$config['per_page'],$search,$this->lang_code,$cate, 'product');
+			$data['list_posts'] = $this->model_posts->view(($page*$config['per_page']),$config['per_page'],$search,null,$cate, 'product');
 		}
 
 		$this->pagination->initialize($config);
 		$data['list_paginition'] = $this->pagination->create_links();
 		$data['active'] = array('product','product/view');
 		$data['department_mail'] = $this->model_posts->getDepartment();
-		$data['cateTitle'] = $this->category_model->getTitle($this->lang_code, array());
+		$data['cateTitle'] = $this->category_model->getTitle();
 		$html  = $this->adminlayout->loadTop();
 		$html .= $this->adminlayout->loadMenu($current = 'treeview', $viewFile = 'backend/admin/menu_view',  $data);
 		$html .= $this->load->view('backend/product/posts_view',$data,true);
@@ -91,9 +84,9 @@ class Product extends MY_Controller {
 		$cate = $this->input->get('cate');
 		$config = $this->config->item('pagination');
 		if(!is_bool($cate)&&!empty($cate)){
-			$config['total_rows'] = $this->model_posts->count_recycle(array('lang' => $this->lang_code,'cate_id' => $cate, 'post_type' => 'product'),$search);
+			$config['total_rows'] = $this->model_posts->count_recycle(array('cate_id' => $cate, 'post_type' => 'product'),$search);
 		}else{
-			$config['total_rows'] = $this->model_posts->count_recycle(array('lang' => $this->lang_code, 'post_type' => 'product'),$search);
+			$config['total_rows'] = $this->model_posts->count_recycle(array('post_type' => 'product'),$search);
 		}
 		$total_page=ceil($config['total_rows']/$config['per_page']);
 		$page = (int)$this->input->get('page');
@@ -104,14 +97,14 @@ class Product extends MY_Controller {
 		$data['cate'] = $cate;
 		if($config['total_rows']>0){
 			$config['base_url']	= $this->config->base_url().'admin/product/recycle'.'?s='.$search.(((int)$cate!=0)?'&cate='.(int)$cate:'');
-			$data['list_posts'] = $this->model_posts->view_recycle(($page*$config['per_page']),$config['per_page'],$search,$this->lang_code,$cate, 'product');
+			$data['list_posts'] = $this->model_posts->view_recycle(($page*$config['per_page']),$config['per_page'],$search,null,$cate, 'product');
 		}
 		// nhìn debug cho xem
 		$this->pagination->initialize($config);
 		$data['list_paginition'] = $this->pagination->create_links();
 		$data['active'] = array('product','product/recycle');
 		$data['department_mail'] = $this->model_posts->getDepartment();
-		$data['cateTitle'] = $this->category_model->getTitle($this->lang_code, array());
+		$data['cateTitle'] = $this->category_model->getTitle(array());
 		$html  = $this->adminlayout->loadTop();
 		$html .= $this->adminlayout->loadMenu($current = 'treeview', $viewFile = 'backend/admin/menu_view',  $data);
 		$html .= $this->load->view('backend/product/recycle',$data,true);
@@ -133,7 +126,6 @@ class Product extends MY_Controller {
             $this->form_validation->set_rules('title','Tên sản phẩm','trim|required');
 			$this->form_validation->set_rules('is_top','Tình trạng còn hàng','required');
 			$this->form_validation->set_rules('detail','Thông tin chi tiết sản phẩm','trim|required');
-			$this->form_validation->set_rules('lang', 'ngôn ngữ ', 'callback_checkSelected|callback__lang');
 			$this->form_validation->set_rules('cate_title','danh mục sản phẩm ','callback_checkSelected|callback__cate_title');
 			$this->form_validation->set_rules('status','trạng thái hiển thị ','callback__getStatus');
 			$this->form_validation->set_rules('price','Giá sản phẩm ','trim|required|numeric');
@@ -145,10 +137,9 @@ class Product extends MY_Controller {
 			}
 			$this->form_validation->set_error_delimiters('<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-warning"></i> Cảnh báo</h4>','</div>');
         }
-		$data['cateTitle'] = $this->category_model->getTitle($this->lang_code, array('type' => 'product'));
+		$data['cateTitle'] = $this->category_model->getTitle( array('type' => 'product'));
 		$data['active'] = array('product','product/add');
 		$data['base']= $this->config->item('base_url');
-		$data['lang']= $this->Model_lang->getcount();
 		$html  = $this->adminlayout->loadTop();
 		$html .= $this->adminlayout->loadMenu($current = 'treeview', $viewFile = 'backend/admin/menu_view',  $data);
 		
@@ -214,7 +205,6 @@ class Product extends MY_Controller {
 			$this->form_validation->set_rules('price','Giá sản phẩm ','trim|required|numeric');
 			$this->form_validation->set_rules('price_old','Giá sản phẩm cũ','numeric');
 
-			// $this->form_validation->set_rules('lang', 'Ngôn ngữ', 'callback__lang');
 			$this->form_validation->set_rules('cate_title','danh mục sản phẩm','callback_checkSelected|callback__cate_title');
 			$this->form_validation->set_rules('status','trạng thái hiển thị ','callback__getStatus');
 			if($this->form_validation->run()){
@@ -224,11 +214,11 @@ class Product extends MY_Controller {
 			}
 			$this->form_validation->set_error_delimiters('<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-warning"></i> Cảnh báo</h4>','</div>');
         }
-		$data['cateTitle'] = $this->category_model->getTitle($post['lang'], array('type'=>'product'));
+		$data['active'] = array('product','product/edit');
+		$data['cateTitle'] = $this->category_model->getTitle(array('type'=>'product'));
 		$data['post'] = $post;
 		$data['base']= $this->config->item('base_url');
-		$data['lang']= $this->Model_lang->getcount();
-		$data['title'] = $this->category_model->getTitle($post['lang']);
+		$data['title'] = $this->category_model->getTitle();
 		$html  = $this->adminlayout->loadTop();
 		$html .= $this->adminlayout->loadMenu();
 		
@@ -251,22 +241,6 @@ class Product extends MY_Controller {
 		{
 			return TRUE;
 		}
-	}
-	
-	function _lang($lang){
-		if(isset($lang) && !empty($lang)){
-			$count = $this->Model_lang->getLang(array(
-				'code' => $lang
-			));
-			if($count < 1){
-				$this->form_validation->set_message('_lang','%s này không tồn tại');
-				return false;
-			}
-		}else{
-			$this->form_validation->set_message('_lang','%s này không tồn tại');
-			return false;
-		}
-		return true;
 	}
 	
 	function _cate_title($cate_title){
@@ -295,12 +269,11 @@ class Product extends MY_Controller {
 	public function getListCate()
 	{
 		$q = $this->input->get('q');
-		$lang = $this->input->get('lang');
 		$like = array(
 			'feild' =>'title',
 			'val' => $q
 		);
-		$data = $this->model_posts->get('id,title', array('post_type'=>'news','lang'=>$lang),true,$like);
+		$data = $this->model_posts->get('id,title', array('post_type'=>'news'),true,$like);
 		$answer = array();
 		if(count($data)){
 			foreach($data as $key => $val){

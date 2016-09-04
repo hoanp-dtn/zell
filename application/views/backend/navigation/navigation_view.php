@@ -32,9 +32,7 @@
                 <div class="box-body">
 				<!-- <div class="form-group col-xs-2">
                   <label>Ngôn ngữ :</label>
-					<?php 
-						$js = 'id="lang" class="form-control"';
-						echo form_dropdown('lang', (isset($list_lang)&&count($list_lang))?$list_lang:array(),isset($current_lang)?$current_lang:'vn' , $js);?>
+					
                 </div>  -->
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
@@ -45,7 +43,6 @@
                         <th>URL/Đường dẫn</th>	
                         <th>Link bài viết</th>	
                         <th>Menu cha</th>	
-                        <th>Ngôn ngữ</th>	
                         <th>Vị trí</th>
                         <th>Thao tác</th>
                       </tr>
@@ -66,7 +63,6 @@
                                         <td><?php echo $val['url'];?></td>
                                         <td><?php echo $val['post_title'];?></td>
                                         <td><?php echo $val['parenttitle'];?></td>
-                                        <td><?php echo $val['lang'];?></td>
                                         <td><?php echo "Số ".$val['location'];?></td>
                                         <td><?php echo $button_html;?></td>
                                       </tr>
@@ -83,9 +79,7 @@
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <script type="text/javascript">
-	  $("#lang").change(function(){
-		  window.location.href = "admin/navigation/view/"+this.value;
-	  });
+	 
 	  $(".del").click(function(){
 		  if(confirm('Bạn có muốn xóa không ?')){
 			  return true;

@@ -53,23 +53,7 @@
 					<script>
 							$(document).ready(function () {
 								$('#getTitle').select2();
-								$("select#lang").change(function(event) {
-									event.preventDefault();
-									var lang = $(this).val();
-									$.ajax({
-										type: "POST",
-										url: "admin/ajax/ajax_level2",
-										dataType: 'text',
-										data: {lang : lang},
-										success: function(res) {
-											if (res)
-											{
-												$('#getTitle').html(res);
-												$('#getTitle').select2();
-											}
-										}
-									});
-								});
+								
 							});
 						</script>
 						<button class="pull-right btn btn-default"><a href="admin/product/view">Xem toàn bộ sản phẩm  </a><i class="fa fa-arrow-circle-right"></i></button>

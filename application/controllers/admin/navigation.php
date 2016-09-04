@@ -2,33 +2,23 @@
 
 class Navigation extends MY_Controller {
 	private $authentication;
-	private $lang_code;
 	
 	function __construct() {
 		parent::__construct ();
 		$this->load->library('Adminlayout');
 		$this->load->library('form_validation');
 		$this->load->helper(array('form', 'url'));
-		$this->load->model('admin/Model_lang');
 		$this->load->model('admin/navigation_model');
 		$this->load->model('admin/category_model');
 		$this->load->model('admin/model_user');
 		$this->load->model('admin/Model_posts');
-		$this->lang_code = $this->session->userdata('lang_select');
 		$this->permit->authentication();
 		$this->load->model('admin/permit_model');
-		$lang_select = $this->input->post('lang_select');
-			if(isset($lang_select) && !empty($lang_select)){
-				$this->session->set_userdata('lang_select',$lang_select);
-				redirect(curPageURL());
-			}
 	}
 	
 	function view(){
-		$this->navigation_model->getChild(0,$this->lang_code);
+		$this->navigation_model->getChild(0,null);
 		$data['active'] = array('navigation','navigation/view');
-		$data['current_lang'] = $this->lang_code;
-		$data['list_lang'] = $this->Model_lang->dropdown();
 		$data['list_navigation'] = $this->navigation_model->menudequy(0,'',$this->navigation_model->view());
 		// print_r($data['list_navigation']);die;
 		$html  = $this->adminlayout->loadTop();
@@ -45,7 +35,7 @@ class Navigation extends MY_Controller {
 			$this->session->set_flashdata('message_flashdata',array('type'=>'error','message'=>'Menu này không tồn tại'));
 			redirect('admin/navigation/view');
 		}
-		$child = $this->navigation_model->getChild($id,$navigation['lang']);
+		$child = $this->navigation_model->getChild($id);
 		if(isset($child) && count($child)){
 			$this->session->set_flashdata('message_flashdata',array(
 				'type'=>'error',
@@ -58,7 +48,6 @@ class Navigation extends MY_Controller {
 		$this->navigation_model->update(array('location'=>"location -1"),array(
 			'location >'  => $navigation['location'],
 			'parent_id'   => $navigation['parent_id'],
-			'lang'        => $navigation['lang']
 		),FALSE);
 		$this->navigation_model->del(array(
 			'id'=>$navigation['id']
@@ -66,7 +55,7 @@ class Navigation extends MY_Controller {
 		redirect('admin/navigation/view');
 	}
 	public function edit($id = 0){
-		$navigation = $this->navigation_model->get('*,(select utt_post.title from utt_post where utt_post.id = utt_navigation.post_id) as post_title',array('id'=> (int)$id, 'lang' => $this->lang_code));
+		$navigation = $this->navigation_model->get('*,(select utt_post.title from utt_post where utt_post.id = utt_navigation.post_id) as post_title',array('id'=> (int)$id));
 		if(!isset($navigation)||count($navigation)==0) {
 			$this->session->set_flashdata('message_flashdata',array('type'=>'error','message'=>'Menu này không tồn tại'));
 			redirect('admin/navigation/view');
@@ -80,7 +69,7 @@ class Navigation extends MY_Controller {
 		$post_id = $this->input->post('post_id');
 		$menu_type = $this->input->post('menu_type');
 		if(isset($_POST) && !empty($_POST)){
-			$data['current_post'] = $this->Model_posts->get('id, title', array('post_type'=>'news','lang'=>$navigation['lang'],'id'=>(int)$post_id),false);
+			$data['current_post'] = $this->Model_posts->get('id, title', array('post_type'=>'news','id'=>(int)$post_id),false);
 			$data['current_cate'] = (int)$cate_id;
 			$data['current_nav'] = (int)$parent_id;
 			$data['current_sub_nav'] = (int)$sub_nav;
@@ -93,7 +82,7 @@ class Navigation extends MY_Controller {
 			$this->form_validation->set_rules('parent_id','Danh mục','callback__parent_id_update['.$navigation['id'].']');
 			$this->form_validation->set_rules('location','Vị trí','callback__location');
 			$this->form_validation->set_rules('sub_nav','Cho phép thêm danh mục con','callback__sub_nav');
-			$this->form_validation->set_rules('post_id','Link bài viết','callback__checkPost['.$navigation['lang'].']');
+			$this->form_validation->set_rules('post_id','Link bài viết','callback__checkPost');
 			$this->form_validation->set_error_delimiters('<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-warning"></i> Cảnh báo</h4>','</div>');
 			
 			if ($this->form_validation->run()){
@@ -103,20 +92,17 @@ class Navigation extends MY_Controller {
 							'location >' => $navigation['location'],
 							'location <=' => $location,
 							'parent_id'   => $parent_id,
-							'lang'        => $navigation['lang']
 						),FALSE);
 					}elseif($location < $navigation['location']){
 						$this->navigation_model->update(array('location'=>"location + 1"),array(
 							'location >=' => $location,
 							'location <' => $navigation['location'],
 							'parent_id'   => $parent_id,
-							'lang'        => $navigation['lang']
 						),FALSE);
 					}
 				}else{
 					$total = $this->navigation_model->getcount(array(
 						'parent_id' =>$parent_id,
-						'lang'  	=>$navigation['lang']
 					));
 					
 					if($location < $total + 1){
@@ -124,13 +110,11 @@ class Navigation extends MY_Controller {
 							'location <=' => $total,
 							'location >=' => $location,
 							'parent_id'   => $parent_id,
-							'lang'        => $navigation['lang']
 						),FALSE);
 					}
 					$this->navigation_model->update(array('location'=>"location - 1"),array(
 						'location >' => $navigation['location'],
 						'parent_id'  => $navigation['parent_id'],
-						'lang'       => $navigation['lang']
 					),FALSE);
 				}
 				$flag = $this->navigation_model->update(array(
@@ -153,19 +137,17 @@ class Navigation extends MY_Controller {
 		$data['navigation'] = $navigation;
 		$list_location =$this->navigation_model->dropdown_location(array(
 			'parent_id' =>is_bool($parent_id)?$navigation['parent_id']:$parent_id,
-			'lang'		=>$navigation['lang'],
 		));
 		array_pop($list_location);
 		$data['list_location'] = $list_location;
-		$data['list_lang'] = $this->Model_lang->dropdown();
-		$data['list_category'] = $this->category_model->dropdown($navigation['lang']);
-		$child =  $this->navigation_model->getChild($id, $navigation['lang']);
+		$data['list_category'] = $this->category_model->dropdown();
+		$child =  $this->navigation_model->getChild($id);
 		$where_not_in = array(
 			'feild' => 'id',
 			'array' => $child
 		);
-		$this->navigation_model->getChild(0,$this->lang_code);
-		$tmp = $this->navigation_model->menudequy(0,'',$this->navigation_model->dropdown($navigation['lang'],array('id !='=> $navigation['id'])), $where_not_in);
+		$this->navigation_model->getChild(0);
+		$tmp = $this->navigation_model->menudequy(0,'',$this->navigation_model->dropdown(null,array('id !='=> $navigation['id'])), $where_not_in);
 		$data['list_navigation'][0] = '--Chọn menu cha--';
 		foreach($tmp as $key => $val){
 			$data['list_navigation'][$val['id']] = $val['title'];
@@ -194,9 +176,8 @@ class Navigation extends MY_Controller {
 				$where['type'] = 'product';
 			}
 			if((int)$post_id){
-				$data['post'] = $this->Model_posts->get('id, title', array('post_type'=>'news','lang'=>$this->lang_code,'id'=>(int)$post_id),false);
+				$data['post'] = $this->Model_posts->get('id, title', array('post_type'=>'news','id'=>(int)$post_id),false);
 			}
-			$data['current_lang'] = $this->lang_code;
 			$data['current_cate'] = (int)$cate_id;
 			$data['current_nav'] = (int)$parent_id;
 			$data['current_sub_nav'] = (int)$sub_nav;
@@ -214,14 +195,12 @@ class Navigation extends MY_Controller {
 			if ($this->form_validation->run()){
 				$total = $this->navigation_model->getcount(array(
 					'parent_id' =>$parent_id,
-					'lang'  	=>$this->lang_code,
 				));
 				if($location < $total + 1){
 					$this->navigation_model->update(array('location'=>"location +1"),array(
 						'location >=' => $location,
 						'location <=' => $total,
 						'parent_id'   => $parent_id,
-						'lang'        => $this->lang_code,
 					),FALSE);
 				}
 				$flag = $this->navigation_model->insert(array(
@@ -231,7 +210,6 @@ class Navigation extends MY_Controller {
 					'url' 		=> is_bool($url)?"":$url,
 					'location' 	=> $location,
 					'sub_nav' 	=> $sub_nav,
-					'lang' 		=> $this->lang_code,
 					'post_id' 	=> $post_id,
 				));
 				$this->session->set_flashdata('message_flashdata',$flag);
@@ -240,13 +218,11 @@ class Navigation extends MY_Controller {
 		}
 		$data['list_location'] =$this->navigation_model->dropdown_location(array(
 			'parent_id' =>is_bool($parent_id)?0:$parent_id,
-			'lang'		=>is_bool($this->lang_code)?'vn':$this->lang_code,
 		));
 		$data['active'] = array('navigation','navigation/add');
-		$data['list_lang'] = $this->Model_lang->dropdown();
-		$data['list_category'] = $this->category_model->dropdown($this->lang_code, null, $where);
-		$this->navigation_model->getChild(0,$this->lang_code);
-		$tmp = $this->navigation_model->menudequy(0,'',$this->navigation_model->dropdown($this->lang_code,array()));
+		$data['list_category'] = $this->category_model->dropdown(null, null, $where);
+		$this->navigation_model->getChild(0);
+		$tmp = $this->navigation_model->menudequy(0,'',$this->navigation_model->dropdown(null,array()));
 		$data['list_navigation'][0] = '--Chọn menu cha--';
 		foreach($tmp as $key => $val){
 			$data['list_navigation'][$val['id']] = $val['title'];
@@ -257,22 +233,6 @@ class Navigation extends MY_Controller {
 		$html .= $this->adminlayout->loadFooter();
 		$this->layout->title('Quản lí menu');	
 		$this->layout->view($html);	
-	}
-	
-	function _lang($lang){
-		if(isset($lang) && !empty($lang)){
-			$count = count($this->Model_lang->getcount(array(
-				'code' => $lang
-			)));
-			if($count < 1){
-				$this->form_validation->set_message('_lang','%s này không tồn tại');
-				return false;
-			}
-		}else{
-			$this->form_validation->set_message('_lang','%s này không tồn tại');
-			return false;
-		}
-		return true;
 	}
 	
 	
@@ -304,9 +264,9 @@ class Navigation extends MY_Controller {
 		return true;
 	}
 	
-	function _checkPost($post_id,$lang){
+	function _checkPost($post_id){
 		if((int)$post_id != 0){
-			$count = count($this->Model_posts->get('id', array('post_type'=>'news','lang'=>$lang,'id'=>(int)$post_id),true));
+			$count = count($this->Model_posts->get('id', array('post_type'=>'news','id'=>(int)$post_id),true));
 			if(!isset($count) || $count < 1){
 				$this->form_validation->set_message('_checkPost','%s này không tồn tại');
 				return false;
@@ -347,7 +307,7 @@ class Navigation extends MY_Controller {
 				return false;
 			}
 			$navigation = $this->navigation_model->get('lang',array('id'=> (int)$id));
-			$child = $this->navigation_model->getChild($id,$navigation['lang']);
+			$child = $this->navigation_model->getChild($id);
 			
 			if( is_array($child) && in_array($parent_id,$child)){
 				$this->form_validation->set_message('_parent_id_update','Không thể chọn %s này làm danh mục cha');
@@ -379,10 +339,9 @@ class Navigation extends MY_Controller {
 	}
 	public function getCateMenu(){
 		$parent_id = $this->input->post('parent_id');
-		$lang = $this->input->post('lang');
-		$list_category = $this->category_model->dropdown($lang);
-		$this->navigation_model->getChild(0,$lang);
-		$tmp = $this->navigation_model->menudequy(0,'',$this->navigation_model->dropdown($lang,array()));
+		$list_category = $this->category_model->dropdown();
+		$this->navigation_model->getChild(0);
+		$tmp = $this->navigation_model->menudequy(0,'',$this->navigation_model->dropdown(null,array()));
 		$list_navigation[0] = '--Chọn danh mục cha--';
 		foreach($tmp as $key => $val){
 			$list_navigation[$val['id']] = $val['title'];
@@ -397,7 +356,6 @@ class Navigation extends MY_Controller {
 			$data_list_category .= "<option value='".$key."'>".$val."</option>";
 		}
 		$list_location =$this->navigation_model->dropdown_location(array(
-			'lang' =>$lang,
 			'parent_id' => $parent_id
 		));
 		$data_list_location = ""; 
@@ -411,7 +369,6 @@ class Navigation extends MY_Controller {
 		$parent_id = $this->input->post('parent_id');
 		$list_location =$this->navigation_model->dropdown_location(array(
 			'parent_id' => $parent_id,
-			'lang'=> $this->lang_code
 		));
 		$data_list_location = ""; 
 		foreach($list_location as $key => $val){
@@ -425,7 +382,7 @@ class Navigation extends MY_Controller {
 			if($_POST['menu_type'] == 1){
 				$where['type'] = 'product';
 			}
-			$list_category = $this->category_model->dropdown($this->lang_code, null, $where);
+			$list_category = $this->category_model->dropdown(null, null, $where);
 			$js = 'id="cate_id" class="form-control"';
 			echo form_dropdown('cate_id', (isset($list_category)&&count($list_category))?$list_category:array(), 0, $js);
 		}

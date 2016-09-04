@@ -27,12 +27,7 @@
                       <!-- <label>Chọn ngôn ngữ</label></br>
 							<select size="1" name="lang" id="lang" class= "form-control">
 								<?php
-								foreach($lang as $item)
-								{
-									?>
-									<option value="<?php echo $item['code'];?>"><?=$item['name']?></option>
-									<?php
-								}
+								
 								?>
 							</select> -->
 							<div></br></div>
@@ -56,23 +51,7 @@
 					<script>
 							$(document).ready(function () {
 								$('#getTitle').select2();
-								$("select#lang").change(function(event) {
-									event.preventDefault();
-									var lang = $(this).val();
-									$.ajax({
-										type: "POST",
-										url: "admin/ajax/ajax_level2",
-										dataType: 'text',
-										data: {lang : lang},
-										success: function(res) {
-											if (res)
-											{
-												$('#getTitle').html(res);
-												$('#getTitle').select2();
-											}
-										}
-									});
-								});
+								
 							});
 						</script>
 					

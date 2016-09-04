@@ -1,10 +1,8 @@
 <?php
 class ads_model extends MY_Model {
-	private $site_id;
 	
 	function __construct(){
         parent::__construct();
-		$this->site_id = $this->session->userdata('site_select');
     }
 	
 	function get($param, $where){
@@ -114,7 +112,6 @@ class ads_model extends MY_Model {
 			'post_type' =>'ads',
 			'time_update' => $date_to_int,
 			'user_id' =>$user_id,
-			'site_id' =>$this->site_id,
 			'description' =>$this->input->post('description'),
 			'image' => $file_name,
 			'status' => $this->input->post('status')
@@ -189,7 +186,6 @@ class ads_model extends MY_Model {
 			'post_type' =>'ads',
 			'time_create' => $date_to_int,
 			'user_id' =>$user_id,
-			'site_id' =>$this->site_id,
 			'description' =>$this->input->post('description'),
 			'image' => $file_name,
 			'status' => $this->input->post('status')

@@ -1,9 +1,7 @@
 <?php
 class Model_posts extends MY_Model {
-	private $lang_code;
 	function __construct(){
         parent::__construct();
-		$this->lang_code = $this->session->userdata('lang_select');
     }
 	function delete_files($array){
 		$data = array();
@@ -56,14 +54,14 @@ class Model_posts extends MY_Model {
 		if(isset($cate)&&!empty($cate)){
 			$this->db->where(''.PREFIX.'post.cate_id',$cate);
 		}
-		return $this->db->select('utt_post.id,utt_post.title,utt_post.description,utt_post.detail,utt_post.image,utt_post.status,utt_post.time_create,utt_post.time_update,(select utt_cate.title from utt_cate where utt_cate.id = utt_post.cate_id) as catetitle')->from('utt_post')->where('utt_post.status > ','0')->where('utt_post.status <','3')->where ('post_type',$post_type)->where('utt_post.lang = ',$lang)->like(PREFIX.'post.title',$key)->ORDER_BY('utt_post.id DESC')->limit($limit,$start)->get()->result_array();
+		return $this->db->select('utt_post.id,utt_post.title,utt_post.description,utt_post.detail,utt_post.image,utt_post.status,utt_post.time_create,utt_post.time_update,(select utt_cate.title from utt_cate where utt_cate.id = utt_post.cate_id) as catetitle')->from('utt_post')->where('utt_post.status > ','0')->where('utt_post.status <','3')->where ('post_type',$post_type)->like(PREFIX.'post.title',$key)->ORDER_BY('utt_post.id DESC')->limit($limit,$start)->get()->result_array();
 	}
 	
 	public function view_recycle($start,$limit,$key,$lang,$cate = '', $post_type = 'news'){
 		if(isset($cate)&&!empty($cate)){
 			$this->db->where(''.PREFIX.'post.cate_id',$cate);
 		}
-		return $this->db->select('utt_post.id,utt_post.title,utt_post.description,utt_post.detail,utt_post.image,utt_post.status,utt_post.time_create,utt_post.time_update,(select utt_cate.title from utt_cate where utt_cate.id = utt_post.cate_id) as catetitle')->from('utt_post')->where('utt_post.status','3')->where ('post_type',$post_type)->where('utt_post.lang = ',$lang)->like(PREFIX.'post.title',$key)->ORDER_BY('utt_post.id DESC')->limit($limit,$start)->get()->result_array();
+		return $this->db->select('utt_post.id,utt_post.title,utt_post.description,utt_post.detail,utt_post.image,utt_post.status,utt_post.time_create,utt_post.time_update,(select utt_cate.title from utt_cate where utt_cate.id = utt_post.cate_id) as catetitle')->from('utt_post')->where('utt_post.status','3')->where ('post_type',$post_type)->like(PREFIX.'post.title',$key)->ORDER_BY('utt_post.id DESC')->limit($limit,$start)->get()->result_array();
 	}
 	
 	public function getStatus($id = 0){
@@ -122,7 +120,6 @@ class Model_posts extends MY_Model {
 			'time_create' => $date_to_int,
 			'post_type' => $post_type,
 			'user_id' =>$user_id,
-			'lang' =>$this->lang_code,
 			'title' =>$this->input->post('title'),
 			'description' => str_replace("\n","",getSaveSqlStr( $this->input->post('description') )),
 			'detail' => htmlspecialchars( $this->input->post('detail', false) ),
@@ -175,7 +172,6 @@ class Model_posts extends MY_Model {
 			'time_create' => $date_to_int,
 			'post_type' => $post_type,
 			'user_id' =>$user_id,
-			'lang' =>$this->lang_code,
 			'title' =>$this->input->post('title'),
 			'description' => str_replace("\n","",getSaveSqlStr( $this->input->post('description') )),
 			'detail' => htmlspecialchars( $this->input->post('detail', false) ),
@@ -241,7 +237,6 @@ class Model_posts extends MY_Model {
 		$date_to_int = empty($date)?(time()):strtotime($date);
 		$description = getSaveSqlStr( $this->input->post('description'));
 		$data = array(
-			'lang' => $this->lang_code,
 			'title' => getSaveSqlStr( $this->input->post('title') ),
 			'description' => str_replace('\n','',$description ),
 			'detail' => htmlspecialchars( $this->input->post('detail', false) ),
@@ -273,7 +268,6 @@ class Model_posts extends MY_Model {
 		$date_to_int = empty($date)?(time()):strtotime($date);
 		$description = getSaveSqlStr( $this->input->post('description'));
 		$data = array(
-			'lang' => $this->lang_code,
 			'title' => getSaveSqlStr( $this->input->post('title') ),
 			'description' => str_replace('\n','',$description ),
 			'detail' => htmlspecialchars( $this->input->post('detail', false) ),

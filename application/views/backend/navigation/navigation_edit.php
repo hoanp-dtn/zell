@@ -90,7 +90,6 @@
 					dataType: 'json',
 					data: function (params) {
 					  return {
-						lang : "<?php echo $navigation['lang'];?>",
 						q: params.term, // search term
 					  };
 					},

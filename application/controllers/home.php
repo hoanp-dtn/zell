@@ -20,6 +20,7 @@ class Home extends MY_Controller {
     function index(){
         $this->setInformationSite($data);
         $langCode = $this->lang->lang();
+
         $dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
         $dataMenuNews = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(68,$langCode), $langCode);
         

@@ -45,23 +45,7 @@
 					<script>
 							$(document).ready(function () {
 								$('#getTitle').select2();
-								$("select#lang").change(function(event) {
-									event.preventDefault();
-									var lang = $(this).val();
-									$.ajax({
-										type: "POST",
-										url: "admin/ajax/ajax_level2",
-										dataType: 'text',
-										data: {lang : lang},
-										success: function(res) {
-											if (res)
-											{
-												$('#getTitle').html(res);
-												$('#getTitle').select2();
-											}
-										}
-									});
-								});
+								
 							});
 						</script>
                     <div class="form-group">

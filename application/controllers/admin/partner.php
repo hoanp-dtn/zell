@@ -2,11 +2,9 @@
 
 class Partner extends MY_Controller {
 	
-	private $lang_code;
 	
 	function __construct() {
 		parent::__construct ();
-		$this->lang_code = $this->session->userdata('lang_select');
 		$this->load->library('Adminlayout');
 		$this->load->library('form_validation');
 		$this->load->helper(array('form','My_string','url'));
@@ -14,11 +12,6 @@ class Partner extends MY_Controller {
 		$this->load->model('admin/Model_partner');
 		$this->permit->authentication();
 		$this->load->model('admin/permit_model');
-		$lang_select = $this->input->post('lang_select');
-			if(isset($lang_select) && !empty($lang_select)){
-				$this->session->set_userdata('lang_select',$lang_select);
-				redirect(curPageURL());
-			}
 	}
 	
 	

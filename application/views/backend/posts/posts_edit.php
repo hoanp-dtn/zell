@@ -24,18 +24,7 @@
 				<div>
                   <div class="box-body">
 				  <div class="form-group">
-                      <label>Chọn ngôn ngữ</label></br>
-							<select size="1" name="lang" id ="lang" class= "form-control">
-								<option value="0" selected >Chọn ngôn ngữ</option>
-								<?php
-								foreach($lang as $item)
-								{
-									?>
-									<option value="<?=$item['code']?>" <?php echo ($item['code'] == $post['lang']?'selected=selected':'');?>><?=$item['name']?></option>
-									<?php
-								}
-								?>
-							</select>
+                      
 							<div></br></div>
 							<label>Chọn danh mục tin</label>
 							<div>
@@ -57,23 +46,7 @@
 					<script>
 							$(document).ready(function () {
 								$('#getTitle').select2();
-								$("select#lang").change(function(event) {
-									event.preventDefault();
-									var lang = $(this).val();
-									$.ajax({
-										type: "POST",
-										url: "admin/ajax/ajax_level2",
-										dataType: 'text',
-										data: {lang : lang},
-										success: function(res) {
-											if (res)
-											{
-												$('#getTitle').html(res);
-												$('#getTitle').select2();
-											}
-										}
-									});
-								});
+								
 							});
 						</script>
                     <div class="form-group">

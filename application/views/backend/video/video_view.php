@@ -22,9 +22,7 @@
           <div class="box-body">
 				<!-- <div class="form-group col-xs-2">
                   <label>Ngôn ngữ :</label>
-					<?php 
-						$js = 'id="lang" class="form-control"';
-						echo form_dropdown('lang', (isset($list_lang)&&count($list_lang))?$list_lang:array(),isset($current_lang)?$current_lang:'vn' , $js);?>
+				
                 </div>  -->
             <table id="table_category" class="table table-bordered table-striped">
                 <thead>
@@ -82,9 +80,7 @@
         </div>
         <script type="text/javascript">
 		
-		  $("#lang").change(function(){
-			  window.location.href = "admin/video/view/"+this.value;
-		  });
+		  
 		  $(".del").click(function(){
 			  if(confirm('Bạn có muốn xóa không ?')){
 				  return true;

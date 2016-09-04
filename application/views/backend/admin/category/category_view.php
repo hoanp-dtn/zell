@@ -46,9 +46,7 @@
 						</form>
 		  <!-- <div class="form-group col-xs-2">
                   <label>Ngôn ngữ :</label>
-					<?php 
-						$js = 'id="lang" class="form-control"';
-						echo form_dropdown('lang', (isset($list_lang)&&count($list_lang))?$list_lang:array(),isset($current_lang)?$current_lang:'vn' , $js);?>
+					
                 </div>  -->
             <table id="table_category" class="table table-bordered table-striped">
                 <thead>
@@ -56,7 +54,6 @@
                     <th style = "width: 5px;">STT</th>
                     <th>Tiêu đề</th>
                     <th>Danh mục cha</th>
-                    <th>Ngôn ngữ</th>
                     <th>Thao tác</th>
                   </tr>
                 </thead>
@@ -70,7 +67,6 @@
 						<td class=""><?php echo ($key+1); ?></td>
 						<td class=" "><?php echo $value['title']; ?></td>
 						<td class=" "><?php echo (isset($value['parent_title']) && $value['parent_title']!="")?$value['parent_title']:'--'; ?></td>
-						<td class=" "><?php echo $value['name']; ?></td>
 						<td class=" ">
 						<div class="btn-group">
 							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -78,7 +74,7 @@
 							  <span class="sr-only">Toggle Dropdown</span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
-							<li><a href="admin/category/edit/<?php echo $value['id']; ?>?redirect=<?php echo base64_encode(getCurrentUrl()); ?>">Sửa</a></li>
+							<li><a href="admin/<?php echo $controller; ?>/edit/<?php echo $value['id']; ?>?redirect=<?php echo base64_encode(getCurrentUrl()); ?>">Sửa</a></li>
 							<li><a class = "delcate" href="admin/category/delete/<?php echo $value['id']; ?>?redirect=<?php echo base64_encode(getCurrentUrl()); ?>">Xóa</a></li>
 							</ul>
 							</div>
@@ -96,9 +92,7 @@
           </div>
         </div>
         <script>
-		  $("#lang").change(function(){
-			  window.location.href = "admin/category/view/"+this.value;
-		  });
+		 
             $(".delcate").click(function(){
             if(confirm('Bạn có muốn xóa không ?')){
               return true;

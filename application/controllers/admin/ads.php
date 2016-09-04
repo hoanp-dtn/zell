@@ -2,11 +2,8 @@
 
 class ads extends MY_Controller {
 	
-	private $site_id, $lang_code;
 	function __construct() {
 		parent::__construct ();
-		$this->site_id = $this->session->userdata('site_select');
-		$this->lang_code = $this->session->userdata('lang_select');
 		$this->load->library('Adminlayout');
 		$this->load->library('form_validation');
 		$this->load->helper(array('form','My_string','url'));
@@ -16,13 +13,8 @@ class ads extends MY_Controller {
 		$this->permit->authentication();
 		$this->load->model('admin/permit_model');
 		$this->load->model('admin/site_model');
-		$site_select = (int)$this->input->post('site_select');
-		$lang_select = $this->input->post('lang_select');
-			if(isset($site_select) && $site_select !=0 && isset($lang_select) && !empty($lang_select)){
-				$this->session->set_userdata('site_select',$site_select);
-				$this->session->set_userdata('lang_select',$lang_select);
-				redirect(curPageURL());
-			}	}
+	}
+		
 	
 	
 	public function del($id = 0){
@@ -38,7 +30,7 @@ class ads extends MY_Controller {
 		$this->load->library('pagination');
 		$config = $this->config->item('pagination');
 		$config['base_url']	= $this->config->base_url('admin/ads/view');
-		$config['total_rows'] = $this->ads_model->total(array('site_id'=>$this->site_id));
+		$config['total_rows'] = $this->ads_model->total(array());
 		$total_page=ceil($config['total_rows']/$config['per_page']);
 		$page = (int)$this->input->get('page');
 		$page = ($page>$total_page)?$total_page:$page;
@@ -47,7 +39,7 @@ class ads extends MY_Controller {
 		$this->pagination->initialize($config);
 		$data['list_paginition'] = $this->pagination->create_links();
 		if($config['total_rows']>0){
-			$data['list_ads'] = $this->ads_model->view(($page*$config['per_page']),$config['per_page'],array('utt_post.site_id'=>$this->site_id));
+			$data['list_ads'] = $this->ads_model->view(($page*$config['per_page']),$config['per_page'],array());
 		}
 		$data['active'] = array('ads','ads/view');
 		$html  = $this->adminlayout->loadTop();
@@ -110,7 +102,7 @@ class ads extends MY_Controller {
 	
 	public function edit($id = 0){
 		
-		$ads = $this->ads_model->total(array('site_id'=>$this->site_id,'id'=>(int)$id));
+		$ads = $this->ads_model->total(array('id'=>(int)$id));
 		if(!isset($ads) || $ads ==0) {
 			$this->session->set_flashdata('message_flashdata',array('type'=>'error','message'=>'Quảng cáo này không tồn tại'));
 			redirect('admin/ads/view');
@@ -124,7 +116,7 @@ class ads extends MY_Controller {
 			$list_adzone[$key] = $val['name'];
 		}
 		$data['list_adzone'] = $list_adzone;
-		$tmp = $this->ads_model->view(NULL,NULL,array('utt_post.site_id'=>$this->site_id,'utt_post.id' => $id));
+		$tmp = $this->ads_model->view(NULL,NULL,array('utt_post.id' => $id));
 		$data['ads'] = $tmp[$id];
 		if(isset($_POST)&& !empty($_POST)){
 			$data['current_adzone'] = $this->input->post('adzone');

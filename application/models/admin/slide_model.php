@@ -1,9 +1,7 @@
 <?php
 class Slide_model extends MY_Model {
-	private $lang_code;
 	function __construct(){
         parent::__construct();
-		$this->lang_code = $this->session->userdata('lang_select');
     }
 	
 	function view($select=array(), $where=array(),$limit=NULL,$start=NULL,$order_by=NULL)
@@ -113,10 +111,10 @@ class Slide_model extends MY_Model {
 		}
 		$location = $this->input->post('location');
 		if($location < $slide['location']){
-			$this->update(array('location' => 'location +1'),array('location >=' => $location,'location <' =>$slide['location'],'lang'=>$slide['lang']),false);
+			$this->update(array('location' => 'location +1'),array('location >=' => $location,'location <' =>$slide['location']),false);
 		}
 		if($location > $slide['location']){
-			$this->update(array('location' => 'location - 1'),array('location <=' => $location,'location >'=>$slide['location'],'lang'=>$slide['lang']),false);
+			$this->update(array('location' => 'location - 1'),array('location <=' => $location,'location >'=>$slide['location']),false);
 		}
 		return $this->update(array(
 			'url'=>$this->input->post('url'),
@@ -136,11 +134,10 @@ class Slide_model extends MY_Model {
 		$location = $this->input->post('location');
 		$title = $this->input->post('title');
 		$post_id = $this->input->post('post_id');
-		$this->update(array('location' => 'location +1'),array('location >=' => $location,'lang'=>$this->lang_code),false);
+		$this->update(array('location' => 'location +1'),array('location >=' => $location),false);
 		$this->db->insert('utt_slide',array(
 			'url'=>$this->input->post('url'),
 			'status'=>$this->input->post('status'),
-			'lang'=>$this->lang_code,
 			'description'=>$this->input->post('description'),
 			'location'=>$location,
 			'img' =>$file_name,
@@ -209,7 +206,7 @@ class Slide_model extends MY_Model {
 		if($images_del!="" && file_exists($path_to_file)){
 			unlink($path_to_file);
 		}
-		$this->update(array('location' => 'location - 1'),array('location >' => $slide['location'],'lang'=>$slide['lang']),false);
+		$this->update(array('location' => 'location - 1'),array('location >' => $slide['location']),false);
 		$this->db->delete('utt_slide', $param); 
 		$flag = $this->db->affected_rows();
 		if($flag>0){

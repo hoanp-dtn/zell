@@ -6,7 +6,6 @@ class Slide extends MY_Controller {
 
 	private $redirect;
 
-	private $lang_code;
 
 	
 
@@ -24,7 +23,6 @@ class Slide extends MY_Controller {
 
 		$this->load->model('admin/slide_model');
 
-		$this->load->model('admin/Model_lang');
 
 		$this->load->model('admin/Model_posts');
 
@@ -33,27 +31,16 @@ class Slide extends MY_Controller {
 		(isset($this->redirect) && !empty($this->redirect))?($this->redirect=base64_decode($this->redirect)):($this->redirect='admin/slide/view');
 
 
-		$this->lang_code = $this->session->userdata('lang_select');
 
 		$this->load->model('admin/permit_model');
 
 
 
-		$lang_select = $this->input->post('lang_select');
-
-			if(isset($lang_select) && !empty($lang_select)){
-
-				$this->session->set_userdata('lang_select',$lang_select);
-
-				redirect(curPageURL());
-
-			}
 
 	}
 
 	function view(){
 
-		$data['current_lang'] = $this->lang_code;
 
 		$this->load->config('pagination');
 
@@ -61,9 +48,9 @@ class Slide extends MY_Controller {
 
 		$config = $this->config->item('pagination');
 
-		$config['base_url']	= $this->config->base_url('admin/slide/view/'.$this->lang_code);
+		$config['base_url']	= $this->config->base_url('admin/slide/view/');
 
-		$config['total_rows'] = $this->slide_model->getcount(array('lang'=>$this->lang_code, 'type' => 'slide'));
+		$config['total_rows'] = $this->slide_model->getcount(array('type' => 'slide'));
 
 		$total_page=ceil($config['total_rows']/$config['per_page']);
 
@@ -83,13 +70,12 @@ class Slide extends MY_Controller {
 
 			$data['slide'] = $this->slide_model->view(
 
-			array('id', 'url', 'img','status','description','location','title','(select utt_lang.name from utt_lang where utt_lang.code = utt_slide.lang) as lang_title','(select utt_post.title from utt_post where utt_post.id = utt_slide.post_id) as post_title'),
+			array('id', 'url', 'img','status','description','location','title','(select utt_post.title from utt_post where utt_post.id = utt_slide.post_id) as post_title'),
 
-			array('lang'=>$this->lang_code, 'type'=>'slide'),$config['per_page'],($page*$config['per_page']),'location ASC');
+			array('type'=>'slide'),$config['per_page'],($page*$config['per_page']),'location ASC');
 
 		}
 
-		$data['list_lang'] = $this->Model_lang->dropdown();
 
 		$data['active'] = array('slide','slide/view');
 
@@ -165,7 +151,7 @@ class Slide extends MY_Controller {
 
 		if(isset($_POST)&&!empty($_POST)){
 
-			$data['current_post'] = $this->Model_posts->get('id, title', array('post_type'=>'news','lang'=>$slide['lang'],'id'=>(int)$post_id),false);
+			$data['current_post'] = $this->Model_posts->get('id, title', array('post_type'=>'news','id'=>(int)$post_id),false);
 
 			$data['current_status'] = $this->input->post('status');
 
@@ -239,7 +225,7 @@ class Slide extends MY_Controller {
 
 					'label'=>'Link bài viết ',
 
-					'rules'=>'callback__checkPost['.$slide['lang'].']'
+					'rules'=>'callback__checkPost'
 
 				)
 
@@ -265,7 +251,7 @@ class Slide extends MY_Controller {
 
 		$data['slide'] = $slide;
 
-		$data['list_location'] = $this->slide_model->dropdown(array('lang'=>$slide['lang']));
+		$data['list_location'] = $this->slide_model->dropdown(array());
 
 		$html  = $this->adminlayout->loadTop();
 
@@ -291,7 +277,7 @@ class Slide extends MY_Controller {
 
 		if(isset($_POST)&&!empty($_POST)){
 
-			$data['post'] = $this->Model_posts->get('id, title', array('post_type'=>'news','lang'=>$this->lang_code,'id'=>(int)$post_id),false);
+			$data['post'] = $this->Model_posts->get('id, title', array('post_type'=>'news','id'=>(int)$post_id),false);
 
 			$data['current_status'] = $this->input->post('status');
 
@@ -355,7 +341,7 @@ class Slide extends MY_Controller {
 
 					'label'=>'Link bài viết ',
 
-					'rules'=>'callback__checkPost['.$this->lang_code.']'
+					'rules'=>'callback__checkPost'
 
 				)
 
@@ -381,9 +367,8 @@ class Slide extends MY_Controller {
 
 		$data['active'] = array('slide','slide/add');
 
-		$data['lang'] = $this->lang_code;
 
-		$data['list_location'] = $this->slide_model->dropdown(array('lang'=>$this->lang_code));
+		$data['list_location'] = $this->slide_model->dropdown(array());
 
 		$html  = $this->adminlayout->loadTop();
 
@@ -479,41 +464,12 @@ class Slide extends MY_Controller {
 
 	
 
-	function _lang($lang){
 
-		if(isset($lang) && !empty($lang)){
-
-			$count = count($this->Model_lang->getcount(array(
-
-				'code' => $lang
-
-			)));
-
-			if($count < 1){
-
-				$this->form_validation->set_message('_lang','%s này không tồn tại');
-
-				return false;
-
-			}
-
-		}else{
-
-			$this->form_validation->set_message('_lang','Bạn chưa chọn %s');
-
-			return false;
-
-		}
-
-		return true;
-
-	}
-
-	function _checkPost($post_id,$lang){
+	function _checkPost($post_id){
 
 		if((int)$post_id != 0){
 
-			$count = count($this->Model_posts->get('id', array('post_type'=>'news','lang'=>$lang,'id'=>(int)$post_id),true));
+			$count = count($this->Model_posts->get('id', array('post_type'=>'news','id'=>(int)$post_id),true));
 
 			if(!isset($count) || $count < 1){
 
@@ -531,9 +487,8 @@ class Slide extends MY_Controller {
 
 	public function getLocation(){
 
-		$lang = $this->input->post('lang');
 
-		$list_location =$this->slide_model->dropdown(array('lang'=>(isset($lang) && !is_bool($lang))?$lang:'vn'));
+		$list_location =$this->slide_model->dropdown(array());
 
 		$data_list_location = ""; 
 
@@ -561,7 +516,7 @@ class Slide extends MY_Controller {
 
 		 );
 
-		 $data = $this->Model_posts->get('id,title', array('post_type'=>'news','lang'=>$this->lang_code),true,$like);
+		 $data = $this->Model_posts->get('id,title', array('post_type'=>'news'),true,$like);
 
 		 $answer = array();
 

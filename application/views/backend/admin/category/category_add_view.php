@@ -41,12 +41,6 @@
                   <label>Ngôn Ngữ:</label>
                   <select class="form-control" id="cate_lang" name="cate_lang" required>
                     <?php 
-                    if(isset($lang)&&!empty($lang))
-                    {
-                        foreach ($lang as $key => $value) {
-                           echo '<option '.(($value['code']==set_value('cate_lang'))?'selected':null).' value="'.$value['code'].'" >'.$value['name'].'</option>';
-                        }
-                    }
 
                     ?>
                   </select>
@@ -91,14 +85,3 @@
 
         </section><!-- /.content -->
 </div>
-
-<script>
-	$(document).ready(function(){
-		$("#cate_lang").change(function(){
-			var lang = this.value;
-			$.post(base_url+'admin/navigation/getCateMenu', {lang:lang}, function(data){
-				$("#cate_parent_id").html(data.list_category);
-			},"JSON");
-		});
-	});
-</script>

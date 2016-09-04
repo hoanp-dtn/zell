@@ -23,12 +23,12 @@ class Category_Model extends MY_Model
 		}
 		return $this->result;
 	}
-	public function getTitle($langCode, $where = NULL)
+	public function getTitle($langCode = null, $where = NULL)
 	{
 		if(isset($where) && is_array($where)){
 			$this->db->where($where);
 		}
-		return $this->db->select('id,title')->from(''.PREFIX.'cate')->where('lang',$langCode)->get()->result_array();
+		return $this->db->select('id,title')->from(''.PREFIX.'cate')->get()->result_array();
 	}
 	
 	public function get($table = '' ,$filed = NULL ,$where = NULL,$start = NULL, $limit = NULL, $where_not_in = NULL){
@@ -45,8 +45,8 @@ class Category_Model extends MY_Model
 	}
 	
 	public function view($start,$limit,$where=NULL, $like = NULL){
-		 $this->db->select(PREFIX.'cate.id,'.PREFIX.'lang.name,'.PREFIX.'cate.title,'.PREFIX.'cate.lang,'.PREFIX.'cate.type,'.PREFIX.'cate.parent_id, (select c1.title from utt_cate c1 where c1.id = utt_cate.parent_id
-		 ) as parent_title')->from(''.PREFIX.'cate')->join(''.PREFIX.'lang',''.PREFIX.'cate.lang = '.PREFIX.'lang.code');
+		 $this->db->select(PREFIX.'cate.id,'.PREFIX.'cate.title,'.PREFIX.'cate.lang,'.PREFIX.'cate.type,'.PREFIX.'cate.parent_id, (select c1.title from utt_cate c1 where c1.id = utt_cate.parent_id
+		 ) as parent_title')->from(''.PREFIX.'cate');
 		if(isset($where) && is_array($where)){
 			$this->db->where($where);
 		}
@@ -172,7 +172,6 @@ class Category_Model extends MY_Model
 	}
 	public function dropdown($lang='vn',$site_id = NULL, $where = array())
 	{
-		$where['lang'] = $lang;
 		$data = $this->db->select('id,title')->from('utt_cate')->where($where)->get()->result_array();
 		$temp[0] = '--Chọn danh mục--';
 		foreach($data as $key => $val){
