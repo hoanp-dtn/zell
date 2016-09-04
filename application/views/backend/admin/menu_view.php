@@ -60,10 +60,20 @@
               <a href="#">
                 <i class="fa fa-files-o"></i>
                 <span>Quản lí đơn hàng</span>
-				<i class="fa fa-angle-left pull-right"></i>
+        <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li class = "<?php if(isset($active) && count($active)){echo (in_array("order/view",$active))?" active":"";}?>"><a href="<?php echo site_url().'admin/order/view'?>"><i class="fa fa-circle-o"></i>Danh sách đơn hàng</a></li>
+              </ul>
+            </li>
+            <li class="treeview <?php if(isset($active) && count($active)){echo (in_array("review",$active))?" active":"";}?>">
+              <a href="#">
+                <i class="fa fa-files-o"></i>
+                <span>Quản lí đánh giá sản phẩm</span>
+				<i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class = "<?php if(isset($active) && count($active)){echo (in_array("review/view",$active))?" active":"";}?>"><a href="<?php echo site_url().'admin/review/view'?>"><i class="fa fa-circle-o"></i>Danh sách đánh giá</a></li>
               </ul>
             </li>
             <li class="treeview <?php if(isset($active) && count($active)){echo (in_array("slide",$active))?" active":"";}?>">
