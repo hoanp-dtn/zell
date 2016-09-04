@@ -21,7 +21,7 @@ class Slider extends MY_Model {
         $data = $this->db->get()->result_array();
         foreach($data as $key => $val){   
             if($val['post_id']!=0 && isset($val['cate_id']) && $val['cate_id']!=0){
-                $data[$key]['link'] = $this->siteName.$this->posts_home_model->getLinkParrentCate($val['cate_id']).slug($val['post_title']).'-a'.$val['post_id'].'.html';
+                $data[$key]['link'] = $this->posts_home_model->getLinkParrentCate($val['cate_id']).slug($val['post_title']).'-a'.$val['post_id'].'.html';
             }elseif($val['url']!=""){
                 $data[$key]['link'] = $val['url'];
             }else{

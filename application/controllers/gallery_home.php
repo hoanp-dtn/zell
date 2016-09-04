@@ -161,7 +161,6 @@ public function video($value='')
                                                 
                                                 array(
                                                     'status'  => 1,
-                                                    'lang'=>$langCode,
                                                     'type' => 'slide'
                                                 )
         );
@@ -172,7 +171,6 @@ public function video($value='')
                                                 
                                                 array(
                                                     'status'  => 1,
-                                                    'lang'=>$langCode,
                                                     'type' => 'video'
                                                 )
         );

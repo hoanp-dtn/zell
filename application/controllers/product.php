@@ -28,7 +28,6 @@ class Product extends MY_Controller {
                                                 
                                                 array(
                                                     'status'  => 1,
-                                                    'lang'=>$langCode,
                                                     'type' => 'slide'
                                                 )
         );
@@ -163,7 +162,6 @@ class Product extends MY_Controller {
                                                 
                                                 array(
                                                     'status'  => 1,
-                                                    'lang'=>$langCode,
                                                     'type' => 'slide'
                                                 )
         );
@@ -177,7 +175,7 @@ class Product extends MY_Controller {
                                                     'post_id' => $post_detail['id']
                                                 )
         );
-		$post = $this->posts_home_model->get('id', array('id' => (int)$id, 'lang' => $langCode, 'status' => 1),TRUE);
+		$post = $this->posts_home_model->get('id', array('id' => (int)$id, 'status' => 1),TRUE);
 		if( !isset($post) || count($post) == 0){
 			// redirect($this->config->base_url($langCode.'/'.$this->siteName));
 		}

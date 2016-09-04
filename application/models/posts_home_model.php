@@ -28,8 +28,6 @@ class Posts_home_model extends MY_Model {
                 AND p.post_type = "news"
                 AND c.type = "news"
                 AND p.site_id = '.$siteid.'
-                AND p.lang = "' . $langCode .'"
-                AND c.lang = "' . $langCode .'"
                 ORDER BY p.id DESC, p.time_create DESC
                 LIMIT ' . $limit . '
                 ';
@@ -124,7 +122,6 @@ class Posts_home_model extends MY_Model {
 				->where(array(
 					'p.post_type' => $post_type,
 					'p.status <' => '3',
-					'p.lang' => $langCode,
 					'p.id !=' => $post_detail['id']
 				))
 				->order_by('p.time_create', 'DESC')
@@ -154,7 +151,6 @@ class Posts_home_model extends MY_Model {
 			->where(array(
 				'p.post_type' => $type,
 				'p.status <' => '3',
-				'p.lang' => $langCode
 			))
 			->order_by('p.time_create', 'DESC');
 		if( isset($start) && isset($limit) && is_numeric($start) && is_numeric($limit)){
@@ -185,7 +181,6 @@ class Posts_home_model extends MY_Model {
 				'p.post_type' => 'news',
 				'p.status <' => '3',
 				'p.site_id' => $siteid,
-				'p.lang' => $langCode
 			))
 			->like('p.title',$key)
 			->order_by('p.time_create', 'DESC');
@@ -217,7 +212,6 @@ class Posts_home_model extends MY_Model {
                 WHERE p.post_type = "news"
                 AND p.site_id = '.$siteid.'
                 AND p.status < 3
-                AND p.lang = "' . $langCode .'"
                 ORDER BY p.time_create DESC, p.id DESC
                 LIMIT ' . $limit . '
                 ';
