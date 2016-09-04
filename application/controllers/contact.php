@@ -99,7 +99,11 @@ class Contact extends MY_Controller {
         if(isset($_POST) && !empty($_POST)){
             $post = $this->input->post();
             $post['type'] = 'contact';
-            $flag = $this->contact_home_model->add($post);
+            $data = [
+                'email' => $post['email'],
+                'type' => 'contact',
+            ];
+            $flag = $this->contact_home_model->add($data);
             $this->session->set_flashdata('message_flashdata',$flag);
             redirect(base64_decode($this->input->get('redirect'))); 
         }

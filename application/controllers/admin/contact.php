@@ -51,13 +51,6 @@ class Contact extends MY_Controller {
 
 	}
 
-	
-
-	function __destruct(){
-
-		$this->permit->checkSelectSite();
-
-	}
 
 	function view(){
 
@@ -93,7 +86,7 @@ class Contact extends MY_Controller {
 
 			array('*'),
 
-			array('type'=>'contact'),$config['per_page'],($page*$config['per_page']));
+			array('type'=>'contact'),$config['per_page'],($page*$config['per_page']),'id desc');
 
 		}
 

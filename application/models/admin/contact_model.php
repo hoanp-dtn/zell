@@ -6,7 +6,7 @@ class Contact_model extends MY_Model {
 		$this->lang_code = $this->session->userdata('lang_select');
     }
 	
-	function view($select=array(), $where=array(),$limit=NULL,$start=NULL,$contact_by=NULL)
+	function view($select=array(), $where=array(),$limit=NULL,$start=NULL,$order_by=NULL)
 	{
 		$this->db->from('utt_customer')->select($select);
 		if(isset($where) && count($where)){
@@ -15,8 +15,8 @@ class Contact_model extends MY_Model {
 		if(is_numeric($start) && is_numeric($limit)){
 			$this->db->limit($limit, $start);
 		}
-		if(isset($contact_by) && $contact_by != NULL){
-			$this->db->contact_by($contact_by); 
+		if(isset($order_by) && $order_by != NULL){
+			$this->db->order_by($order_by); 
 		}
 		return $this->db->get()->result_array();
 	}

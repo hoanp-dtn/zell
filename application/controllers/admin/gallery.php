@@ -27,9 +27,6 @@ class Gallery extends MY_Controller
 			}
 	}
 	
-	function __destruct(){
-		$this->permit->checkSelectSite();
-	}
 	function view($page = 1){
 		$this->load->config('pagination');
 		$this->load->library('pagination');
