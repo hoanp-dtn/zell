@@ -38,7 +38,8 @@
                     <thead>
                       <tr>
                         <th style = "width: 5px;">STT</th>
-                        <th>Tên menu</th>
+                        <th>Tên menu(VN)</th>
+                        <th>Tên menu(EN)</th>
                         <th>Danh mục</th>
                         <th>URL/Đường dẫn</th>	
                         <th>Link bài viết</th>	
@@ -59,6 +60,7 @@
                                      <tr>
                                         <td><?php echo $stt;?></td>
                                         <td><?php echo cutnchar($val['title'],40);?></td>
+                                        <td><?php echo cutnchar($val['title_en'],40);?></td>
                                         <td><?php echo cutnchar($val['cattitle'],40);?></td>
                                         <td><?php echo $val['url'];?></td>
                                         <td><?php echo $val['post_title'];?></td>

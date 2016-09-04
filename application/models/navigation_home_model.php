@@ -6,7 +6,7 @@ class Navigation_home_model extends MY_Model {
     }
 	
 	function getListChild($id, $langCode){
-		return $this->db->select('id, title, cate_id, url, parent_id, post_id,menu_type,
+		return $this->db->select('id, title,title_en, cate_id, url, parent_id, post_id,menu_type,
 								(select utt_post.cate_id from utt_post where utt_post.id = utt_navigation.post_id) as cate_id_post, 
 								(select utt_post.title from utt_post where utt_post.id = utt_navigation.post_id) as post_title')
 						->from( PREFIX.'navigation')->where(array('parent_id'=>$id))->order_by('location','ASC')->get()->result_array();
@@ -14,15 +14,20 @@ class Navigation_home_model extends MY_Model {
 	
 	private $listMenu = array();
 	function getListMenu(&$listChild, $langCode, $link = ''){
+		 if($this->langCode == 'vn'){
+            $langCode = '';
+        }else{
+        	$langCode = "_".$this->langCode;
+        }
 		if(empty($listChild)){
 			return;
 		}
 		foreach($listChild as $key => $val){
 			$link_child = $link;
 			if($val['parent_id'] == 0){
-				$link_child = slug($val['title']);
+				$link_child = slug($val['title'.$langCode]);
 			}else{
-				$link_child .= '/'.slug($val['title']);
+				$link_child .= '/'.slug($val['title'.$langCode]);
 			}
 			if($val['post_id']!=0 && isset($val['cate_id_post']) && $val['cate_id_post']!=0){
 				$val['link'] = $this->posts_home_model->getLinkParrentCate($val['cate_id_post']).slug($val['post_title']).'-a'.$val['post_id'].'.html';

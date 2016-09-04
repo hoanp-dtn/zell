@@ -38,7 +38,7 @@ class Gallery_home extends MY_Controller {
 
        $this->setInformationSite($data);
 
-        $langCode = $this->lang->lang();	
+        $langCode = $this->langCode;
 
 		$nameHeader = $this->model_site->getNameHeader($this->site['id']);//get name header
 
@@ -105,7 +105,7 @@ class Gallery_home extends MY_Controller {
     public function photo($value='')
     {
         $this->setInformationSite($data);
-        $langCode = $this->lang->lang();
+        $langCode = $this->langCode;
         $dataSlider = $this->slider->getSlide(
                                                 'id, title, post_id, img, url, location, description,
                                                 (select utt_post.cate_id from utt_post where utt_post.id = utt_slide.post_id) as cate_id, 
@@ -153,7 +153,7 @@ class Gallery_home extends MY_Controller {
 public function video($value='')
     {
         $this->setInformationSite($data);
-        $langCode = $this->lang->lang();
+        $langCode = $this->langCode;
         $dataSlider = $this->slider->getSlide(
                                                 'id, title, post_id, img, url, location, description,
                                                 (select utt_post.cate_id from utt_post where utt_post.id = utt_slide.post_id) as cate_id, 

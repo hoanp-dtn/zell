@@ -23,8 +23,12 @@
 						</select>
 	            </div>  
 				<div class="form-group">
-                  <label>Tên menu :</label>
+                  <label>Tên menu (Tiếng Việt) :</label>
 					<input type="text" class="form-control" id="title" name="title" value="<?php echo set_value('title','');?>" placeholder="Mời bạn nhập tên menu vào đây ">
+                </div>
+				<div class="form-group">
+                  <label>Tên menu (Tiếng Anh) :</label>
+					<input type="text" class="form-control" id="" name="title_en" value="<?php echo set_value('title_en','');?>" placeholder="Mời bạn nhập tên menu vào đây ">
                 </div>
                 <div class="form-group">
                   <label>Danh mục :</label>

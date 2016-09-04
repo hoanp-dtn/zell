@@ -20,7 +20,7 @@ class Product extends MY_Controller {
 
     public function productList($nav_id = 0){
 		$this->setInformationSite($data);
-        $langCode = $this->lang->lang();
+        $langCode = $this->langCode;
         $dataSlider = $this->slider->getSlide(
                                                 'id, title, post_id, img, url, location, description,
                                                 (select utt_post.cate_id from utt_post where utt_post.id = utt_slide.post_id) as cate_id, 
@@ -154,7 +154,7 @@ class Product extends MY_Controller {
   //       $data['content_for_layout'] = $html;
   //       $this->render('layout/default', $data);
 		$this->setInformationSite($data);
-        $langCode = $this->lang->lang();
+        $langCode = $this->langCode;
         $dataSlider = $this->slider->getSlide(
                                                 'id, title, post_id, img, url, location, description,
                                                 (select utt_post.cate_id from utt_post where utt_post.id = utt_slide.post_id) as cate_id, 

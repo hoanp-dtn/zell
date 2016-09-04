@@ -2127,3 +2127,14 @@ a{
     font-weight: bold;
     text-transform: uppercase;
 }
+
+#promotion{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#product{
+	position: absolute;
+	top: 0;
+	left: 0;
+}

@@ -1,14 +1,18 @@
 <?php
-    function displayMenu($dataMenu,$class_ul = false){
+    function displayMenu($dataMenu,$class_ul = false, $langCode=''){
+        if($langCode == '_vn'){
+            $langCode = '';
+        }
+        $title = 'title'.$langCode;
     ?>
-        <li data-active="<?php echo slug($dataMenu['title']);?>"><a href="<?php echo $dataMenu['link'];?>"><?php echo $dataMenu['title'];?></a>
+        <li data-active="<?php echo slug($dataMenu[$title]);?>"><a href="<?php echo $dataMenu['link'];?>"><?php echo $dataMenu[$title];?></a>
             <?php
                 if(isset($dataMenu['children'])){
                     ?>
                     <ul class='<?php echo $class_ul? "submenu" : ""; ?>'>
                     <?php
                     foreach($dataMenu['children'] as $key => $val){
-                        displayMenu($val, true);
+                        displayMenu($val, true, $langCode);
                     }
                     ?>
                     </ul>
@@ -32,7 +36,7 @@
                 <?php 
                     if(!empty($dataMenu)){
                         foreach($dataMenu as $key => $val){
-                            displayMenu($val,true);
+                            displayMenu($val,true, "_".$langCode);
                         }
                     }
                 ?>

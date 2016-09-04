@@ -20,7 +20,7 @@ class post_detail extends MY_Controller {
 
     function view($id = 0){
 		$this->setInformationSite($data);
-        $langCode = $this->lang->lang();
+        $langCode = $this->langCode;
          $dataSlider = $this->slider->getSlide(
                                                 'id, title, post_id, img, url, location, description,
                                                 (select utt_post.cate_id from utt_post where utt_post.id = utt_slide.post_id) as cate_id, 
@@ -91,7 +91,7 @@ class post_detail extends MY_Controller {
 	function view_listpost($nav_id){
 		$this->setInformationSite($data);
 		// $nameHeader = $this->model_site->getNameHeader($this->site['id']);//get name header
-        $langCode = $this->lang->lang();
+        $langCode = $this->langCode;
         $dataSlider = $this->slider->getSlide(
                                                 'id, title, post_id, img, url, location, description,
                                                 (select utt_post.cate_id from utt_post where utt_post.id = utt_slide.post_id) as cate_id, 

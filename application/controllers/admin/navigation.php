@@ -63,6 +63,7 @@ class Navigation extends MY_Controller {
 		$parent_id = $this->input->post('parent_id');
 		$cate_id = $this->input->post('cate_id');
 		$title = $this->input->post('title');
+		$title_en = $this->input->post('title_en');
 		$url = $this->input->post('url');
 		$location = $this->input->post('location');
 		$sub_nav = $this->input->post('sub_nav');
@@ -76,7 +77,8 @@ class Navigation extends MY_Controller {
 			$data['current_location'] = (int)$location;
 			$data['menu_type'] = (int)$menu_type;
 			$this->form_validation->set_rules('menu_type','Kiểu menu','required');
-			$this->form_validation->set_rules('title','Tên menu','required|trim');
+			$this->form_validation->set_rules('title','Tên menu(VN)','required|trim');
+			$this->form_validation->set_rules('title_en','Tên menu(EN)','required|trim');
 			$this->form_validation->set_rules('url','Đường dẫn','trim');
 			$this->form_validation->set_rules('cate_id','Loại tin','callback__cate_id_update['.$id.']');
 			$this->form_validation->set_rules('parent_id','Danh mục','callback__parent_id_update['.$navigation['id'].']');
@@ -119,6 +121,7 @@ class Navigation extends MY_Controller {
 				}
 				$flag = $this->navigation_model->update(array(
 					'title'     => $title,
+					'title_en'     => $title_en,
 					'cate_id'   => $cate_id,
 					'parent_id' => $parent_id,
 					'url' 		=> is_bool($url)?"":$url,
@@ -165,6 +168,7 @@ class Navigation extends MY_Controller {
 		$parent_id = $this->input->post('parent_id');
 		$cate_id = $this->input->post('cate_id');
 		$title = $this->input->post('title');
+		$title_en = $this->input->post('title_en');
 		$url = $this->input->post('url');
 		$location = $this->input->post('location');
 		$sub_nav = $this->input->post('sub_nav');
@@ -183,7 +187,8 @@ class Navigation extends MY_Controller {
 			$data['current_sub_nav'] = (int)$sub_nav;
 			$data['current_location'] = (int)$location;
 			$data['menu_type'] = (int)$menu_type;
-			$this->form_validation->set_rules('title','Tên menu','required|trim');
+			$this->form_validation->set_rules('title','Tên menu(VN)','required|trim');
+			$this->form_validation->set_rules('title_en','Tên menu(EN)','required|trim');
 			$this->form_validation->set_rules('url','Đường dẫn','trim');
 			$this->form_validation->set_rules('menu_type','Kiểu menu','required');
 			$this->form_validation->set_rules('cate_id','Loại tin','callback__cate_id');
@@ -205,6 +210,7 @@ class Navigation extends MY_Controller {
 				}
 				$flag = $this->navigation_model->insert(array(
 					'title'     => $title,
+					'title_en'     => $title_en,
 					'cate_id'   => $cate_id,
 					'parent_id' => $parent_id,
 					'url' 		=> is_bool($url)?"":$url,

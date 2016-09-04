@@ -113,6 +113,42 @@ $(document).ready(function(){
 		mouseDrag:false,
 		touchDrag:false,
 	});
+	//bookslider
+	$('#promotion').owlCarousel({
+		items:1,
+		loop:true,
+		margin:0,
+		responsiveClass:false,
+		nav:false,
+		dots:true,
+		autoplay:true,
+		autoHeight:false,
+		autoplayTimeout:7000,
+		autoplaySpeed:1000,
+		autoplayHoverPause:false,
+		animateOut: 'fadeOut',
+    	animateIn: 'fadeIn',
+		mouseDrag:false,
+		touchDrag:false,
+	});
+	//bookslider
+	$('#product').owlCarousel({
+		items:1,
+		loop:true,
+		margin:0,
+		responsiveClass:false,
+		nav:false,
+		dots:true,
+		autoplay:true,
+		autoHeight:false,
+		autoplayTimeout:7000,
+		autoplaySpeed:1000,
+		autoplayHoverPause:false,
+		animateOut: 'fadeOut',
+    	animateIn: 'fadeIn',
+		mouseDrag:false,
+		touchDrag:false,
+	});
 	
 	//bookslider click 
 	$(".bs-close").click(function(){

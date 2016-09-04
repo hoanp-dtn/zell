@@ -19,7 +19,7 @@ class Home extends MY_Controller {
     
     function index(){
         $this->setInformationSite($data);
-        $langCode = $this->lang->lang();
+        $langCode = $this->langCode;
 
         $dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
         $dataMenuNews = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(68,$langCode), $langCode);
@@ -36,9 +36,11 @@ class Home extends MY_Controller {
         );
         $dataGallery = $this->gallery->getGallery();
         // $dataPartner = $this->partner->getPartner(0, 4, array('site_id' => $this->site['id']));
-        $list_posts = $this->posts_home_model->getListPost(0, $langCode, null, null,'news', 27);
+        $list_posts = $this->posts_home_model->getListPost(0, $langCode, 0, 5,'news', 27);
+        $list_promotion = $this->posts_home_model->getListPost(0, $langCode, 0, 5,'news', 101);
+        $list_product = $this->posts_home_model->getListPost(68, $langCode, null, null, 'product');
         
-        $dataTmp = array('list_posts' =>$list_posts,'dataMenuNews' =>$dataMenuNews,'dataMenu' => $dataMenu,'langCode' => $langCode, 'dataSlider'=>$dataSlider);
+        $dataTmp = array('list_product' =>$list_product,'list_promotion' =>$list_promotion,'list_posts' =>$list_posts,'dataMenuNews' =>$dataMenuNews,'dataMenu' => $dataMenu,'langCode' => $langCode, 'dataSlider'=>$dataSlider);
         $data = array_merge($data, $dataTmp);
 
         $html  = $this->render('layout/slider', $data , true);

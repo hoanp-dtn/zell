@@ -17,6 +17,7 @@ class MY_Controller extends CI_Controller {
         $this->load->model('model_site');
         $this->language = get_cookie('language') ? get_cookie('language') : $this->config->item('language');
         $this->lang->load('home', $this->language);
+        $this->langCode = $this->language == "english" ? "en" : "vn";
     }
 
     function uri_array($i){

@@ -6,7 +6,7 @@ class Navigation_model extends MY_Model {
 	
 	function view($lang='vn',$site_id = 0){
 		$select = "
-				SELECT utt_navigation.parent_id as parentid, utt_navigation.id,utt_navigation.title, utt_navigation.location, utt_navigation.url,(select utt_cate.title from utt_cate where utt_cate.id =utt_navigation.cate_id) as cattitle,(select utt_post.title from utt_post where utt_post.id =utt_navigation.post_id) as post_title ,(select k.title from utt_navigation as k where k.id =utt_navigation.parent_id) as parenttitle
+				SELECT utt_navigation.parent_id as parentid, utt_navigation.id,utt_navigation.title, utt_navigation.title_en, utt_navigation.location, utt_navigation.url,(select utt_cate.title from utt_cate where utt_cate.id =utt_navigation.cate_id) as cattitle,(select utt_post.title from utt_post where utt_post.id =utt_navigation.post_id) as post_title ,(select k.title from utt_navigation as k where k.id =utt_navigation.parent_id) as parenttitle
 				FROM utt_navigation";
 		 return $this->getRows($select);
 	}
