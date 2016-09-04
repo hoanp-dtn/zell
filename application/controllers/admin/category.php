@@ -20,9 +20,6 @@ class Category extends MY_Controller
             }
     }
 
-    function __destruct(){
-        $this->permit->checkSelectSite();
-    }
     function view($lang = 'vn'){
         $data['current_lang'] = $this->lang_code;
         $query = $this->input->get('s');

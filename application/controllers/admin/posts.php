@@ -26,10 +26,6 @@ class Posts extends MY_Controller {
 			}
 	}
 	
-	function __destruct(){
-		$this->permit->checkSelectSite();
-	}
-	
 	public function changeStatus($id = 0){
 		$redirect= $this->input->get('redirect');
 		$redirect = !empty($redirect)?base64_decode($redirect):'admin/posts/view';

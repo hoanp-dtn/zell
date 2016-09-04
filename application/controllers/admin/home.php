@@ -37,9 +37,5 @@
                 redirect('admin/authentication');
             }
         }
-        
-        function __destruct(){
-            $this->permit->checkSelectSite();
-        }
     }
 ?>

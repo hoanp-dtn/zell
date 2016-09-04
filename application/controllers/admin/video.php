@@ -51,14 +51,6 @@ class Video extends MY_Controller {
 
 	}
 
-	
-
-	function __destruct(){
-
-		$this->permit->checkSelectSite();
-
-	}
-
 	function view(){
 
 		$data['current_lang'] = $this->lang_code;

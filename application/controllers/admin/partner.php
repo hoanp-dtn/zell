@@ -21,9 +21,6 @@ class Partner extends MY_Controller {
 			}
 	}
 	
-	function __destruct(){
-		$this->permit->checkSelectSite();
-	}
 	
 	public function del($id = 0){
 		$redirect= $this->input->get('redirect');
