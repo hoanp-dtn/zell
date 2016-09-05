@@ -4,6 +4,8 @@
             $langCode = '';
         }
         $title = 'title'.$langCode;
+        $dataMenu[$title] = $dataMenu[$title] != '' ? $dataMenu[$title] : $dataMenu['title'];
+
     ?>
         <li data-active="<?php echo slug($dataMenu[$title]);?>"><a href="<?php echo $dataMenu['link'];?>"><?php echo $dataMenu[$title];?></a>
             <?php
