@@ -71,7 +71,7 @@
                 </div>
                 <hr class="sitebar-hr">
                 <div class="sf-row">
-                    <label><?php echo lang('register');?><span><?php echo lang('get_info');?></span>
+                    <label style="padding-top:0"><?php echo lang('register');?><span><?php echo lang('get_info');?></span>
                     </label>
 
                     <div class="div_input">
@@ -79,9 +79,7 @@
                         <input type="email" name="email" class="text" value="" required="">
                     </div>
                 </div>
-                <div class="sf-row">
-                    <button type="submit"><?php echo lang('register');?></button>
-                </div>
+                
                 <hr class="sitebar-hr">
             </div>
             <!-- sidebar-form -->
