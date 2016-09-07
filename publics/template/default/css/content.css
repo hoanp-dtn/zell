@@ -1886,7 +1886,7 @@ div.showcase-tooltip{
 	text-align: center!important;
 }
 .product-info-thumnail #slider{
-    height: 70%;
+    height: 66%;
     margin: 0;
 }
 .flexslider .slides > li{
@@ -2134,4 +2134,33 @@ a{
 	top: 0;
 	left: 0;
 	padding: 10px;
+}
+
+.about-content .product-info-thumnail .vote img{
+	width: 18px;
+}
+.about-content .product-info-thumnail .vote ul{
+	width: 100%;
+	height: 100%;
+}
+
+.about-content .product-info-thumnail .vote li{
+	float: left;
+	width: 20%;
+	line-height: 30px;
+	text-align: center;
+}
+.about-content .product-info-thumnail .vote li:first-child{
+	margin-left: 20%;
+}
+.about-content .product-info-thumnail .vote li span{
+	color: white;
+}
+.about-content .product-info-thumnail .vote{
+	overflow: hidden;
+	height: 30px;
+}
+.about-content .product-info-thumnail .vote ul li span.border{
+    color: #d2a72a;
+    float: right;
 }

@@ -242,4 +242,37 @@ class Posts_home_model extends MY_Model {
 		}
 		return $this->db->get()->row_array();
 	}
+
+	public function addViewCount($product_id){
+	    if(! (bool)$this->input->cookie('view_count_cookie')){
+	    	// update view count
+	    	$this->db->where('id', $product_id);
+			$this->db->set('view_count', '`view_count`+ 1', FALSE);
+			$this->db->update('utt_post');
+	    	//set cookie
+			$cookie= array(
+		      'name'   => 'view_count_cookie',
+		      'value'  => true,
+		       'expire' => 15*60,
+		    );
+		    $this->input->set_cookie($cookie);
+	    }
+	}
+	public function addLoveCount($product_id){
+	    if(! (bool)$this->input->cookie('love_count_cookie_'.$product_id)){
+	    	// update view count
+	    	$this->db->where('id', $product_id);
+			$this->db->set('love_count', '`love_count`+ 1', FALSE);
+			$this->db->update('utt_post');
+	    	//set cookie
+			$cookie= array(
+		      'name'   => 'love_count_cookie_'.$product_id,
+		      'value'  => true,
+		       'expire' => 3600*24*30,
+		    );
+		    $this->input->set_cookie($cookie);
+		    return "Cảm ơn bạn đã yêu thích sản phẩm này !";
+	    }
+	    return "Bạn đã yêu thích sản phẩm này rồi !";
+	}
 }

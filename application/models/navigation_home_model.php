@@ -14,20 +14,15 @@ class Navigation_home_model extends MY_Model {
 	
 	private $listMenu = array();
 	function getListMenu(&$listChild, $langCode, $link = ''){
-		 if($this->langCode == 'vn'){
-            $langCode = '';
-        }else{
-        	$langCode = "_".$this->langCode;
-        }
 		if(empty($listChild)){
 			return;
 		}
 		foreach($listChild as $key => $val){
 			$link_child = $link;
 			if($val['parent_id'] == 0){
-				$link_child = slug($val['title'.$langCode]);
+				$link_child = slug($val['title']);
 			}else{
-				$link_child .= '/'.slug($val['title'.$langCode]);
+				$link_child .= '/'.slug($val['title']);
 			}
 			if($val['post_id']!=0 && isset($val['cate_id_post']) && $val['cate_id_post']!=0){
 				$val['link'] = $this->posts_home_model->getLinkParrentCate($val['cate_id_post']).slug($val['post_title']).'-a'.$val['post_id'].'.html';

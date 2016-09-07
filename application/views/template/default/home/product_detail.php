@@ -46,6 +46,26 @@
                                 <?php endforeach ?>
                               </ul>
                             </div>
+                            <div class="vote">
+                                <ul>
+                                    <li>
+                                        <a href="#" data-love="<?php echo $post_detail['id'];?>">
+                                        <img src="publics/template/default/images/tim.png">
+                                        </a>
+                                        <span><?php echo $post_detail['love_count']; ?></span>
+                                        <span class="border">|</span>
+                                    </li>
+                                    <li>
+                                        <img src="publics/template/default/images/view.png">
+                                        <span><?php echo $post_detail['view_count']; ?></span>
+                                        <span class="border">|</span>
+                                    </li>
+                                    <li>
+                                        <img src="publics/template/default/images/fb.png">
+                                        <span>200</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="product-detail">
                             <h4><?php echo $post_detail['title']; ?></h4>
@@ -357,4 +377,19 @@
            $("#number").change(function(){
                 $("#order input[name='number']").val($(this).val());
            });
+           $(".vote ul li a").click(function (e) {
+                var product_id = $(this).data('love');
+
+                $.ajax({
+                    type : 'post',
+                    url : '<?php echo base_url(); ?>product/addLoveCount',
+                    data : {product_id : product_id},
+                    success :  function (result) {
+                        if(result){
+                            alert(result);
+                        }
+                    }
+                });
+                e.preventDefault();
+            });
         </script> 

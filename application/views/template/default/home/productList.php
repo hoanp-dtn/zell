@@ -33,12 +33,14 @@
                             <div class="vote">
                                 <ul>
                                     <li>
+                                    <a href="#" data-love="<?php echo $value['id']; ?>">
                                         <img src="publics/template/default/images/tim.png">
-                                        <span>30</span>
+                                        </a>
+                                        <span><?php echo $value['love_count']; ?></span>
                                     </li>
                                     <li>
                                         <img src="publics/template/default/images/view.png">
-                                        <span>150</span>
+                                        <span><?php echo $value['view_count']; ?></span>
                                     </li>
                                     <li>
                                         <img src="publics/template/default/images/fb.png">
@@ -66,5 +68,19 @@
             $(".container .about .about-content").mCustomScrollbar({
                 
             });
+            $(".vote ul li a").click(function (e) {
+                var product_id = $(this).data('love');
 
+                $.ajax({
+                    type : 'post',
+                    url : '<?php echo base_url(); ?>product/addLoveCount',
+                    data : {product_id : product_id},
+                    success :  function (result) {
+                        if(result){
+                            alert(result);
+                        }
+                    }
+                });
+                e.preventDefault();
+            });
         </script>  
