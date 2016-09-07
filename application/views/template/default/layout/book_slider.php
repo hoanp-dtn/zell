@@ -18,7 +18,7 @@
                     <!-- bi-left -->
                     <div class="bi-right">
                         <a href="<?php echo $value['link'].slug($value['title'])."-a".$value['id'].".html"; ?>">
-                       <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 170, 120);?>">
+                       <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 175, 146);?>">
 
                         </a>
                     </div>
@@ -44,7 +44,7 @@
                     <!-- bi-left -->
                     <div class="bi-right">
                         <a href="<?php echo $value['link'].slug($value['title'])."-i".$value['id'].".html"; ?>">
-                       <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 170, 120);?>">
+                       <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 175, 146);?>">
 
                         </a>
                     </div>
@@ -70,7 +70,7 @@
                     <!-- bi-left -->
                     <div class="bi-right">
                         <a href="<?php echo $value['link'].slug($value['title'])."-a".$value['id'].".html"; ?>">
-                       <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 170, 120);?>">
+                       <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 175, 146);?>">
 
                         </a>
                     </div>
@@ -95,36 +95,36 @@
     $("#promotion, #product").hide();
     $("#bookslider").show();
     $("#bt").css({
-        'color' : 'white'
+        'color' : '#d2a72a'
     });
     $("#bt").click(function () {
         $("#promotion, #product").hide();
         $("#bookslider").fadeIn(200);
         $(this).css({
-            'color' : 'white'
+            'color' : '#d2a72a'
         });
         $("#pd, #pt").css({
-            'color' : '#b3b3b3'
+            'color' : 'white'
         });
     });
     $("#pd").click(function () {
         $("#promotion, #bookslider").hide();
         $("#product").fadeIn(200);
         $(this).css({
-            'color' : 'white'
-        });
+            'color' : '#d2a72a'
+         });
         $("#bt, #pt").css({
-            'color' : '#b3b3b3'
+            'color' : 'white'
         });
     });
     $("#pt").click(function () {
         $("#bookslider, #product").hide();
         $("#promotion").fadeIn(200);
         $(this).css({
-            'color' : 'white'
+            'color' : '#d2a72a'
         });
         $("#pd, #bt").css({
-            'color' : '#b3b3b3'
+            'color' : 'white'
         });
     });
 </script>

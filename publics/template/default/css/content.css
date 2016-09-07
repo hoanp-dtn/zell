@@ -42,7 +42,7 @@ ul{
 .footer{
 	position:fixed;
 	bottom:0;
-	right:10px;
+	right:26px;
 	z-index:100;
 	padding:0 0 20px;
 }
@@ -333,7 +333,7 @@ a.bookroom{
 .sidebar-footer{
 	font-size:9px;
 	color:#fff;
-	padding:5px 7px;
+	padding:0px 7px;
 	line-height:12px;
 }
 .sidebar-footer p:first-child{
@@ -674,13 +674,14 @@ a.bookroom{
 .bgmain .btn-close{
 	float:right;
 	background:url(../images/close.png) no-repeat;
-	width:16px;
-	height:15px;
-	cursor:pointer;
-	position:absolute;
-	z-index:2;
-	right:0;
-	top:0;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: -2px;
+    cursor: pointer;
+}
 }
 .bgmain .m-hide .btn-close{
 	background:url(../images/close-plus.png) no-repeat;
@@ -1247,26 +1248,31 @@ div.showcase-tooltip{
 .book-slider{
 	position:fixed;
 	z-index:100;
-	right:10px;
-	bottom:75px;
-	width:566px;
+	right:26px;
+	bottom:85px;
+	height: 191px;
+	width:601px;
 }
 .book-slider .bs-footer{
 	background:#000;
-	background:rgba(0, 0, 0, 0.7);
-	padding:12px 5px;
+	background:rgba(0, 0, 0, 0.4);
+	padding:9px 5px;
 	line-height:14px;
 	text-align:right;
 	text-transform: uppercase;
+	height: 30px;
+}
+.book-slider .bs-footer a{
+    float: left;
+    width: 30%;
+    padding-left: 20px;
 }
 .book-slider .bs-footer a,
 .book-slider .bs-footer span{
 	color:#fff;
-	font-size:16px;
+	font-size:14px;
 	display:inline-block;
 	vertical-align:top;
-	margin-left:24px;
-	color:#b3b3b3;
 }
 .book-slider .bs-footer a{
 	cursor: pointer;
@@ -1275,9 +1281,9 @@ div.showcase-tooltip{
 	position:relative;
 	z-index:1;
 	background:#000;
-	background:rgba(0, 0, 0, 0.55);
-	padding:8px;
+	background:rgba(0, 0, 0, 0.2);
 	min-height:30px;
+	height: 191px;
 }
 .book-slider .bs-content .bs-close{
 	background:url(../images/close.png) no-repeat;
@@ -1293,10 +1299,11 @@ div.showcase-tooltip{
 	background:url(../images/close-plus.png) no-repeat;
 }
 .book-slider .bs-slider{
-	width:550px;
-	height:122px;
+	width:100%;
+	height:161px;
 	position:relative;
 	z-index:1;
+	padding: 10px;
 }
 .book-slider .bookroom{
 	position:absolute;
@@ -1309,13 +1316,12 @@ div.showcase-tooltip{
 }
 .bs-item .bi-left{
 	float:right;
-	width:360px;
+	width:390px;
 	padding-right:5px;
 }
 .bs-item .bi-left .bi-title{
 	color:#d2a72a;
-	line-height:14px;
-	font-size:13px;
+	font-size:16px;
 	text-transform:uppercase;
 	display:block;
 	overflow:hidden;
@@ -1338,9 +1344,10 @@ div.showcase-tooltip{
 .bs-item .bi-right{
 	float:left;
 	width:177px;
+	height:146px;
 }
 .bs-item .bi-right img{
-	height:122px;
+	height: 100%;
 	width:100%;
 	transform-style:flat;
 }
@@ -1371,9 +1378,8 @@ div.showcase-tooltip{
 .sf-row .div_input{
     border: solid #d2a72a 1px;
     width: 97%;
-    padding: 1%;
     overflow: hidden;
-    padding: 4px;
+    padding: 2px 5px;
 }
 .sf-row .div_input img{
     float: left;
@@ -1394,8 +1400,8 @@ div.showcase-tooltip{
 .sitebar-hr{
 	width: 17%;
     border: solid #d2a72a 1px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 .sf-row label span{
 	display: block;
@@ -2121,9 +2127,11 @@ a{
 	position: absolute;
 	top: 0;
 	left: 0;
+	padding: 10px;
 }
 #product{
 	position: absolute;
 	top: 0;
 	left: 0;
+	padding: 10px;
 }
