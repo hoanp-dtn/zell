@@ -101,7 +101,6 @@
 <script type="text/javascript">
         var pathname = $(location).attr('pathname');
         var pathArr = pathname.split("/");
-        console.log(pathArr);
         var active = false;
         for(var i = 0; i < 4; i++){
             if(pathArr[i] != ""){

@@ -179,8 +179,11 @@ ul{
     transition-duration: 3000s;
 }
 
-.menuleft li:nth-of-type(1):hover ~ #lavalamp, .menuleft li:nth-of-type(1).active ~ #lavalamp {
+.menuleft li:nth-of-type(1).active ~ #lavalamp {
     top: 0;
+}
+.menuleft li:nth-of-type(1):hover ~ #lavalamp{
+    top: 0!important;
 }
 .menuleft li.active a{
 	color: white;
@@ -195,35 +198,65 @@ ul{
     top: 0px;
     left: 200px;
 }
-.menuleft li:nth-of-type(2):hover ~ #lavalamp, .menuleft li:nth-of-type(2).active ~ #lavalamp {
+.menuleft li:nth-of-type(2).active ~ #lavalamp {
     top: 34px;
 }
-.menuleft li:nth-of-type(3):hover ~ #lavalamp, .menuleft li:nth-of-type(3).active ~ #lavalamp{
+.menuleft li:nth-of-type(2):hover ~ #lavalamp{
+    top: 34px!important;
+}
+.menuleft li:nth-of-type(3).active ~ #lavalamp{
     top: 68px;
 }
-.menuleft li:nth-of-type(4):hover ~ #lavalamp, .menuleft li:nth-of-type(4).active ~ #lavalamp {
+.menuleft li:nth-of-type(3):hover ~ #lavalamp{
+    top: 68px!important;
+}
+.menuleft li:nth-of-type(4).active ~ #lavalamp {
    	top: 102px;
 }
-.menuleft li:nth-of-type(5):hover ~ #lavalamp, .menuleft li:nth-of-type(5).active ~ #lavalamp {
+.menuleft li:nth-of-type(4):hover ~ #lavalamp{
+   	top: 102px!important;
+}
+.menuleft li:nth-of-type(5).active ~ #lavalamp {
    	top: 136px;
 }
-.menuleft li:nth-of-type(6):hover ~ #lavalamp, .menuleft li:nth-of-type(6).active ~ #lavalamp {
+.menuleft li:nth-of-type(5):hover ~ #lavalamp{
+   	top: 136px!important;
+}
+.menuleft li:nth-of-type(6):hover ~ #lavalamp{
+    top: 170px!important;
+}
+.menuleft li:nth-of-type(6).active ~ #lavalamp {
     top: 170px;
 }
-.menuleft li:nth-of-type(7):hover ~ #lavalamp, .menuleft li:nth-of-type(7).active ~ #lavalamp {
+.menuleft li:nth-of-type(7).active ~ #lavalamp {
     top: 205px;
 }
-.menuleft li:nth-of-type(8):hover ~ #lavalamp, .menuleft li:nth-of-type(8).active ~ #lavalamp {
+.menuleft li:nth-of-type(7):hover ~ #lavalamp{
+    top: 205px!important;
+}
+.menuleft li:nth-of-type(8).active ~ #lavalamp {
     top: 210px;
 }
-.menuleft li:nth-of-type(9):hover ~ #lavalamp, .menuleft li:nth-of-type(9).active ~ #lavalamp {
+.menuleft li:nth-of-type(8):hover ~ #lavalamp{
+    top: 210px!important;
+}
+.menuleft li:nth-of-type(9).active ~ #lavalamp {
     top: 240px;
 }
-.menuleft li:nth-of-type(10):hover ~ #lavalamp, .menuleft li:nth-of-type(10).active ~ #lavalamp {
+.menuleft li:nth-of-type(9):hover ~ #lavalamp{
+    top: 240px!important;
+}
+.menuleft li:nth-of-type(10).active ~ #lavalamp {
     top: 270px;
 }
-.menuleft li:nth-of-type(11):hover ~ #lavalamp, .menuleft li:nth-of-type(11).active ~ #lavalamp {
+.menuleft li:nth-of-type(10):hover ~ #lavalamp{
+    top: 270px!important;
+}
+.menuleft li:nth-of-type(11).active ~ #lavalamp {
     top: 300px;
+}
+.menuleft li:nth-of-type(11):hover ~ #lavalamp{
+    top: 300px!important;
 }
 .menuleft ul > li > ul{
 	margin:0 0 5px;
