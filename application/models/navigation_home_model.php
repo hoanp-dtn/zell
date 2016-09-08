@@ -17,15 +17,23 @@ class Navigation_home_model extends MY_Model {
 		if(empty($listChild)){
 			return;
 		}
+
+		if($this->langCode == 'vn'){		
+             $langCode = '';		
+        }else{		
+         	$langCode = "_".$this->langCode;		
+        }
+        $title = 'title'.$langCode;
 		foreach($listChild as $key => $val){
 			$link_child = $link;
+			$titleValue = $val[$title] != '' ? $val[$title] : $val['title'];
 			if($val['parent_id'] == 0){
-				$link_child = slug($val['title']);
+				$link_child = slug($titleValue);
 			}else{
-				$link_child .= '/'.slug($val['title']);
+				$link_child .= '/'.slug($titleValue);
 			}
-			if($val['post_id']!=0 && isset($val['cate_id_post']) && $val['cate_id_post']!=0){
-				$val['link'] = $this->posts_home_model->getLinkParrentCate($val['cate_id_post']).slug($val['post_title']).'-a'.$val['post_id'].'.html';
+			if($val['post_id']!=0){
+				$val['link'] = $this->posts_home_model->getLinkParrentMenu($val['id']).slug($val['post_title']).'-a'.$val['post_id'].'.html';
 			}elseif($val['url']!=""){
 				$val['link'] = $val['url'];
 			}elseif($val['cate_id'] !=0){

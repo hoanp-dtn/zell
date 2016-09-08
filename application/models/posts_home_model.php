@@ -50,14 +50,21 @@ class Posts_home_model extends MY_Model {
     }
 	
 	function getLinkParrentMenu($nav_id, $data = ''){
-		$navigation = $this->navigation_home_model->get('id, title, parent_id', array('id' => $nav_id), false);
+		$navigation = $this->navigation_home_model->get('id, title, title_en, parent_id', array('id' => $nav_id), false);
 		if(!isset($navigation) || count($navigation) == 0){
 			return NULL;
 		}
+		if($this->langCode == 'vn'){		
+             $langCode = '';		
+        }else{		
+         	$langCode = "_".$this->langCode;		
+        }
+        $title = 'title'.$langCode;
+		$titleValue = $navigation[$title] != '' ? $navigation[$title] : $navigation['title'];
 		if($navigation['parent_id'] == 0){
-			return slug($navigation['title']).'/';
+			return slug($titleValue).'/';
 		}
-		return $this->getLinkParrentMenu($navigation['parent_id'],$data).slug($navigation['title']).'/';
+		return $this->getLinkParrentMenu($navigation['parent_id'],$data).slug($titleValue).'/';
 	}
 	function getLinkParrentCate($cate_id, $data = ''){
 		$category = $this->category_home_model->get('id, title, parent_id', array('id' => $cate_id), false);
