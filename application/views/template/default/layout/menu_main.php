@@ -116,4 +116,18 @@
         if(!active){
             $(".menuleft ul > li:first-child").addClass("active");
         }
+        $(".sidebar .bg-black").css({
+            "height" : (parseInt($(window).height())-330) + "px"
+        });
+        $(".sidebar").css({
+            "height" : (parseInt($(window).height())) + "px"
+        });
+        $(window).resize(function () {
+            $(".sidebar .bg-black").css({
+                "height" : (parseInt($(window).height())-330) + "px"
+            });
+        $(".sidebar").css({
+            "height" : (parseInt($(window).height())) + "px"
+        });
+        });
 </script>
