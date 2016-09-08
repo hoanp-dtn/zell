@@ -3,7 +3,7 @@
         <ul>
             <li>
                 <a href="#"><?php echo lang('gallery');?><span class="menu-bullet"></span></a>
-                <ul class="top-submenu">
+                <ul class="top-submenu" style="width:67px;">
                     <li></li>
                     <li><a href="<?php echo base_url()."thu-vien/photo.html"?>"><?php echo lang('photo');?></a>
                     </li>
@@ -13,7 +13,7 @@
             </li>
             <li>
                 <a href=""><?php echo lang('featurednews');?><span class="menu-bullet"></span></a>
-                <ul class="top-submenu">
+                <ul class="top-submenu" style="width:182px;">
                     <li></li>
                     <?php foreach ($dataMenuNews as $key => $value): ?>
                         <li><a href="<?php echo base_url($value['link']); ?>"><?php echo $value['title']; ?></a></li>

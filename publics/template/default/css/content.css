@@ -1250,7 +1250,6 @@ div.showcase-tooltip{
 	z-index:100;
 	right:26px;
 	bottom:85px;
-	height: 191px;
 	width:601px;
 }
 .book-slider .bs-footer{
@@ -1283,7 +1282,6 @@ div.showcase-tooltip{
 	background:#000;
 	background:rgba(0, 0, 0, 0.2);
 	min-height:30px;
-	height: 191px;
 }
 .book-slider .bs-content .bs-close{
 	background:url(../images/close.png) no-repeat;

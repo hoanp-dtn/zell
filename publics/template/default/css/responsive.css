@@ -31,3 +31,15 @@
   .event-title { margin-top: 20px; }
   .contact-map { height: 250px; overflow: hidden; }
   .contact-form .contact-label { margin-bottom: 10px; } }
+
+
+
+@media (max-height: 800px) {
+  .bg-white {
+    height: auto;
+  }
+  .logo{
+    height: 55px;
+    line-height: 55px;
+  }
+}
