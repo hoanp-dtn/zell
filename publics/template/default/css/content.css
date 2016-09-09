@@ -117,11 +117,12 @@ ul{
 /*sidebar*/
 .bg-white{
 	background:#d2a72a;
-	height: 345px;
+	height: 330px;
 }
 .bg-black{
 	background:#000;
 	background:rgba(0,0,0,0.7);
+	overflow: hidden;
 }
 .logo{
 	height: 93px;
@@ -253,7 +254,7 @@ ul{
 }
 .sidebar-form label{
 	padding: 8px;
-	font-size: 14px;
+	font-size: 1vw;
     text-align: center;
     color: white;
 	display:block;
@@ -1390,7 +1391,7 @@ div.showcase-tooltip{
     width: 67%;
     float: right;
     margin-right: 5%;
-    font-size: 17px;
+    font-size: 1vw;
 }
 .h39{
 	height: 39px;
@@ -1398,8 +1399,8 @@ div.showcase-tooltip{
 .sitebar-hr{
 	width: 17%;
     border: solid #d2a72a 1px;
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin-bottom: 8px;
+    margin-top: 8px;
 }
 .sf-row label span{
 	display: block;
@@ -2161,4 +2162,16 @@ a{
 .about-content .product-info-thumnail .vote ul li span.border{
     color: #d2a72a;
     float: right;
+}
+.bg-black form{
+	height: 50%;
+	overflow: hidden;
+}
+.bg-black .sidebar-footer{
+	height: 40%;
+	overflow: hidden;
+}
+.bg-black #copy-right{
+	height: 10%;
+	overflow: hidden;
 }
