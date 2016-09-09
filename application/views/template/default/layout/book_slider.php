@@ -85,8 +85,8 @@
         <!-- bs-slider -->
         <div class="bs-footer">
             <a href="#" id="bt">BT Việt Nam History</a>
-           <a href="#" id="pd">Sản phẩm</a>
-            <a href="#" id="pt">New promotion</a>
+           <a href="#" id="pd" style="margin-left:-10px;">Sản phẩm</a>
+            <a href="#" id="pt" style="float:right;padding-right:26px;">New promotion</a>
         </div>
     </div>
 </div>
