@@ -32,6 +32,19 @@
         </a>
         <div class="menuleft">
             <div class="menu-mobile-icon" style="display:none;"><img src="publics/template/default/images/menu.png"><span>Menu</span></div>
+             <div class="box-language" style="display:none">
+                <ul>
+                    <li class="choose-lang <?php echo $language=='vietnamese' ? 'active' : ''?>">
+                        <a onclick="chooseLang('vi')"><img src="publics/template/default/images/flag-vie.png" alt="vie" />
+                        </a>
+                    </li>
+                    <li class="choose-lang <?php echo $language=='english' ? 'active' : ''?>">
+                        <a onclick="chooseLang('en')"><img src="publics/template/default/images/flag-eng.png" alt="eng" />
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
             <ul>
                 <li data-active="trang-chu"><a href="<?php echo site_url();?>"><?php echo lang('homepage');?></a>
                 <?php 
@@ -115,18 +128,21 @@
         if(!active){
             $(".menuleft ul > li:first-child").addClass("active");
         }
-        $(".sidebar .bg-black").css({
-            "height" : (parseInt($(window).height())-330) + "px"
-        });
-        $(".sidebar").css({
-            "height" : (parseInt($(window).height())) + "px"
-        });
-        $(window).resize(function () {
+        if($(window).width() > 850){
             $(".sidebar .bg-black").css({
                 "height" : (parseInt($(window).height())-330) + "px"
             });
-        $(".sidebar").css({
-            "height" : (parseInt($(window).height())) + "px"
-        });
-        });
+            $(".sidebar").css({
+                "height" : (parseInt($(window).height())) + "px"
+            });
+            $(window).resize(function () {
+                $(".sidebar .bg-black").css({
+                    "height" : (parseInt($(window).height())-330) + "px"
+                });
+                $(".sidebar").css({
+                    "height" : (parseInt($(window).height())) + "px"
+                });
+            });
+        }
+        
 </script>

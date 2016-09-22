@@ -43,11 +43,12 @@ class Home extends MY_Controller {
         $dataTmp = array('list_product' =>$list_product,'list_promotion' =>$list_promotion,'list_posts' =>$list_posts,'dataMenuNews' =>$dataMenuNews,'dataMenu' => $dataMenu,'langCode' => $langCode, 'dataSlider'=>$dataSlider);
         $data = array_merge($data, $dataTmp);
 
-        $html  = $this->render('layout/slider', $data , true);
-        $html .="<div class='container'>";
+        $html ="<div class='container'>";
 
         $html  .= $this->render('layout/menu_header', $data , true);
         $html  .= $this->render('layout/menu_main', $data , true);
+
+        $html  .= $this->render('layout/slider', $data , true);
 
         $html  .= $this->render('layout/book_slider', $data , true);
         $html .= $this->render('layout/footer', array(), true);

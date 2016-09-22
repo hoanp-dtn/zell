@@ -16,7 +16,16 @@
     display: none;
   }
   .bg{
-    display: none;
+    position: static;
+    height: 471px;
+  }
+  .bg .carousel{
+    height: 100%;
+    position: relative;
+  }
+  .bg .carousel-inner{
+    position: relative;
+    height: 100%;
   }
   .bg-black{
     display: none;
@@ -24,8 +33,17 @@
   .sidebar{
     width: 100%;
   }
-  .menuleft ul{
+  .menuleft > ul{
+    padding: 10px;
+    position: absolute;
+    top: 59px;
+    left: 0px;
+    width: 70%;
+    background: black;
     display: none;
+  }
+  .menuleft > ul:hover{
+    display: block;
   }
   .menuleft{
     background: black;
@@ -36,6 +54,8 @@
     height: 100%;
     line-height: 60px;
     margin-left: 11px;
+    float: left;
+    width: 50%;
   }
   .menu-mobile-icon span{
        color: white;
@@ -52,5 +72,45 @@
   .menu-mobile-icon:hover ~ ul{
     display: block!important;
   }
-
+  .box-language{
+    display: block;    
+    float: right;
+    height: 100%;
+  }
+  .menuleft > ul > li{
+    padding: 10px;
+    border-top: solid #494949 1px;
+  }
+  .menuleft > ul > li:first-child{
+    border-top: none;
+  }
+  .box-language .choose-lang{
+    margin-top: 15px;
+  }
+  .menuleft ul > li > a{
+    color: white;
+    text-align: left;
+  }
+  .menuleft .submenu{
+    visibility: visible;
+    opacity: 1;
+    padding : none;
+    position: static;
+  }
+  .menuleft .submenu li a{
+    margin-left: 0;
+  }
+  .footer{
+    display: none;
+  }
+  .sidebar{
+    position: static;
+    float: none;
+  }
+  .container{
+    padding: 0!important;
+  }
+  .carousel-inner img{
+    height: 100%;
+  }
 }
