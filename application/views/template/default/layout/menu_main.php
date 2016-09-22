@@ -31,8 +31,7 @@
         <a class="logo" href="<?php echo base_url(); ?>"><img src="publics/template/default/images/logo.png" alt="logo" />
         </a>
         <div class="menuleft">
-
-        </li>
+            <div class="menu-mobile-icon" style="display:none;"><img src="publics/template/default/images/menu.png"><span>Menu</span></div>
             <ul>
                 <li data-active="trang-chu"><a href="<?php echo site_url();?>"><?php echo lang('homepage');?></a>
                 <?php 
@@ -55,7 +54,7 @@
                     <a href="<?php echo base_url(); ?>contact.html"><?php echo lang('contact');?></a>
                 </li>
                 <div id="lavalamp"></div>
-            </ul>
+            </u l>
         </div>
     </div>
     <!-- bg-white -->
