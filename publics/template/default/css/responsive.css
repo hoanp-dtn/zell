@@ -9,6 +9,9 @@
 }
 
 @media (max-width: 850px) {
+  body{
+    overflow: visible;
+  }
   .header{
     display: none!important;
   }
@@ -36,7 +39,7 @@
   .menuleft > ul{
     padding: 10px;
     position: absolute;
-    top: 59px;
+    top: 50px;
     left: 0px;
     width: 70%;
     background: black;
@@ -44,6 +47,7 @@
   }
   .menuleft > ul:hover{
     display: block;
+    z-index: 1000;
   }
   .menuleft{
     background: black;
@@ -113,4 +117,63 @@
   .carousel-inner img{
     height: 100%;
   }
+  .container .about{
+    background: none;
+    height: auto;
+    position: static;
+    width: 100%;
+  }
+  .container .about .breadcrumbs{
+    display: none;
+  }
+  .container .about > hr{
+    display: none;
+  }
+  .container .about .about-main .title h2{
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    font-size: 24px;
+  }
+  .container .about .about-main .about-content p{
+    color: black;
+  }
+  .about-content #contact-submit{
+    width: 100%;
+    float: none;
+  }
+  .about-content #contact-submit > hr{
+    display: none;
+  }
+  .about-content #contact-submit .row label{
+    display: block;
+  }
+  .about-content #contact-submit .row input{
+    border: solid #c6c6c6 1px;
+    background: #eeeeee;
+  }
+  .about-content #contact-submit .row textarea{
+    border: solid #c6c6c6 1px;
+    background: #eeeeee;
+  }
+  .about-content #contact-submit .row:last-child button{
+    color: white;
+    border-radius: 5px;
+    padding: 10px 54px;
+  }
+  .about-content #contact-info .row{
+    display: none;
+  }
+  .about-content #contact-info{
+    width: 100%;
+    float: none;
+  }
+  .about-content #contact-info .row.map{
+    display: block;
+    margin-top: 30px!important;
+  }
+  .about-content #contact-info > h4{
+    display: none;
+  }
+
 }

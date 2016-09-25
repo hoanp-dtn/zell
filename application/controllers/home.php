@@ -49,6 +49,7 @@ class Home extends MY_Controller {
         $html  .= $this->render('layout/menu_main', $data , true);
 
         $html  .= $this->render('layout/slider', $data , true);
+        $html  .= $this->render('home/home-mobile', $data , true);
 
         $html  .= $this->render('layout/book_slider', $data , true);
         $html .= $this->render('layout/footer', array(), true);

@@ -1,3 +1,40 @@
+
+    <footer>
+        <form method="post" name="idForm" action="http://localhost/zell/contact/support?redirect=aHR0cDovL2xvY2FsaG9zdC96ZWxsLw==">
+            <div class="sidebar-form">
+                <div class="sf-row">
+                    <label>tư vấn 24/24</label>
+                    <div class="div_input">
+                        <img src="publics/template/default/images/message.png">
+                        <input type="text" name="phone" class="text" value="0973 059 555 " required="" readonly="readonly">
+                    </div>
+                </div>
+                <hr class="sitebar-hr">
+                <div class="sf-row">
+                    <label style="padding-top:0">Đăng ký<span>Nhận thông tin</span>
+                    </label>
+
+                    <div class="div_input">
+                        <img src="publics/template/default/images/inbox.png">
+                        <input type="email" name="email" class="text" value="" required="">
+                    </div>
+                </div>
+                
+                <hr class="sitebar-hr">
+            </div>
+            <!-- sidebar-form -->
+        </form>
+        <div class="clearfix"></div>
+        <div class="sidebar-footer">
+            <p>CTY TNHH ĐẦU TƯ THƯƠNG MẠI &amp; DỊCH VỤ BT VIỆT NAM</p>
+            <p>Lô B9 số 9A, ngõ 233 Xuân Thủy,P. Dịch Vọng Hậu, Q. Cầu Giấy Hà Nội</p>
+            <p>Hotline: 0973 059 555 (tư vấn 24/24)</p>
+            <p>Email: zellvvietnam@gmail.com</p>
+            <span>Zell-V Việt Nam</span>
+        </div>
+        <hr class="sitebar-hr">
+        <div id="copy-right">Copyright © 2016 ZELL-V</div>
+    </footer>
  <div class="footer">
     <div class="box-social">
         <div class="sf-row">

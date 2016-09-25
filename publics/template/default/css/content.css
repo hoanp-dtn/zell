@@ -2162,3 +2162,139 @@ a{
     color: #d2a72a;
     float: right;
 }
+.product-mobile .products{
+	overflow: hidden;
+}
+.home-mobile{
+	font-family: 'Arial', sans-serif;
+	overflow: hidden;
+}
+.home-mobile section > h2{
+	text-align: center;
+	font-weight: bold;
+}
+
+.home-mobile section > hr{
+	width: 30px;
+    border: solid black 1px;
+}
+.home-mobile .about-mobile{
+	padding: 10px;
+}
+.home-mobile .about-mobile > img{
+	width: 100%;
+	height: 471px;
+}
+.home-mobile .about-mobile > h3{
+	text-align: center;
+	font-weight: bold;
+}
+.home-mobile .about-mobile > p{
+	font-size: 18px;
+}
+
+.home-mobile .detail{
+	text-align: center;
+	margin-top: 36px;
+}
+.home-mobile .detail a{
+    border: solid black 1px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 39px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+    font-family: Arial;
+}
+.home-mobile .product-mobile{
+	color: white;
+	background: #333333;
+	padding: 10px;
+    margin-top: 26px;
+    	padding-bottom: 57px;
+}
+.home-mobile .product-mobile > hr{
+	border: solid #d2a72a 1px;
+}
+.home-mobile .product-mobile .detail a{
+	border-color: white;
+    color: white;
+}
+.home-mobile .new-promotion{
+	padding: 10px;
+}
+.home-mobile .new-promotion h2{
+	text-transform: uppercase;
+}
+.home-mobile .list-news-item{
+	overflow: hidden;
+}
+.home-mobile .list-news-item{
+	overflow: hidden;
+	margin-top: 20px;
+}
+.home-mobile .list-news-item:first-child{
+	overflow: hidden;
+	margin-top: 0px;
+}
+
+.home-mobile .list-news-item .thumnail{
+	overflow: hidden;
+	width: 40%;
+    float: left;
+}
+.home-mobile .list-news-item .thumnail img{
+	overflow: hidden;
+	width: 40%;
+    float: left;
+	width: 100%;
+}
+.home-mobile .list-news-item .desc{
+    width: 60%;
+    float: left;
+    padding-left: 17px;
+}
+.home-mobile .list-news-item .desc a{
+	padding-left: 5px;
+	color: black;
+	font-weight: bold;
+    font-size: 17px;
+}
+.home-mobile .list-news-item .desc p{
+    font-size: 17px;
+}
+footer{
+	background: black;
+}
+footer .sidebar-footer{
+	text-align: center;
+}
+footer .sidebar-footer p{
+	font-size: 15px;
+	padding: 4px;
+}
+footer .sidebar-footer p:first-child{
+	font-size: 17px;
+}
+footer .sidebar-form .sf-row .div_input{
+	margin: auto;
+	width: 50%;
+}
+footer .sitebar-hr{
+	width: 5%;
+	margin-bottom: 30px;
+    margin-top: 30px;
+}
+footer #copy-right {
+    color: black;
+    font-size: 15px;
+    text-align: center;
+    background: #d2a72a;
+    padding: 16px;
+    font-weight: bold;
+}
+.about-content #contact-submit .row label{
+	display: none;
+	text-align: center;
+}

@@ -13,6 +13,36 @@
                     </h2>
                 </div>
                 <div class="about-content">
+                    <div id="contact-submit">
+                        <h4>Thông tin liên hệ</h4>
+                        <hr>
+                        <form action="<?php echo base_url(); ?>contact/add" method="post">
+                            <div class="row">
+                                <label>Họ và tên</label>
+                                <input type="" name="name" placeholder="Họ và tên" required="">
+                            </div>
+                            <div class="row">
+                                <label>Hotline</label>
+                                <input type="" name="phone" placeholder="Hotline" required="">
+                            </div>
+                            <div class="row">
+                                <label>Email</label>
+                                <input type="email" name="email" placeholder="Email" required="">
+                            </div>
+                            <div class="row">
+                                <label>Địa chỉ</label>
+                                <input type="" name="address" placeholder="Địa chỉ" required="">
+                            </div>
+                            <div class="row">
+                                <label>Nội dung</label>
+                                <textarea type="" name="message" placeholder="Nội dung" required=""></textarea> 
+                            </div>
+                            <div class="row">
+                                <button type="submit">Gửi</button>
+                            </div>
+                        </form>
+                    </div>
+
                     <div id="contact-info">
                         <h4>Cty TNHH đầu tư thương mại & dịch vụ BT Việt Nam</h4>
                         <div class="row">
@@ -32,33 +62,9 @@ Q. Cầu Giấy Hà Nội</p>
                             <img src="publics/template/default/images/mail.png" />
                             <p>zellvvietnam@gmail.com</p>
                         </div>
-                        <div class="row">
+                        <div class="row map">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10532.942572776738!2d105.7804865258461!3d21.034384085306915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab4ac02390ad%3A0x1b72b19d4fa6eb33!2zTmfDtSAyMzMgWHXDom4gVGh1eSwgROG7i2NoIFbhu41uZyBI4bqtdSwgQ-G6p3UgR2nhuqV5LCBIw6AgTuG7mWksIFZpZXRuYW0!5e0!3m2!1sen!2sus!4v1471774685113"  frameborder="0" style="border:0" allowfullscreen></iframe>
                         </div>
-                    </div>
-                    <div id="contact-submit">
-                        <h4>Thông tin liên hệ</h4>
-                        <hr>
-                        <form action="<?php echo base_url(); ?>contact/add" method="post">
-                            <div class="row">
-                                <input type="" name="name" placeholder="Họ và tên" required="">
-                            </div>
-                            <div class="row">
-                                <input type="" name="phone" placeholder="Hotline" required="">
-                            </div>
-                            <div class="row">
-                                <input type="email" name="email" placeholder="Email" required="">
-                            </div>
-                            <div class="row">
-                                <input type="" name="address" placeholder="Địa chỉ" required="">
-                            </div>
-                            <div class="row">
-                                <textarea type="" name="message" placeholder="Nội dung" required=""></textarea> 
-                            </div>
-                            <div class="row">
-                                <button type="submit">Gửi</button>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>

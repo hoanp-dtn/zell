@@ -57,11 +57,11 @@ class Contact extends MY_Controller {
         $data = array_merge($data, $dataTmp);
         $dataGallery = $this->gallery->getGallery();
 
-        $html  = $this->render('layout/slider', $data , true);
-        $html .="<div class='container'>";
+        $html ="<div class='container'>";
 
         $html  .= $this->render('layout/menu_header', $data , true);
         $html  .= $this->render('layout/menu_main', $data , true);
+        $html  .= $this->render('layout/slider', $data , true);
 
         $html  .= $this->render('home/contact', $data , true);
 

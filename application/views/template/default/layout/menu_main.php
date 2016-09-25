@@ -136,12 +136,18 @@
                 "height" : (parseInt($(window).height())) + "px"
             });
             $(window).resize(function () {
-                $(".sidebar .bg-black").css({
-                    "height" : (parseInt($(window).height())-330) + "px"
-                });
-                $(".sidebar").css({
-                    "height" : (parseInt($(window).height())) + "px"
-                });
+                if($(window).width() > 850){
+                    $(".sidebar .bg-black").css({
+                        "height" : (parseInt($(window).height())-330) + "px"
+                    });
+                    $(".sidebar").css({
+                        "height" : (parseInt($(window).height())) + "px"
+                    });
+                }else{
+                    $(".sidebar").css({
+                        "height" : "auto"
+                    });
+                }
             });
         }
         
