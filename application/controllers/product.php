@@ -58,7 +58,7 @@ class Product extends MY_Controller {
   //                           'home/post_detail',array('breadcrumb'=>$breadcrumb,'post_detail' => $post_detail, 'getPostAndNew' => $getPostAndNew,'getPostAndRelative' => $getPostAndRelative,'getPostAndRelativeBottomArticle' => $getPostAndRelativeBottomArticle,'dataAds' => $dataAds, 'dataPartner' => $dataPartner,'dataGallery' => $dataGallery,'site_id' => $site_id, 'post_id' => $post_id,'list_comment'=>$list_comment),true
   //       );
   //       $html .= $this->render('layout/footer', $data, true);
-        $html ="<div class='container'>";
+        $html ="<div class='container product-list'>";
 
         $html  .= $this->render('layout/menu_header', $data , true);
         $html  .= $this->render('layout/menu_main', $data , true);

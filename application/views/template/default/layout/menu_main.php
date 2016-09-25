@@ -150,5 +150,25 @@
                 }
             });
         }
+        $(document).ready(function(){
+            if($(window).width() < 850){
+                var l = $(window).width()/2 - $(".carousel-indicators").width()/2;
+                $(".carousel-indicators").css({
+                    "left":l+"px"
+                });
+                $(window).resize(function () {
+                    if($(window).width() < 850){
+                        var l = $(window).width()/2 - $(".carousel-indicators").width()/2;
+                        $(".carousel-indicators").css({
+                            "left":l+"px"
+                        });
+                    }
+                });
+            }
+        });
+        $(".menuleft ul > li").click(function(){
+            $(this).siblings("li").find(".submenu").slideUp(200);
+            $(this).find(".submenu").slideToggle(200);
+        });
         
 </script>

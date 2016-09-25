@@ -12,6 +12,12 @@
     </div>
     <hr>
     <div class="about-main" >
+        <div class="cat_name">
+            <h2>
+                <?php echo html_escape($post_detail['cate_name']); ?>
+            </h2>
+            <hr>
+            </div>
         <div class="title">
             <h2>
                 <?php echo html_escape($post_detail['title']); ?>

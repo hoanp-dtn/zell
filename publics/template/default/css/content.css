@@ -136,7 +136,7 @@ ul{
 .menuleft{
 	padding:0 0 5px;
 	position:relative;
-	z-index:2;
+	z-index:1000;
 }
 .menuleft ul > li{
 	min-height:34px;
@@ -2183,6 +2183,7 @@ a{
 }
 .home-mobile .about-mobile{
 	padding: 10px;
+	margin-top: 32px;
 }
 .home-mobile .about-mobile > img{
 	width: 100%;
@@ -2351,4 +2352,17 @@ footer #copy-right {
 }
 .box-language{
 	display: none;
+}
+.cat_name{
+	display: none;
+	text-align: center;
+    margin-top: 42px;
+}
+.cat_name h2{
+    font-weight: bold;
+}
+.container .about hr {
+    color: #d2a72a;
+    width: 34px;
+    border: solid black 1px;
 }

@@ -102,6 +102,7 @@
     opacity: 1;
     padding : none;
     position: static;
+    display: none;
   }
   .menuleft .submenu li a{
     margin-left: 0;
@@ -342,5 +343,33 @@
   }
   .about-content .product-info .tab-content{
     color: black;
+  }
+  .carousel-indicators{
+    bottom: -45px;
+  }
+  .carousel-indicators li{
+    background: black;
+  }
+   .product-list .about-content .product-item > a{
+    color: black;
+  }
+   .product-list .about-content .product-item .price label{
+    color: black;
+  }
+   .product-list .about-content .product-item .price > div span{
+    color: black;
+  }
+  .cat_name{
+    display: block;
+  }
+}
+@media (max-width: 600px) {
+  .about-content .product-item{
+    width: 48%;
+  }
+}
+@media (max-width: 400px) {
+  .about-content .product-item{
+    width: 100%;
   }
 }

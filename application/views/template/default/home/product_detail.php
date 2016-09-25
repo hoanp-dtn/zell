@@ -56,11 +56,11 @@
                               <ul class="slides">
 
                                 <li>
-                                  <img  alt="<?php echo slug($post_detail['title'])?>" src="<?php echo getThumb($post_detail['image'], 'uploads/images/news', 336, 245);?>"/>
+                                  <img  alt="<?php echo slug($post_detail['title'])?>" src="<?php echo getThumb($post_detail['image'], 'uploads/images/news', 600, 450);?>"/>
                                 </li>
                                 <?php foreach ($post_detail['file'] as $key => $value): ?>
                                     <li>
-                                      <img  alt="<?php echo slug($post_detail['title'])?>" src="<?php echo getThumb($value['value'], 'uploads/files', 336, 245);?>" />
+                                      <img  alt="<?php echo slug($post_detail['title'])?>" src="<?php echo getThumb($value['value'], 'uploads/files', 600, 450);?>" />
                                     </li>
                                 <?php endforeach ?>
                                 <!-- items mirrored twice, total of 12 -->

@@ -27,7 +27,7 @@
                     <div id="news-hot">
                         <?php if (isset($list_posts[0])): ?>
                             <a href="<?php echo $list_posts[0]['link'].slug($list_posts[0]['title'])."-a".$list_posts[0]['id'].".html"; ?>">
-                                <img alt="<?php echo slug($list_posts[0]['title'])?>" src="<?php echo getThumb($list_posts[0]['image'], 'uploads/images/news', 380, 210);?>"/>
+                                <img alt="<?php echo slug($list_posts[0]['title'])?>" src="<?php echo getThumb($list_posts[0]['image'], 'uploads/images/news', 550, 400);?>"/>
                             </a>
                             <div class="desc">
                             <a href="<?php echo $list_posts[0]['link'].slug($list_posts[0]['title'])."-a".$list_posts[0]['id'].".html"; ?>"><h3><?php echo truncate($list_posts[0]['title']); ?></h3></a>
@@ -38,7 +38,7 @@
                     <div id="list-news">
                         <?php for ($i= 1; $i < count($list_posts); $i++){ ?>
                            <div class="list-news-item">
-                                <a class="thumnail" href="<?php echo $list_posts[$i]['link'].slug($list_posts[$i]['title'])."-a".$list_posts[$i]['id'].".html"; ?>"><img alt="<?php echo slug($list_posts[$i]['title'])?>" src="<?php echo getThumb($list_posts[$i]['image'], 'uploads/images/news', 105, 75);?>"></a>
+                                <a class="thumnail" href="<?php echo $list_posts[$i]['link'].slug($list_posts[$i]['title'])."-a".$list_posts[$i]['id'].".html"; ?>"><img alt="<?php echo slug($list_posts[$i]['title'])?>" src="<?php echo getThumb($list_posts[$i]['image'], 'uploads/images/news', 200, 150);?>"></a>
                                 <a class="link-post" href="<?php echo $list_posts[$i]['link'].slug($list_posts[$i]['title'])."-a".$list_posts[$i]['id'].".html"; ?>"><?php echo truncate($list_posts[$i]['title']); ?></a>
                                 <p><?php echo truncate($list_posts[$i]['description'], 300); ?></p>
                             </div> 

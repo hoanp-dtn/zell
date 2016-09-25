@@ -16,7 +16,7 @@
                 <?php foreach ($dataGallery as $keyMain => $valMain): ?>
                     <div class="item">
                         <a rel="<?php echo "g".$keyMain; ?>" class="fancybox" href="<?php echo getThumb($valMain['image_default'], 'uploads/images/gallery', 800, 600);?>" title="<?php echo $valMain['title_default'];?>">
-                             <img alt="<?php echo slug($valMain['title_default']);?>"  src="<?php echo getThumb($valMain['image_default'], 'uploads/images/gallery', 205, 105);?>">
+                             <img alt="<?php echo slug($valMain['title_default']);?>"  src="<?php echo getThumb($valMain['image_default'], 'uploads/images/gallery', 800, 600);?>">
 
                         </a>
                         <p><?php echo $keyMain; ?></p>
@@ -25,7 +25,7 @@
                                   <div style="display:none;">
                                         <a rel="<?php echo "g".$keyMain; ?>" class="fancybox" href="<?php echo getThumb($valItem['image'], 'uploads/images/gallery', 800, 600);?>" title="<?php echo $valItem['title'];?>">
 
-                                            <img alt="<?php echo slug($valItem['title'])?>" src="<?php echo getThumb($valItem['image'], 'uploads/images/gallery', 205, 105);?>">
+                                            <img alt="<?php echo slug($valItem['title'])?>" src="<?php echo getThumb($valItem['image'], 'uploads/images/gallery', 800, 600);?>">
                                         </a>
                                         <p><?php echo $valItem['title'];?></p>
                                     </div>
