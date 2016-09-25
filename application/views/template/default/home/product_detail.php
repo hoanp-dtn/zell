@@ -16,10 +16,42 @@
                     <h2>
                         <?php echo $post_detail['cate_name']; ?>
                     </h2>
+                    <div class="title-mobile">
+                        <h4><?php echo $post_detail['title']; ?></h4>
+                            <span>Mã sản phẩm : <?php echo $post_detail['id']; ?></span>
+                        <div class="price">
+                            <label>Giá :</label>
+                            <div>
+                                <span class="price-actualy"><?php echo number_format($post_detail['price'],0,",","."); ?> VND</span>
+                                <span class="price-old"><?php echo number_format($post_detail['price'],0,",","."); ?> VND</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="about-content">
                     <div class="product">
                         <div class="product-info-thumnail">
+
+                            <div class="vote mobile">
+                                <ul>
+                                    <li>
+                                        <a href="#" data-love="<?php echo $post_detail['id'];?>">
+                                        <img src="publics/template/default/images/tim.png">
+                                        </a>
+                                        <span><?php echo $post_detail['love_count']; ?></span>
+                                        <span class="border">|</span>
+                                    </li>
+                                    <li>
+                                        <img src="publics/template/default/images/view.png">
+                                        <span><?php echo $post_detail['view_count']; ?></span>
+                                        <span class="border">|</span>
+                                    </li>
+                                    <li>
+                                        <img src="publics/template/default/images/fb.png">
+                                        <span>200</span>
+                                    </li>
+                                </ul>
+                            </div>
                             <div id="slider" class="flexslider">
                               <ul class="slides">
 
@@ -36,11 +68,12 @@
                             </div>
                             <div id="carousel-product" class="flexslider">
                               <ul class="slides">
-                                <li>
+                                <li id="nav-1">
                                   <img alt="<?php echo slug($post_detail['title'])?>" src="<?php echo getThumb($post_detail['image'], 'uploads/images/news', 93, 77);?>" />
                                 </li>
+                                <?php   $i = 2; ?>
                                  <?php foreach ($post_detail['file'] as $key => $value): ?>
-                                    <li>
+                                    <li id="nav-<?php echo $i++; ?>">
                                       <img alt="<?php echo slug($post_detail['title'])?>" src="<?php echo getThumb($value['value'], 'uploads/files', 93, 77);?>"  />
                                     </li>
                                 <?php endforeach ?>
@@ -66,10 +99,22 @@
                                     </li>
                                 </ul>
                             </div>
+
+                            <div class="mobile-nav">    
+                                    <ul>    
+                                         <li data-id="1" class="active">    </li>
+
+                                <?php   $i = 2; ?>
+                                  <?php foreach ($post_detail['file'] as $key => $value): ?>
+                                    <li data-id="<?php echo $i++; ?>">
+                                    </li>
+                                <?php endforeach ?>
+                                </ul>
+                            </div>  
                         </div>
                         <div class="product-detail">
                             <h4><?php echo $post_detail['title']; ?></h4>
-                            <div class="row">
+                            <div class="row code">
                                 <span>Mã sản phẩm : <?php echo $post_detail['id']; ?></span>
                             </div>
                             <div class="price row">
@@ -98,7 +143,7 @@
                             <div class="row">
                                 <button>Đặt hàng</button>
                             </div>
-                            <div class="row">
+                            <div class="row hotline">
                                 <span>Hotline:</span>
                                 <span>0973 059 555</span>
                             </div>
@@ -392,4 +437,14 @@
                 });
                 e.preventDefault();
             });
+
+           $(".mobile-nav li").click(function(){
+                var id = parseInt($(this).data("id"));
+                $("#nav-"+id).click();
+                $(".mobile-nav li").removeClass("active");
+                $(this).addClass("active");
+           });
+           if($(window).width() < 850){
+                $(".about-content .product-detail .row ul li img").attr("src", "publics/template/default/images/ok.png");
+           }    
         </script> 

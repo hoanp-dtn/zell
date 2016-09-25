@@ -19,7 +19,7 @@
                              <img alt="<?php echo slug($valMain['title_default']);?>"  src="<?php echo getThumb($valMain['image_default'], 'uploads/images/gallery', 205, 105);?>">
 
                         </a>
-                        <p><?php echo $valMain['title_default'];?></p>
+                        <p><?php echo $keyMain; ?></p>
                         <?php foreach ($valMain as $keyItem => $valItem): ?>
                             <?php if (is_array($valItem)): ?>
                                   <div style="display:none;">

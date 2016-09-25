@@ -1634,7 +1634,7 @@ div.showcase-tooltip{
     height: 100%;
 }
 
-.container .about .about-main .about-content #list-news .list-news-item > a:last-child{
+.container .about .about-main .about-content #list-news .list-news-item a.link-post{
     text-decoration: none;
     font-size: 13px;
     padding-left: 4px;
@@ -1642,6 +1642,9 @@ div.showcase-tooltip{
     width: 62%;
     color: white;
     font-family: sans-serif;
+}
+.container .about .about-main .about-content #list-news .list-news-item p{
+	display: none;
 }
 .news-title{
 	color: white;
@@ -2297,4 +2300,52 @@ footer #copy-right {
 .about-content #contact-submit .row label{
 	display: none;
 	text-align: center;
+}
+.title-mobile{
+	display: none;
+	overflow: hidden;
+}
+
+.title-mobile h4{
+	font-size: 20px;
+	font-weight: bold;
+}
+.title-mobile .price-old{
+	width: 40%;
+    float: right;
+    text-align: right;
+}
+.title-mobile .price-actualy{
+	width: 40%;
+    float: left;
+    color: #d2a72a!important;
+	font-weight: bold;
+}
+.mobile-nav{
+	display: none;
+	height: 20px;
+}
+.about-content .product-info-thumnail .vote.mobile{
+	display: none;
+}
+.mobile-nav ul{
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.mobile-nav ul li{
+	float: left;	
+	width: 20px;
+	height: 20px;
+	background: black;
+	margin-left: 10px;
+	background: black;
+	border-radius: 20px;
+}
+.mobile-nav ul li.active{
+	background: #d2a72a;
+}
+.mobile-nav ul li:first-child{
+	margin-left: 40%;
 }

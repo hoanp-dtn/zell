@@ -18,6 +18,9 @@
   .book-slider{
     display: none;
   }
+  #lavalamp{
+    display: none;
+  }
   .bg{
     position: static;
     height: 471px;
@@ -47,11 +50,14 @@
   }
   .menuleft > ul:hover{
     display: block;
-    z-index: 1000;
   }
   .menuleft{
     background: black;
     height: 60px;
+  }
+  .menuleft:hover > ul{
+    display: block; 
+    z-index: 1000;
   }
   .menu-mobile-icon{
     display: block!important;
@@ -175,5 +181,153 @@
   .about-content #contact-info > h4{
     display: none;
   }
+  .about-content .product-thumnail{
+    border: solid #d2a72a 1px;
+  }
+  .title-mobile .price .price-actualy{
+    color: black;
+  }
+  .title-mobile .price-old{
+    color: black;
+  }
+  .about-content .product-info-thumnail{
+    float: none;
+    width: 100%;
+  }
+  .about-content .product-detail{
+    float: none;
+    width: 100%;
+    color: black;
+  }
+  .title-mobile{
+    display: block;
+  }
+  .title-mobile .price label{
+    color: black;
+  }
+  .product-view .about-content .product-detail > h4,
+  .product-view .about-content .product-detail .code,
+  .product-view .about-content .product-detail .price{
+    display: none;
+  }
+  .product-view .about-content .product-detail .row button{
+    background: #d2a72a;
+    color: white;
+    font-weight: bold;
+  }
+  .product-view .flex-direction-nav{
+      display: none;
+  }
+  .mobile-nav{
+    display: block;
+  }
+  .product-view #carousel-product{
+    opacity: 0;
+    height: 0;
+  }
+  .product-view .about-content .product-info-thumnail .vote.mobile{
+    display: block;
+    background: #d2a72a;
+    height: 50px;
+  }
+  .product-view .about-content .product-info-thumnail .vote{
+    display: none;
+  }
+  .product-view .about-content .product-info-thumnail .vote ul{
+    width: 60%;
+    margin: auto;
+  }
+  .product-view .about-content .product-info-thumnail .vote li{
+    line-height: 50px;
+  }
+  .product-view .about-content .product-info-thumnail{
+    height: 600px;
+  }
+  .product-view .product-info-thumnail #slider{
+      height: 80%;
+  }
+  .product-view .about-content .product-detail .row.hotline{
+    display: none;
+  }
+  .product-view .about-content .product-detail .row ul{
+    background: #494949;
+    color: white;
+  }
+  .product-view .about-content .product-related {
+    background: black;
+    border-radius: 7px;
+    margin-top: 12px;
+  }
+  .product-view .about-content .product-related h2{
+    width: 50%;
+    float: left;
+    padding-left: 16px;
+  }
+  .product-view .about-content .product-related .nav{
+    margin-top: 12px
+  }
+  .product-view .about-content .product-related .product-inline{
+    clear: both;
+  }
+  .container .about .about-main .about-content .item{
+    float: none;
+    width: 100%;
+    height: 450px;
+  }
+  .container .about .about-main .about-content .item p{
+    text-align-last: center;
+    margin-top: 10px;
+  }
+  .container .about .about-main .about-content .item img{
+    height: 90%;
+  }
+  .container .about .about-main .about-content .item .video::before{
+        left: 50%;
+        background: url(../images/play-mobile.png) no-repeat;
+        background-size: 100%;
+  }
+  .container .about .about-main .about-content #news-hot{
+    width: 100%;
+    float: none;
+    position: relative;
+  }
+  .container .about .about-main .about-content #list-news{
+    float: none;
+    width: 100%;
+  }
+  .container .about .about-main .about-content #news-hot img{
+    height: 400px;
+  }
+  .container .about .about-main .about-content #news-hot .desc{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(21, 20, 20, 0.35);
+  }
+  .container .about .about-main .about-content #news-hot p{
+    padding: 0px 40px;
+    color: white;
+  }
+  .container .about .about-main .about-content #news-hot h3{
+    text-align: center;
+    color: white;
+  }
+  .container .about .about-main .about-content #list-news .list-news-item{
+    height: 150px;
+  }
+  .container .about .about-main .about-content #list-news .list-news-item:first-child{
+    margin-top: 10px;
+  }
+  .container .about .about-main .about-content #list-news .list-news-item a.link-post{
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+    padding-left: 12px;
+  }
 
+  .container .about .about-main .about-content #list-news .list-news-item p{
+    display: block;
+     padding-left: 12px;
+    overflow: hidden;
+  }
 }
