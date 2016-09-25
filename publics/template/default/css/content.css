@@ -2349,3 +2349,6 @@ footer #copy-right {
 .mobile-nav ul li:first-child{
 	margin-left: 40%;
 }
+.box-language{
+	display: none;
+}

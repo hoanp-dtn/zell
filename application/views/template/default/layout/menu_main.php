@@ -32,7 +32,7 @@
         </a>
         <div class="menuleft">
             <div class="menu-mobile-icon" style="display:none;"><img src="publics/template/default/images/menu.png"><span>Menu</span></div>
-             <div class="box-language" style="display:none">
+             <div class="box-language">
                 <ul>
                     <li class="choose-lang <?php echo $language=='vietnamese' ? 'active' : ''?>">
                         <a onclick="chooseLang('vi')"><img src="publics/template/default/images/flag-vie.png" alt="vie" />

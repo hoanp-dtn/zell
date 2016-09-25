@@ -55,10 +55,6 @@
     background: black;
     height: 60px;
   }
-  .menuleft:hover > ul{
-    display: block; 
-    z-index: 1000;
-  }
   .menu-mobile-icon{
     display: block!important;
     height: 100%;
@@ -253,21 +249,32 @@
     background: #494949;
     color: white;
   }
-  .product-view .about-content .product-related {
+  .product-view .about-content .product-header {
     background: black;
     border-radius: 7px;
     margin-top: 12px;
+    overflow: hidden;
   }
-  .product-view .about-content .product-related h2{
+  .product-view .about-content .product-header h2{
     width: 50%;
     float: left;
     padding-left: 16px;
   }
-  .product-view .about-content .product-related .nav{
+  .product-view .about-content .product-header .nav{
     margin-top: 12px
   }
   .product-view .about-content .product-related .product-inline{
     clear: both;
+    margin-top: 11px;
+  }
+  .product-view .about-content .product-item > a{
+    color: black
+  }
+  .product-view .price label{
+    color: black;
+  }
+  .product-view .price-old {
+    color: black;
   }
   .container .about .about-main .about-content .item{
     float: none;
@@ -329,5 +336,11 @@
     display: block;
      padding-left: 12px;
     overflow: hidden;
+  }
+  #news-content{
+    color: black;
+  }
+  .about-content .product-info .tab-content{
+    color: black;
   }
 }

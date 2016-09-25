@@ -225,6 +225,7 @@
                         </div>
                     </div>
                     <div class="product-related">
+                        <div class="product-header">
                         <h2>
                             Sản phẩm cùng loại
                         </h2>
@@ -235,6 +236,7 @@
                             <a href="#" data-info="nx">
                                 <img src="publics/template/default/images/pr_next.png">
                             </a>
+                        </div>
                         </div>
                         <div class="product-inline">
                          <?php foreach ($productRelative as $key => $value): ?>
