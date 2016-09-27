@@ -32,7 +32,14 @@
             <p>Email: zellvvietnam@gmail.com</p>
             <span>Zell-V Việt Nam</span>
         </div>
-        <hr class="sitebar-hr">
+         <div class="box-social">
+            <div class="sf-row">
+                <span style="margin-right:10px;">Follow us</span>
+                <a target="_blank" href="https://www.facebook.com/"><span class="icon24-facebook"></span></a>
+                <a target="_blank" href="https://twitter.com/"><span class="icon24-twitter"></span></a>
+                <a target="_blank" href="https://www.youtube.com/"><span class="icon24-youtube"></span></a>
+            </div>
+        </div><!-- box-social -->
         <div id="copy-right">Copyright © 2016 ZELL-V</div>
     </footer>
  <div class="footer">

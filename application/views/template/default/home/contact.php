@@ -11,6 +11,7 @@
                     <h2>
                         Liên hệ
                     </h2>
+                    <hr>
                 </div>
                 <div class="about-content">
                     <div id="contact-submit">

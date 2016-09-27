@@ -11,6 +11,7 @@
                     <h2>
                         Video
                     </h2>
+                    <hr>
                 </div>
                 <div class="about-content">
                 <?php foreach ($dataVideo as $key => $value): ?>
@@ -22,6 +23,8 @@
                     </div>
                 <?php endforeach ?>
                 </div>
+                <div class="sf-row more-button"><button>Xem thêm</button></div>
+                
             </div>
         </div>
         <script>

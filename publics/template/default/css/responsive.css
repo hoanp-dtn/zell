@@ -9,6 +9,33 @@
 }
 
 @media (max-width: 850px) {
+
+  .pt-detail .product-related{
+    display: block;
+  }
+  .about-content .product-info .tabs{
+    border-bottom: none;
+    box-shadow : none;
+    background: #d2a72a;
+    border-top: solid #d2a72a 4px;
+    overflow: hidden;
+  }
+  .about-content .product-info .tabs a.active{
+    background: white;
+    border-left: solid #d2a72a 4px;
+  }
+  .about-main .sf-row.more-button{
+    display: block;
+        margin-top: 30px;
+  }
+
+  .product-list .about .about-main .title h3{
+    display: block;
+    margin-bottom: 24px;
+  }
+  footer .box-social{
+    display: block;
+  }
   body{
     overflow: visible;
   }
@@ -136,7 +163,8 @@
     text-align: center;
     color: black;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 32px;
+    margin-top: 40px;
   }
   .container .about .about-main .about-content p{
     color: black;
@@ -147,6 +175,9 @@
   }
   .about-content #contact-submit > hr{
     display: none;
+  }
+  .container .about .about-main hr{
+    display: block;
   }
   .about-content #contact-submit .row label{
     display: block;
@@ -211,6 +242,8 @@
     background: #d2a72a;
     color: white;
     font-weight: bold;
+    padding: 8px 39px;
+    font-size: 24px
   }
   .product-view .flex-direction-nav{
       display: none;
@@ -243,6 +276,10 @@
   .product-view .product-info-thumnail #slider{
       height: 80%;
   }
+  .product-view .about-content .product-detail .row ul li{
+    font-size: 15px;
+    padding: 3px;
+  }
   .product-view .about-content .product-detail .row.hotline{
     display: none;
   }
@@ -273,18 +310,25 @@
   }
   .product-view .price label{
     color: black;
+        font-size: 22px
   }
   .product-view .price-old {
     color: black;
+    font-size: 17px;
   }
   .container .about .about-main .about-content .item{
     float: none;
     width: 100%;
     height: 450px;
+    margin-bottom: 32px;
   }
   .container .about .about-main .about-content .item p{
     text-align-last: center;
     margin-top: 10px;
+    font-weight: bold;
+  }
+  .about-content .product-detail .row{
+    font-size: 15px;
   }
   .container .about .about-main .about-content .item img{
     height: 90%;
@@ -319,6 +363,7 @@
   .container .about .about-main .about-content #news-hot h3{
     text-align: center;
     color: white;
+        font-size: 22px;
   }
   .container .about .about-main .about-content #list-news .list-news-item{
     height: 150px;
@@ -352,6 +397,7 @@
   }
    .product-list .about-content .product-item > a{
     color: black;
+    font-weight: bold;
   }
    .product-list .about-content .product-item .price label{
     color: black;

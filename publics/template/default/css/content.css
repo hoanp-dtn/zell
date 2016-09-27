@@ -5,6 +5,7 @@ body{
   	background:#fff;
   	overflow:hidden;
   	font-style: 14px;
+  	position: relative;
 }
 
 a:focus{
@@ -2308,8 +2309,11 @@ footer #copy-right {
 }
 
 .title-mobile h4{
-	font-size: 20px;
+	font-size: 23px;
 	font-weight: bold;
+}
+.title-mobile > span{
+	font-size: 20px;
 }
 .title-mobile .price-old{
 	width: 40%;
@@ -2321,6 +2325,7 @@ footer #copy-right {
     float: left;
     color: #d2a72a!important;
 	font-weight: bold;
+	font-size: 23px;
 }
 .mobile-nav{
 	display: none;
@@ -2361,8 +2366,46 @@ footer #copy-right {
 .cat_name h2{
     font-weight: bold;
 }
-.container .about hr {
+.container .about .about-main hr {
     color: #d2a72a;
     width: 34px;
     border: solid black 1px;
+    display: none;
+}
+footer .box-social{
+	display: none;
+	margin: 30px auto;
+	text-align: center;
+}
+.about-main .sf-row.more-button{
+	display: none;
+	text-align: center;
+}
+.about-main .sf-row.more-button button{
+	color: white;
+    background: #d2a72a;
+    padding: 10px 39px;
+    border: none;
+    border-radius: 6px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+}
+.product-list .about .about-main .title h3{
+	display: none;
+	text-align: center;
+	font-weight: bold;
+}
+.pt-detail .about-content .product-item > a{
+	font-weight: bold;
+}
+.pt-detail .about-content .product-item > p{
+	font-size: 15px;
+	margin-top: 5px;
+}
+.pt-detail .product-related{
+	display: none;
+}
+.pt-detail .about-content .product-thumnail{
+	border : none;
 }

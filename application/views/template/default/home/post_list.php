@@ -22,6 +22,7 @@
                     <h2>
                       <?php echo lang('news2');?>
                     </h2>
+                    <hr>
                 </div>
                 <div class="about-content">
                     <div id="news-hot">
@@ -45,6 +46,7 @@
                         <?php }?>
                     </div>
                 </div>
+                <div class="sf-row more-button"><button>Xem thêm</button></div>
             </div>
         </div>
         <script>

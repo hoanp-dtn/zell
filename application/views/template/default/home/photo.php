@@ -11,6 +11,7 @@
                     <h2>
                         Photo
                     </h2>
+                    <hr>
                 </div>
                 <div class="about-content">
                 <?php foreach ($dataGallery as $keyMain => $valMain): ?>
@@ -32,9 +33,11 @@
                             <?php endif ?>
                         <?php endforeach ?>
                     </div>
+
                 <?php endforeach ?>
                     
                 </div>
+                <div class="sf-row more-button"><button>Xem thêm</button></div>
             </div>
         </div>
         <script>

@@ -21,7 +21,10 @@
                     <h2>
                         Sản phẩm
                     </h2>
+                    <hr>
+                    <?php echo (isset($list_product[0]))?"<h3>".$list_product[0]['cate_name']."</h3>":""; ?>
                 </div>
+
                 <div class="about-content">
                     <?php $i=0; foreach ($list_product as $key => $value): $i++?>
                         <div class="product-item">
@@ -60,7 +63,10 @@
 
                         <?php if($i%3 == 0) echo '<div style="clear:both"></div>';?>
                     <?php endforeach ?>
+
                 </div>
+
+                <div class="sf-row more-button"><button>Xem thêm</button></div>
             </div>
         </div>
          <script>

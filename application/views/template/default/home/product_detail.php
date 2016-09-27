@@ -13,6 +13,8 @@
             <hr>
             <div class="about-main" >
                 <div class="title">
+                <h2>Sản phẩm</h2>
+                <hr>
                     <h2>
                         <?php echo $post_detail['cate_name']; ?>
                     </h2>

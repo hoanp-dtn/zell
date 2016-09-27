@@ -46,7 +46,6 @@ class Contact extends MY_Controller {
                                                 
                                                 array(
                                                     'status'  => 1,
-                                                    'lang'=>$langCode,
                                                     'type' => 'slide'
                                                 )
         );

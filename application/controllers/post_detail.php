@@ -35,12 +35,14 @@ class post_detail extends MY_Controller {
 		if( !isset($post) || count($post) == 0){
 			// redirect($this->config->base_url($langCode.'/'.$this->siteName));
 		}
+
 		// menu
 		$dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
 		
         $dataMenuNews = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(68,$langCode), $langCode);
 		// data post
 		$post_detail = $this->posts_home_model->showDetail((int)$id);
+        $getPostAndRelative = $this->posts_home_model->showPostAndRelative($post_detail, 0,5);
 		$arr = [];
 		$breadcrumb = $this->posts_home_model->breadcrumb($post_detail['nav_id'], $arr, $post_detail['cate_id']);
 		$list_comment = $this->comment_model->getListComment((int)$id);
@@ -49,7 +51,7 @@ class post_detail extends MY_Controller {
 		$data['desc_for_layout'] = $post_detail['description'];
 		$post_id = (int)$id;
         
-        $dataTmp = array('dataMenuNews' => $dataMenuNews,'dataSlider' => $dataSlider,'dataMenu' => $dataMenu,'langCode' => $langCode, 'breadcrumb'=>$breadcrumb);
+        $dataTmp = array('getPostAndRelative' => $getPostAndRelative,'dataMenuNews' => $dataMenuNews,'dataSlider' => $dataSlider,'dataMenu' => $dataMenu,'langCode' => $langCode, 'breadcrumb'=>$breadcrumb);
         $data = array_merge($data, $dataTmp);
   //       $html  = $this->render('layout/header', $data , true);
 		
