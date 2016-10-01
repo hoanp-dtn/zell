@@ -58,11 +58,11 @@
                               <ul class="slides">
 
                                 <li>
-                                  <img  alt="<?php echo slug($post_detail['title'])?>" src="<?php echo getThumb($post_detail['image'], 'uploads/images/news', 600, 450);?>"/>
+                                  <img  alt="<?php echo slug($post_detail['title'])?>" src="<?php echo getThumb($post_detail['image'], 'uploads/images/news', 850, 480);?>"/>
                                 </li>
                                 <?php foreach ($post_detail['file'] as $key => $value): ?>
                                     <li>
-                                      <img  alt="<?php echo slug($post_detail['title'])?>" src="<?php echo getThumb($value['value'], 'uploads/files', 600, 450);?>" />
+                                      <img  alt="<?php echo slug($post_detail['title'])?>" src="<?php echo getThumb($value['value'], 'uploads/files', 850, 480);?>" />
                                     </li>
                                 <?php endforeach ?>
                                 <!-- items mirrored twice, total of 12 -->
@@ -246,7 +246,7 @@
                                 <div class="product-thumnail">
                                     <a href="<?php echo $value['link'].slug($value['title']).'-i'.$value['id'].'.html' ?>">
 
-                                        <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 200, 220);?>">
+                                        <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 320, 180);?>">
                                     </a>
                                 </div>
                                 <div class="vote">
@@ -307,6 +307,31 @@
             </form>
         </div>
         <script>
+        $(document).ready(function () {
+            w = $(window).width();
+            if(w < 850){
+                var img_w = $(".about-content .product-thumnail").width();
+                $(".about-content .product-thumnail").css({
+                    "height": img_w/1.77 +"px"
+                });
+                $(".product-view .product-info-thumnail #slider").css({
+                    "height": $(".product-view .product-info-thumnail #slider").width()/1.77 +"px"
+                });
+            }
+            $(window).resize(function(){
+                 w = $(window).width();
+                if(w < 850){
+                    var img_w = $(".about-content .product-thumnail").width();
+                    $(".about-content .product-thumnail").css({
+                        "height": img_w/1.77 +"px"
+                    });
+
+                $(".product-view .product-info-thumnail #slider").css({
+                    "height": $(".product-view .product-info-thumnail #slider").width()/1.77 +"px"
+                });
+                }
+            });
+        });
         $(".review-item-info ul").each(function () {
             var rate = $(this).data("rate");
             var i = 1;
@@ -390,23 +415,58 @@
                     });
                 }
            });
+
+           var col = 3;
+            if($(window).width() < 550){
+
+                col = 2;
+            }
+            if($(window).width() < 350){
+
+                col = 1;
+            }
+
            var w = $(".about-content .product-related").width();
            $(".about-content .product-related .product-inline .product-item").css({
-                "width" :  w / 3 - (5/100) * w,
-                "margin-right" : w * (5/100) + "px"
+                "width" :  w / col - (4/100) * w,
+                "margin-right" : w * (4/100) + w * (4/((col-1)*100)) + "px"
            });
+
+
+            $(window).resize(function(){
+                w = $(".about-content .product-related").width();
+
+            if($(window).width() >550){
+
+                col = 3;
+            }
+                if($(window).width() < 550){
+
+                col = 2;
+            }
+            if($(window).width() < 350){
+
+                col = 1;
+            }
+                 w = $(".about-content .product-related").width();
+
+               $(".about-content .product-related .product-inline .product-item").css({
+                    "width" :  w / col - (4/100) * w,
+                    "margin-right" : w * (4/100) + w * (4/((col-1)*100))+ "px"
+                });
+            });
 
            $(".about-content .product-related .nav a").click(function (e) {
                 e.preventDefault();
                 var ml = parseInt($(".about-content .product-related .product-inline").css("margin-left"));
-                ml_max = -(w/3) * ($(".about-content .product-related .product-inline .product-item").length - 3);
+                ml_max = -(w/col) * ($(".about-content .product-related .product-inline .product-item").length - col);
 
                 if($(this).data("info") == "nx"){
                     if(ml <= ml_max){
                         return;
                     }
                     $(".about-content .product-related .product-inline").animate({
-                        "margin-left" : "-=" + (w / 3)
+                        "margin-left" : "-=" + (  w / col )
                     },{
                         queue : true
                     });
@@ -415,7 +475,7 @@
                         return;
                     }
                     $(".about-content .product-related .product-inline").animate({
-                        "margin-left" : "+=" + (w / 3)
+                        "margin-left" : "+=" + ( w / col )
                     },{
                         
                         queue : true

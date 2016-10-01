@@ -15,3 +15,31 @@
         <!-- Carousel nav -->
     </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function () {
+    w = $(window).width();
+    if(w < 850){
+        var img_w = $(".bg .carousel-inner > .item").width();
+        $(".bg .carousel-inner > .item, .bg").css({
+            "height": img_w/1.77 +"px"
+        });
+    }else{
+        $(".bg .carousel-inner > .item, .bg").css({
+            "height": "100%"
+        });
+    }
+    $(window).resize(function(){
+         w = $(window).width();
+        if(w < 850){
+            var img_w = $(".bg .carousel-inner > .item").width();
+            $(".bg .carousel-inner > .item, .bg").css({
+                "height": img_w/1.77 +"px"
+            });
+        }else{
+            $(".bg .carousel-inner > .item, .bg").css({
+                "height": "100%"
+            });
+        }
+    });
+});
+</script>

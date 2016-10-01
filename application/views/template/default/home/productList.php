@@ -30,7 +30,7 @@
                         <div class="product-item">
                             <div class="product-thumnail">
                                 <a href="<?php echo $value['link'].slug($value['title']).'-i'.$value['id'].'.html' ?>">
-                                    <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 200, 220);?>">
+                                    <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 400, 225);?>">
                                 </a>
                             </div>
                             <div class="vote">
@@ -70,6 +70,30 @@
             </div>
         </div>
          <script>
+        
+         $(document).ready(function () {
+            w = $(window).width();
+            if(w < 850){
+                w = $(window).width();
+                if(w < 850){
+                    var img_w = $(".about-content .product-thumnail").width();
+                        $(".about-content .product-thumnail").css({
+                            "height": img_w/1.77 +"px"
+                        });
+                    
+                }
+            }
+            $(window).resize(function(){
+                 w = $(window).width();
+                if(w < 850){
+                    var img_w = $(".about-content .product-thumnail").width();
+                        $(".about-content .product-thumnail").css({
+                            "height": img_w/1.77 +"px"
+                        });
+                    
+                }
+            });
+        });
             $('.menu-outer li:eq(0)').addClass('active');
             $(".container .about .about-content").mCustomScrollbar({
                 

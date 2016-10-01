@@ -3,7 +3,7 @@
 		<section class="about-mobile">
 		<h2>Giới thiệu</h2>
 		<hr>
-		<img src="<?php echo getThumb($post_about_detail['image'], 'uploads/images/news', 800, 400); ?>">
+		<img src="<?php echo getThumb($post_about_detail['image'], 'uploads/images/news', 800, 450); ?>">
 		<h3><?php echo html_escape($post_about_detail['title']); ?></h3>
 		<p><?php echo truncate($post_about_detail['description'], 600); ?></p>
 		<div class="detail">
@@ -19,7 +19,7 @@
 			<div class="product-item">
 		        <div class="product-thumnail">
 		            <a href="<?php echo $value['link'].slug($value['title'])."-i".$value['id'].".html"; ?>">
-		                <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 175, 146);?>">
+		                <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 320, 180);?>">
 		            </a>
 		        </div>
 		        <div class="vote">
@@ -60,7 +60,7 @@
 		<div id="list-news">
 		<?php foreach ($list_promotion as $key => $value): ?>
 			<div class="list-news-item">
-	            <a class="thumnail" href="<?php echo $value['link'].slug($value['title'])."-a".$value['id'].".html"; ?>"><img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 250, 180);?>" class=""></a>
+	            <a class="thumnail" href="<?php echo $value['link'].slug($value['title'])."-a".$value['id'].".html"; ?>"><img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 320, 180);?>" class=""></a>
 	            <div class="desc">
 		            <a href="<?php echo $value['link'].slug($value['title'])."-a".$value['id'].".html"; ?>"><?php echo $value['title']; ?></a>
 		            <p> <?php echo truncate($value['description'], 400); ?></p>
@@ -70,3 +70,30 @@
         </div>
 	</section>
 </div>
+<script type="text/javascript">
+	$(document).ready(function () {
+    w = $(window).width();
+    if(w < 850){
+        var img_w = $(".home-mobile .about-mobile > img").width();
+        $(".home-mobile .about-mobile > img").css({
+            "height": img_w/1.77 +"px"
+        });
+        
+        $(".about-content .product-thumnail").css({
+            "height": $(".about-content .product-thumnail").width()/1.77 +"px"
+        });
+    }
+    $(window).resize(function(){
+         w = $(window).width();
+        if(w < 850){
+	        var img_w = $(".home-mobile .about-mobile > img").width();
+	        $(".home-mobile .about-mobile > img").css({
+	            "height": img_w/1.77 +"px"
+	        });
+	        $(".about-content .product-thumnail").css({
+	            "height": $(".about-content .product-thumnail").width()/1.77 +"px"
+	        });
+	    }
+    });
+});
+</script>

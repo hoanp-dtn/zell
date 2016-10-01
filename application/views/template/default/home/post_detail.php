@@ -66,32 +66,52 @@
     });
 
     var w = $(".about-content .product-related").width();
+        var col = 3;
+            if($(window).width() < 550){
 
+                col = 2;
+            }
+            if($(window).width() < 350){
+
+                col = 1;
+            }
            $(".about-content .product-related .product-inline .product-item").css({
-                "width" :  w / 3 - (4/100) * w,
-                "margin-right" : w * (4/100) + w * (4/200) +  "px"
+                "width" :  w / col - (4/100) * w,
+                "margin-right" : w * (4/100) + w * (4/((col-1)*100)) +  "px"
             });
 
             $(window).resize(function(){
+                if($(window).width() > 550){
+
+                    col = 3;
+                }
+                if($(window).width() < 550){
+
+                col = 2;
+            }
+            if($(window).width() < 350){
+
+                col = 1;
+            }
                  w = $(".about-content .product-related").width();
 
                $(".about-content .product-related .product-inline .product-item").css({
-                    "width" :  w / 3 - (4/100) * w,
-                    "margin-right" : w * (4/100) + w * (4/200)+ "px"
+                    "width" :  w / col - (4/100) * w,
+                    "margin-right" : w * (4/100) + w * (4/((col-1)*100))+ "px"
                 });
             });
 
            $(".about-content .product-related .nav a").click(function (e) {
                 e.preventDefault();
                 var ml = parseInt($(".about-content .product-related .product-inline").css("margin-left"));
-                ml_max = -(w/3) * ($(".about-content .product-related .product-inline .product-item").length - 3);
+                ml_max = -(w/col) * ($(".about-content .product-related .product-inline .product-item").length - col);
 
                 if($(this).data("info") == "nx"){
                     if(ml <= ml_max){
                         return;
                     }
                     $(".about-content .product-related .product-inline").animate({
-                        "margin-left" : "-=" + (w / 3 +  w * (4/200))
+                        "margin-left" : "-=" + (w / col )
                     },{
                         queue : true
                     });
@@ -100,7 +120,7 @@
                         return;
                     }
                     $(".about-content .product-related .product-inline").animate({
-                        "margin-left" : "+=" + ( + w / 3 +  w * (4/200))
+                        "margin-left" : "+=" + ( + w / col )
                     },{
                         
                         queue : true
