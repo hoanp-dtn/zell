@@ -1,6 +1,6 @@
 
     <footer>
-        <form method="post" name="idForm" action="http://localhost/zell/contact/support?redirect=aHR0cDovL2xvY2FsaG9zdC96ZWxsLw==">
+        <form method="post" name="idForm" action="<?php echo site_url();?>contact/support?redirect=aHR0cDovL2xvY2FsaG9zdC96ZWxsLw==">
             <div class="sidebar-form">
                 <div class="sf-row">
                     <label>tư vấn 24/24</label>
@@ -35,7 +35,7 @@
          <div class="box-social">
             <div class="sf-row">
                 <span style="margin-right:10px;">Follow us</span>
-                <a target="_blank" href="https://www.facebook.com/"><span class="icon24-facebook"></span></a>
+                <a target="_blank" href="https://www.facebook.com/zellvvietnam"><span class="icon24-facebook"></span></a>
                 <a target="_blank" href="https://twitter.com/"><span class="icon24-twitter"></span></a>
                 <a target="_blank" href="https://www.youtube.com/"><span class="icon24-youtube"></span></a>
             </div>
@@ -46,7 +46,7 @@
     <div class="box-social">
         <div class="sf-row">
             <span style="margin-right:10px;">Follow us</span>
-            <a target="_blank" href="https://www.facebook.com/"><span class="icon24-facebook"></span></a>
+            <a target="_blank" href="https://www.facebook.com/zellvvietnam"><span class="icon24-facebook"></span></a>
             <a target="_blank" href="https://twitter.com/"><span class="icon24-twitter"></span></a>
             <a target="_blank" href="https://www.youtube.com/"><span class="icon24-youtube"></span></a>
         </div>

@@ -1483,8 +1483,8 @@ div.showcase-tooltip{
     transition: opacity 300ms linear, top 500ms;
 }
 .container .about{
-	width: 736px;
-    height: 500px;
+	width: 1000px;
+    height: 650px;
     background: rgba(0,0,0,0.7);
     overflow: hidden;
     z-index: 10;
@@ -1492,6 +1492,9 @@ div.showcase-tooltip{
     top: 90px;
     left: 241px;
     padding: 20px;
+}
+#news-content img{
+	margin: 15px 0 !important;
 }
 .container .about hr{
 	color: #d2a72a;
@@ -2404,8 +2407,8 @@ footer .box-social{
 	margin-top: 5px;
 }
 .pt-detail .product-related{
-	display: none;
+	display: block;
 }
 .pt-detail .about-content .product-thumnail{
-	border : none;
+	border : block;
 }
