@@ -14,13 +14,26 @@
                     <hr>
                 </div>
                 <div class="about-content">
-                <?php foreach ($dataVideo as $key => $value): ?>
+                <?php 
+                    $i = 0; 
+                    foreach ($dataVideo as $key => $value): 
+                    $i++;
+
+
+                 ?>
                     <div class="item">
                             <a class="fancybox video" href="<?php echo $value['link']; ?>" title="<?php echo $value['title']; ?>">
-                                <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['img'], 'uploads/images/video', 600, 405);?>">
+                                <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['img'], 'uploads/images/video', 300, 200);?>">
                             </a>
                         <p><?php echo $value['title']; ?></p>
                     </div>
+
+                    <?php
+                    if($i % 3 == 0){
+                        echo '<div style="clear:both;"></div>';
+                    }
+
+                    ?>
                 <?php endforeach ?>
                 </div>
                 <div class="sf-row more-button"><button>Xem thêm</button></div>

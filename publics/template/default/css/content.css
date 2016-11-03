@@ -1557,14 +1557,12 @@ div.showcase-tooltip{
 	float: left;
 	width: 31%;
 	margin: 1%;
-	height: 152px;
 }
 .container .about .about-main .about-content .item .video{
 	position: relative;
 }
 .container .about .about-main .about-content .item img{
 	width: 100%;
-	height: 70%;
 }
 .container .about .about-main .about-content .item p{
 
@@ -1607,7 +1605,6 @@ div.showcase-tooltip{
 }
 .container .about .about-main .about-content #news-hot img{
 	width: 100%;
-	height: 210px;
 }
 .container .about .about-main .about-content #news-hot h3{
 	color: #d2a72a;

@@ -133,7 +133,6 @@ class post_detail extends MY_Controller {
 		// 	$list_posts = $this->posts_home_model->getListPost($nav_id, $this->site['id'], $langCode,($page*$config['per_page']),$config['per_page']);
 		// }
 		$list_posts = $this->posts_home_model->getListPost($nav_id, $langCode);
-		
 		$dataMenu = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(0,$langCode), $langCode);
 		
         $dataMenuNews = $this->navigation_home_model->getListMenu($this->navigation_home_model->getListChild(68,$langCode), $langCode);

@@ -47,7 +47,7 @@
                                 <div class="product-thumnail">
                                     <a href="<?php echo $value['link'].slug($value['title'])."-a".$value['id'].".html"; ?>">
 
-                                        <img alt="<?php echo truncate($value['title']); ?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 200, 200);?>">
+                                        <img alt="<?php echo truncate($value['title']); ?>" src="<?php echo 'uploads/images/news/'.$value['image'];?>">
                                     </a>
                                 </div>
                                 <a href="<?php echo $value['link'].slug($value['title'])."-a".$value['id'].".html"; ?>"><span><?php echo truncate($value['title'], 100); ?></span></a>
