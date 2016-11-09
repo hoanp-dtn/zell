@@ -73,7 +73,8 @@
 							<p style = "font-weight: bold; font-size: 19px; color: #C13016;">Đang xóa</p>
 						</div>
 					</div>
-					
+	                    <span class="label label-warning">Vui lòng up ảnh dạng hình chữ nhật để hiển thị đc tốt nhất. Ví dụ: 1000x600px</span>
+
 				<div class="form-group">
 					<div id="myfileupload">
 						<input type="file" name="userfile" id="user_profile_pic" onchange="readURL(this);" />

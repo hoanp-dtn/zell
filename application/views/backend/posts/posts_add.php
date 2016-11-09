@@ -71,6 +71,9 @@
                         <label>Ngày Đăng</label>
                         <input type="date" class="form-control" id="datepost" name="datepost" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" value="<?=date("Y-m-d")?>">
                     </div>
+
+                    <span class="label label-warning">Vui lòng up ảnh dạng hình chữ nhật để hiển thị đc tốt nhất. Ví dụ: 1000x600px</span>
+
 					<div class="form-group">
 						<div id = "full_screen" style = "position: fixed; top: 0; left: 0; z-index: 9999;width: 100%; height: 100%; background-color: rgba(233, 249, 226, 0.44);display:none;">
 						<div style = "position: fixed; top: 50%; left: 50%;">

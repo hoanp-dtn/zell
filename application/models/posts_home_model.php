@@ -157,7 +157,7 @@ class Posts_home_model extends MY_Model {
 			->where_in('p.cate_id', $allChild)
 			->where(array(
 				'p.post_type' => $type,
-				'p.status <' => '3',
+				'p.status ' => 1,
 			))
 			->order_by('p.time_create', 'DESC');
 		if( isset($start) && isset($limit) && is_numeric($start) && is_numeric($limit)){
@@ -186,7 +186,7 @@ class Posts_home_model extends MY_Model {
 				->join('utt_cate c','c.id = p.cate_id')
 			->where(array(
 				'p.post_type' => 'news',
-				'p.status <' => '3',
+				'p.status ' => 1,
 				'p.site_id' => $siteid,
 			))
 			->like('p.title',$key)
@@ -218,7 +218,7 @@ class Posts_home_model extends MY_Model {
 				INNER JOIN utt_cate c ON p.cate_id = c.id
                 WHERE p.post_type = "news"
                 AND p.site_id = '.$siteid.'
-                AND p.status < 3
+                AND p.status = 1
                 ORDER BY p.time_create DESC, p.id DESC
                 LIMIT ' . $limit . '
                 ';

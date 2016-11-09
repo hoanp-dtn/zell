@@ -33,7 +33,8 @@ class post_detail extends MY_Controller {
         );
 		$post = $this->posts_home_model->get('id', array('id' => (int)$id,  'status' => 1),TRUE);
 		if( !isset($post) || count($post) == 0){
-			// redirect($this->config->base_url($langCode.'/'.$this->siteName));
+            show_404();
+			redirect($this->config->base_url($langCode.'/'.$this->siteName));
 		}
 
 		// menu
