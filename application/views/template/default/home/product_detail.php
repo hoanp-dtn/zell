@@ -57,9 +57,7 @@
                             <div id="slider" class="flexslider">
                               <ul class="slides">
 
-                                <li>
-                                  <img  alt="<?php echo slug($post_detail['title'])?>" src="<?php echo  'uploads/images/news/'.$post_detail['image'];?>"/>
-                                </li>
+                                
                                 <?php foreach ($post_detail['file'] as $key => $value): ?>
                                     <li>
 									  <img  alt="<?php echo slug($post_detail['title'])?>" src="<?php echo  'uploads/files/'.$value['value'];?>"/>
@@ -70,10 +68,8 @@
                             </div>
                             <div id="carousel-product" class="flexslider">
                               <ul class="slides">
-                                <li id="nav-1">
-                                  <img alt="<?php echo slug($post_detail['title'])?>" src="<?php echo getThumb($post_detail['image'], 'uploads/images/news', 93, 77);?>" />
-                                </li>
-                                <?php   $i = 2; ?>
+                               
+                                <?php   $i = 1; ?>
                                  <?php foreach ($post_detail['file'] as $key => $value): ?>
                                     <li id="nav-<?php echo $i++; ?>">
                                       <img alt="<?php echo slug($post_detail['title'])?>" src="<?php echo getThumb($value['value'], 'uploads/files', 93, 77);?>"  />
@@ -246,7 +242,7 @@
                                 <div class="product-thumnail">
                                     <a href="<?php echo $value['link'].slug($value['title']).'-i'.$value['id'].'.html' ?>">
 
-                                        <img alt="<?php echo slug($value['title'])?>" src="<?php echo getThumb($value['image'], 'uploads/images/news', 320, 180);?>">
+                                        <img alt="<?php echo slug($value['title'])?>" src="<?php echo 'uploads/images/news/'.$value['image'];?>">
                                     </a>
                                 </div>
                                 <div class="vote">

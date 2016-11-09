@@ -78,15 +78,7 @@
 							<p style = "font-weight: bold; font-size: 19px; color: #C13016;">Đang xóa</p>
 						</div>
 					</div>
-					<?php 
-					foreach($css_files as $file): ?>
-						<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
-					<?php endforeach; ?>
-					<?php foreach($js_files as $file): ?>
-						<script src="<?php echo $file; ?>"></script>
-					<?php endforeach; ?>
-					<?php echo $output; ?>
-					</div>
+					
 				<div class="form-group">
 					<div id="myfileupload">
 						<input type="file" name="userfile" id="user_profile_pic" onchange="readURL(this);" />

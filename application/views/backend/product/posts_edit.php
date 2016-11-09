@@ -80,6 +80,8 @@
                         <label>Ngày Đăng</label>
                         <input type="date" class="form-control" id="datepost" name="datepost" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" value="<?=date("Y-m-d",isset($post['time_create'])?$post['time_create']:time())?>">
                     </div>
+
+                    <span class="label label-warning">Vui lòng up ảnh dạng hình chữ nhật để hiển thị đc tốt nhất. Ví dụ: 1000x600px</span>
 					
 					<div class="form-group">
 						<div id = "full_screen" style = "position: fixed; top: 0; left: 0; z-index: 9999;width: 100%; height: 100%; background-color: rgba(233, 249, 226, 0.44);display:none;">
@@ -98,6 +100,9 @@
 					<?php echo $output; ?>
 					</div>
 				<div class="form-group">
+
+                    <span class="label label-warning">Vui lòng up ảnh dạng hình vuông để hiển thị đc tốt nhất. Ví dụ: 500x500 px</span>
+
 					<div id="myfileupload">
 						<input type="file" name="userfile" id="user_profile_pic" onchange="readURL(this);" />
 					</div>
